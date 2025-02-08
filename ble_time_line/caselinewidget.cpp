@@ -1,4 +1,4 @@
-﻿#pragma execution_character_set("utf-8")
+#pragma execution_character_set("utf-8")
 #include "caselinewidget.h"
 #include "keycfg/key_cfg.h"
 TimelineWidget::TimelineWidget(QWidget *parent) : QScrollArea(parent)
@@ -563,7 +563,7 @@ void TimelineWidget::keyPressEvent(QKeyEvent *event)
             if (modifiers == Qt::NoModifier) // 上移选中项
             {
                 auto bucket = buckets.at(current_index-1);
-                bucket->setPressPos(QPoint(qMin(bucket->width(), horizontalScrollBar()->pageStep()), bucket->height()));
+                bucket->setPressPos(QPoint(qMin(bucket->width(), horizontalScrollBar()->pageStep()), bucket->height()/2));
                 setCurrentItem(current_index-1);
                 scrollTo();
 
@@ -580,7 +580,7 @@ void TimelineWidget::keyPressEvent(QKeyEvent *event)
                 }
                 else
                 {
-                    bucket_up->setPressPos(QPoint(qMin(bucket_up->width(), horizontalScrollBar()->pageStep()), bucket_up->height()));
+                    bucket_up->setPressPos(QPoint(qMin(bucket_up->width(), horizontalScrollBar()->pageStep()), bucket_up->height()/2));
                     setCurrentItem(current_index-1, true);
                 }
                 scrollTo();
@@ -1160,28 +1160,29 @@ void TimelineWidget::actionCopyText()
     }
     QApplication::clipboard()->setText(result);
 }
-//粘贴
+
 void TimelineWidget::actionPaste()
 {
-    QString text = QApplication::clipboard()->text();
-    if (text.isEmpty())
-        return ;
     QList<int> bucket_indexes = selectedIndexes();
-    QList<QList<int>> texts_indexes;
-    foreach (auto bucket_index, bucket_indexes)
-    {
-        texts_indexes << QList<int>{buckets.at(bucket_index)->count()};
-    }
-    //添加一个节点
-    m_xx_undos->addCommand(bucket_indexes, texts_indexes);
+    if (bucket_indexes.isEmpty())
+        return;
 
-    if (bucket_indexes.size() == 1)
-    {
-
-        QTimer::singleShot(300, [=]{
-            setTableText(bucket_indexes.first(), buckets.at(bucket_indexes.first())->count()-1,text);
-        });
+    // 获取当前选中行的索引和内容
+    int current_index = bucket_indexes.first();
+    TimelineBucket* current_bucket = buckets.at(current_index);
+    
+    // 获取当前行的时间和所有文本
+    QString current_time = current_bucket->getTime();
+    QStringList texts;
+    for(int i = 0; i < current_bucket->count(); i++) {
+        texts << current_bucket->getText(i);
     }
+
+    // 直接复制到下一行
+    insertItem(current_time, texts, current_index + 1);
+    
+    // 调整所有行的位置
+    adjustBucketsPositions(current_index + 1);
 }
 
 void TimelineWidget::debugcase()
