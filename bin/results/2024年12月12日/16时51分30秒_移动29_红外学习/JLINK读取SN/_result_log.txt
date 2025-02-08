@@ -1,0 +1,7 @@
+JLINK读取SN    测试次数1
+结果异常
+-------实测结果------
+bin_md5:[0d7dc4266497100e4831f5b31b6b274f]
+bin_data:[FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF ]
+**************************
+

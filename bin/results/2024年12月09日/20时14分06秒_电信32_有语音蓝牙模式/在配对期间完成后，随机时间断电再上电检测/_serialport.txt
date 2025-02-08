@@ -1,0 +1,331 @@
+2024-12-09 20:20:19:472:    ==========================在配对期间完成后，随机时间断电再上电检测==========================
+2024-12-09 20:20:19.503       INF:adv_state:0, dd_flag_cnt:2
+INF:sleep status:400000
+INF:light sleep
+
+
+2024-12-09 20:20:19.614       INF:Wakeup event: 1
+
+2024-12-09 20:20:19.620       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:voltage: 3006mv, 
+INF:v_bat: 3006mv, 86%, 
+INF:    Key-ok was pressed
+IN
+2024-12-09 20:20:19.622       F:led start;mdoe:0, period:0, f_cnt:0, keep_timer:0, led_prio:1, now:0
+
+2024-12-09 20:20:19.623       ERR:ASSERT ERROR: 0x37647
+ERR:ASSERT ERROR IN TRAP
+
+2024-12-09 20:20:27.119       INF:
+msg_size:10240, buf_size:6400, noret_size:8788, env_size:5180
+INF:heap_msg:0x89c7c, heap_buf:0x8c48c, heap_noret:0x8dd9c, h
+2024-12-09 20:20:27.120       eap_env:0x85bb4
+
+2024-12-09 20:20:27.122       INF:LS2100 SDK version : v1.24_release
+INF:compile time : Jun 13 2024, 11:09:20
+
+2024-12-09 20:20:27.126       INF:2 Sectors of 4096 bytes
+
+2024-12-09 20:20:27.127       INF:factory mode init 0
+
+2024-12-09 20:20:27.129       INF:freq set 27
+
+2024-12-09 20:20:27.138       INF:local mac: 0c:f5:33:f2:e3:7c
+
+2024-12-09 20:20:27.139       WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xda0
+
+2024-12-09 20:20:27.141       INF:power on mode:1
+
+2024-12-09 20:20:27.142       INF:pmu mode:0
+
+2024-12-09 20:20:27.143       INF:CHIP CHECK PASS!
+
+
+2024-12-09 20:20:27.144       INF:voltage: 3002mv, 
+INF:v_bat: 3002mv, 85%, 
+
+2024-12-09 20:20:27.146       INF:Stack=3919, heap=3848, noret=8788
+INF:gap cmp,op:19,sta:0x00,actv:255
+
+2024-12-09 20:20:27.149       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+INF:set wl cmp,op:83,sta:0x00,actv:255
+
+2024-12-09 20:20:27.484       INF:actv_peer:0
+INF:ltk req:1
+INF:BLE connected
+INF:latency:0
+WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xd91
+INF:gap stop ind,reason:0x0
+2024-12-09 20:20:27.485       0,type:0, actv:0,actv:0
+
+2024-12-09 20:20:27.627       INF:Phy 2M:0
+INF:gapc get peer feature,sta:0x00,idx:0
+
+2024-12-09 20:20:29.160       INF:
+msg_size:10240, buf_size:6400, noret_size:8788, env_size:5180
+INF:heap_msg:0x89c7c, heap_buf:0x8c48c, heap_noret:0x8dd9c, h
+2024-12-09 20:20:29.161       eap_env:0x85bb4
+
+2024-12-09 20:20:29.163       INF:LS2100 SDK version : v1.24_release
+INF:compile time : Jun 13 2024, 11:09:20
+
+2024-12-09 20:20:29.167       INF:2 Sectors of 4096 bytes
+
+2024-12-09 20:20:29.169       INF:factory mode init 0
+
+2024-12-09 20:20:29.170       INF:freq set 27
+
+2024-12-09 20:20:29.180       INF:local mac: 0c:f5:33:f2:e3:7c
+
+2024-12-09 20:20:29.181       WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xda0
+
+2024-12-09 20:20:29.182       INF:power on mode:1
+
+2024-12-09 20:20:29.184       INF:pmu mode:0
+
+2024-12-09 20:20:29.185       INF:CHIP CHECK PASS!
+
+
+2024-12-09 20:20:29.187       INF:voltage: 3002mv, 
+INF:v_bat: 3002mv, 85%, 
+INF:Stack=3919, heap=3848, noret=8788
+INF:gap cmp,op:19,sta:0x00,actv:255
+
+2024-12-09 20:20:29.189       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+INF:set wl cmp,op:83,sta:0x00,actv:255
+
+2024-12-09 20:20:29.206       INF:actv_peer:0
+INF:ltk req:1
+INF:BLE connected
+INF:latency:0
+WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xd91
+INF:gap stop ind,reason:0x0
+2024-12-09 20:20:29.208       0,type:0, actv:0,actv:0
+
+2024-12-09 20:20:29.307       INF:Phy 2M:0
+INF:gapc get peer feature,sta:0x00,idx:0
+
+2024-12-09 20:20:29.989       INF:gap bond ind,info:14
+INF:bond status: 10, condix: 0
+
+2024-12-09 20:20:30.087       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+
+2024-12-09 20:20:30.088       INF:voltage: 3006mv, 
+INF:v_bat: 3006mv, 86%, 
+INF:    Key-1 was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:
+2024-12-09 20:20:30.089       0, led_prio:3, now:0
+
+2024-12-09 20:20:30.158       INF:gap bond ind,info:9
+INF:rcv local ltk!
+
+2024-12-09 20:20:30.235       INF:gap bond ind,info:9
+INF:rcv remote ltk!
+INF:gap bond ind,info:4
+INF:bond status: 0, condix: 0
+
+2024-12-09 20:20:30.236       INF:gap cmp,op:19,sta:0x00,actv:255
+INF:set wl cmp,op:83,sta:0x00,actv:255
+INF:connect success! adv type:1
+INF:led start;mdoe:2,
+2024-12-09 20:20:30.237        period:100, f_cnt:3, keep_timer:0, led_prio:5, now:3
+
+2024-12-09 20:20:30.837       INF:adv_state:0, dd_flag_cnt:0
+INF:sleep status:88400000
+
+2024-12-09 20:20:31.118       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-1 was release
+INF:adv_state:0, dd_flag_cnt:1
+INF:sleep status:84
+2024-12-09 20:20:31.119       00000
+
+2024-12-09 20:20:32.087       INF:BLE disconnected: 19
+INF:master mac: 0xce73167cf2c
+WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xd93
+
+2024-12-09 20:20:32.088       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:20:32.872       INF:adv_state:7, dd_flag_cnt:2
+INF:sleep status:10000000
+
+2024-12-09 20:20:33.369       INF:gap stop ind,reason:0x45,type:0, actv:0,actv:0
+
+2024-12-09 20:20:33.370       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+*******************
+结果异常
+测试次数1
+*******************
+2024-12-09 20:20:34.651       INF:gap stop ind,reason:0x45,type:0, actv:0,actv:0
+
+2024-12-09 20:20:34.652       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:20:35.226       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+
+2024-12-09 20:20:35.227       INF:voltage: 2988mv, 
+INF:v_bat: 2988mv, 84%, 
+
+2024-12-09 20:20:35.228       INF:    Key-ok was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:0
+
+2024-12-09 20:20:35.297       INF:
+pressed_total:2, keypad_event:1, release_cnt:0
+INF:voltage: 2984mv, 
+INF:v_bat: 2984mv, 84%, 
+INF:led start;mdoe:2, period:
+2024-12-09 20:20:35.299       1000, f_cnt:1, keep_timer:0, led_prio:3, now:3
+INF:<keypad_hdl/keypad_task.c, keypad_multi_pressed_handle, 327>
+INF:led start;md
+2024-12-09 20:20:35.300       oe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:3
+INF:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+INF:gap stop cmp,
+2024-12-09 20:20:35.302       sta:0x00,type:0, actv:0,actv:0
+INF:gap stop cmp,sta:0x43,type:0, actv:0,actv:0
+INF:adv_state:0, dd_flag_cnt:0
+INF:sleep status:8
+2024-12-09 20:20:35.303       4001000
+
+2024-12-09 20:20:36.229       INF:adv_state:0, dd_flag_cnt:1
+INF:sleep status:84000000
+
+2024-12-09 20:20:36.573       INF:adv_state:0, dd_flag_cnt:2
+INF:sleep status:84000000
+
+2024-12-09 20:20:38.302       INF:pair combine key: 1
+INF:led start;mdoe:2, period:500, f_cnt:0, keep_timer:10000, led_prio:6, now:0
+INF:gap del all ltk
+
+2024-12-09 20:20:38.316       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:20:39.574       INF:adv_state:7, dd_flag_cnt:3
+INF:sleep status:96001000
+
+2024-12-09 20:20:40.255       INF:
+pressed_total:1, keypad_event:2, release_cnt:1
+
+2024-12-09 20:20:40.256       INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 85%, 
+INF:    Key-return was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_t
+2024-12-09 20:20:40.257       imer:0, led_prio:3, now:6
+
+2024-12-09 20:20:40.325       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:92001000
+
+2024-12-09 20:20:40.405       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-return was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:sleep stat
+2024-12-09 20:20:40.406       us:12001000
+
+2024-12-09 20:20:42.727       INF:check rpa:0
+INF:actv_peer:0
+INF:ltk req:0
+INF:BLE connected
+
+2024-12-09 20:20:42.733       INF:latency:0
+WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xd91
+INF:led start;mdoe:1, period:0, f_cnt:0, keep_timer:0, led_prio:7, now:6
+IN
+2024-12-09 20:20:42.735       F:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+INF:adv_state:0, dd_flag_cnt:0
+INF:sleep status:a000000
+
+2024-12-09 20:20:42.854       INF:Phy 2M:0
+INF:gapc get peer feature,sta:0x00,idx:0
+
+2024-12-09 20:20:44.332       INF:
+msg_size:10240, buf_size:6400, noret_size:8788, env_size:5180
+INF:heap_msg:0x89c7c, heap_buf:0x8c48c, heap_noret:0x8dd9c, h
+2024-12-09 20:20:44.333       eap_env:0x85bb4
+
+2024-12-09 20:20:44.335       INF:LS2100 SDK version : v1.24_release
+INF:compile time : Jun 13 2024, 11:09:20
+
+2024-12-09 20:20:44.339       INF:2 Sectors of 4096 bytes
+
+2024-12-09 20:20:44.341       INF:factory mode init 0
+
+2024-12-09 20:20:44.342       INF:freq set 27
+
+2024-12-09 20:20:44.352       INF:local mac: 0c:f5:33:f2:e3:7c
+
+2024-12-09 20:20:44.353       WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xda0
+
+2024-12-09 20:20:44.355       INF:power on mode:1
+
+2024-12-09 20:20:44.356       INF:pmu mode:0
+
+2024-12-09 20:20:44.357       INF:CHIP CHECK PASS!
+
+
+2024-12-09 20:20:44.359       INF:voltage: 3002mv, 
+INF:v_bat: 3002mv, 85%, 
+INF:Stack=3919, heap=3872, noret=8788
+INF:adv_state:0, dd_flag_cnt:0
+INF:sleep st
+2024-12-09 20:20:44.360       atus:0
+
+2024-12-09 20:20:44.459       INF:deep sleep
+
+
+2024-12-09 20:20:45.250       INF:
+msg_size:10240, buf_size:6400, noret_size:8788, env_size:5180
+INF:heap_msg:0x89c7c, heap_buf:0x8c48c, heap_noret:0x8dd9c, h
+2024-12-09 20:20:45.250       eap_env:0x85bb4
+
+2024-12-09 20:20:45.252       INF:LS2100 SDK version : v1.24_release
+INF:compile time : Jun 13 2024, 11:09:20
+
+2024-12-09 20:20:45.256       INF:2 Sectors of 4096 bytes
+
+2024-12-09 20:20:45.258       INF:factory mode init 0
+
+2024-12-09 20:20:45.259       INF:freq set 27
+
+2024-12-09 20:20:45.270       INF:local mac: 0c:f5:33:f2:e3:7c
+
+2024-12-09 20:20:45.271       WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xda0
+
+2024-12-09 20:20:45.273       INF:power on mode:1
+
+2024-12-09 20:20:45.275       INF:pmu mode:1
+INF:Stack=3919, heap=3872, noret=8788
+INF:wakeup pressed_total:1, keypad_event:1, release_cnt:0
+INF:voltage: 3002
+2024-12-09 20:20:45.277       mv, 
+INF:v_bat: 3002mv, 85%, 
+INF:    Key-1 was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, no
+2024-12-09 20:20:45.278       w:0
+
+2024-12-09 20:20:45.347       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:20:46.197       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-1 was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10
+2024-12-09 20:20:46.198       001000
+
+2024-12-09 20:20:46.279       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10000000
+
+2024-12-09 20:20:48.279       INF:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+INF:gap stop cmp,sta:0x00,type:0, actv:0,actv:0
+INF:adv_state:0, dd_flag_cnt:
+2024-12-09 20:20:48.280       0
+INF:sleep status:0
+
+2024-12-09 20:20:48.379       INF:deep sleep
+
+
+*******************
+结果正常
+测试次数1
+*******************

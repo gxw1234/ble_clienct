@@ -1,0 +1,90 @@
+
+[11:43:16.829]收←◆[0;32mINF:CDC_SET_LINE_CODING | addr: 0x0x20009a20, length: 7 
+[0m	00000000: 40 42 0F 00 00 00 08                            [0;32m | @B.....[0m |
+
+[11:43:16.943]收←◆[0;32mINF:Receive data | addr: 0x0x2000ad84, length: 11 
+[0m	00000000: 58 46 0B 00 00 57 F0 00 0C 01 03                [0;32m | XF...W.....[0m |
+DBG:serial protocol recive frame cmd(12)
+[0m[0;32mINF:para to send | addr: 0x0x2000a4d0, length: 12 
+[0m	00000000: 58 46 0C 00 03 53 FF 00 A9 00 00 58             [0;32m | XF...S.....X[0m |
+[0;32mINF:frame.body.type 0xf0. frame.body.cmd 12
+[0m[0;32mINF:SET_DEFAULT_STATE cmd
+
+[11:43:17.165]收←◆[0m[0;32mINF:para to send | addr: 0x0x2000a4d0, length: 12 
+[0m	00000000: 58 46 0C 00 04 52 FF 00 0C 01 00 F4             [0;32m | XF...R......[0m |
+[0;32mINF:Receive data | addr: 0x0x2000ad84, length: 12 
+[0m	00000000: 58 46 0C 00 00 56 F0 00 0D 00 00 03             [0;32m | XF...V......[0m |
+DBG:serial protocol recive frame cmd(13)
+[0m[0;32mINF:para to send | addr: 0x0x2000a4d0, length: 12 
+[0m	00000000: 58 46 0C 00 05 51 FF 00 A9 00 00 58             [0;32m | XF...Q.....X[0m |
+[0;32mINF:frame.body.type 0xf0. frame.body.cmd 13
+[0m[0;32mINF:SET_JLINK_CONNECT cmd
+[0m[0;32mINF:para to send | addr: 0x0x2000a4d0, length: 12 
+[0m	00000000: 58 46 0C 00 06 50 FF 00 0D 00 00 F4             [0;32m | XF...P......[0m |
+[0;32mINF:SET_JLINK_CONNECT enable(0)
+[0m[0;32mINF:Receive data | addr: 0x0x2000ad84, length: 14 
+[0m	00000000: 58 46 0E 00 00 54 F0 00 0B 01 01 70 17 7C       [0;32m | XF...T.....p.|[0m |
+DBG:serial protocol recive frame cmd(11)
+[0m[0;32mINF:para to send | addr: 0x0x2000a4d0, length: 12 
+[0m	00000000: 58 46 0C 00 07 4F FF 00 A9 00 00 58             [0;32m | XF...O.....X[0m |
+[0;32mINF:frame.body.type 0xf0. frame.body.cmd 11
+[0m[0;32mINF:[remote_led_monitor:129]capture_time: 6000 ms
+[0m[0;32mINF:TIMX_CHY_CAP: init
+[0m[0;32mINF:---> CMD_REMOTE_LED_MONITOR_RAW cmd
+
+[11:43:17.360]收←◆[0m[0;32mINF:Receive data | addr: 0x0x2000ad84, length: 14 
+[0m	00000000: 58 46 0E 00 00 54 F0 00 03 00 01 01 1C EF       [0;32m | XF...T........[0m |
+DBG:serial protocol recive frame cmd(3)
+[0m[0;32mINF:para to send | addr: 0x0x2000a4d0, length: 12 
+[0m	00000000: 58 46 0C 00 08 4E FF 00 A9 00 00 58             [0;32m | XF...N.....X[0m |
+[0;32mINF:frame.body.type 0xf0. frame.body.cmd 3
+[0m[0;32mINF:para to send | addr: 0x0x2000a4d0, length: 12 
+[0m	00000000: 58 46 0C 00 09 4D FF 00 03 00 00 FE             [0;32m | XF...M......[0m |
+[0;32mINF:Receive data | addr: 0x0x2000ad84, length: 14 
+[0m	00000000: 58 46 0E 00 00 54 F0 00 03 00 01 01 23 E8       [0;32m | XF...T......#.[0m |
+DBG:serial protocol recive frame cmd(3)
+[0m[0;32mINF:para to send | addr: 0x0x2000a4d0, length: 12 
+[0m	00000000: 58 46 0C 00 0A 4C FF 00 A9 00 00 58             [0;32m | XF...L.....X[0m |
+[0;32mINF:frame.body.type 0xf0. frame.body.cmd 3
+[0m[0;32mINF:para to send | addr: 0x0x2000a4d0, length: 12 
+[0m	00000000: 58 46 0C 00 0B 4B FF 00 03 00 00 FE             [0;32m | XF...K......[0m |
+
+[11:43:22.357]收←◆[0;32mINF:Receive data | addr: 0x0x2000ad84, length: 14 
+[0m	00000000: 58 46 0E 00 00 54 F0 00 03 00 00 01 1C F0       [0;32m | XF...T........[0m |
+DBG:serial protocol recive frame cmd(3)
+[0m[0;32mINF:para to send | addr: 0x0x2000a4d0, length: 12 
+[0m	00000000: 58 46 0C 00 0C 4A FF 00 A9 00 00 58             [0;32m | XF...J.....X[0m |
+[0;32mINF:frame.body.type 0xf0. frame.body.cmd 3
+[0m[0;32mINF:para to send | addr: 0x0x2000a4d0, length: 12 
+[0m	00000000: 58 46 0C 00 0D 49 FF 00 03 00 00 FE             [0;32m | XF...I......[0m |
+[0;32mINF:Receive data | addr: 0x0x2000ad84, length: 14 
+[0m	00000000: 58 46 0E 00 00 54 F0 00 03 00 00 01 23 E9       [0;32m | XF...T......#.[0m |
+DBG:serial protocol recive frame cmd(3)
+[0m[0;32mINF:para to send | addr: 0x0x2000a4d0, length: 12 
+[0m	00000000: 58 46 0C 00 0E 48 FF 00 A9 00 00 58             [0;32m | XF...H.....X[0m |
+[0;32mINF:frame.body.type 0xf0. frame.body.cmd 3
+[0m[0;32mINF:para to send | addr: 0x0x2000a4d0, length: 12 
+[0m	00000000: 58 46 0C 00 0F 47 FF 00 03 00 00 FE             [0;32m | XF...G......[0m |
+
+[11:43:22.408]收←◆[0;32mINF:para to send | addr: 0x0x2000a4d0, length: 27 
+[0m	00000000: 58 46 1B 00 10 37 FF 00 07 01 00 FF 86 00 00 00 [0;32m | XF...7..........[0m |
+	00000010: 00 00 00 00 00 00 00 00 00 00 74                [0;32m | ..........t[0m |
+
+[11:43:23.201]收←◆[0;32mINF:------> LED Capture: g_timer_record.high_level_count: 4
+[0m[0;32mINF:para to send | addr: 0x0x2000a4d0, length: 51 
+[0m	00000000: 58 46 33 00 11 1E FF 00 0B 01 CD 42 0F 00 CE A3 [0;32m | XF3........B....[0m |
+	00000010: 1E 00 64 0D 03 00 53 0D 03 00 55 0D 03 00 53 0D [0;32m | ..d...S...U...S.[0m |
+	00000020: 03 00 53 0D 03 00 57 E6 0C 00 00 00 00 00 00 00 [0;32m | ..S...W.........[0m |
+	00000030: 00 00 FD                                        [0;32m | ...[0m |
+
+[11:43:30.635]收←◆[0;32mINF:Receive data | addr: 0x0x2000ad84, length: 13 
+[0m	00000000: 58 46 0D 00 00 55 F0 00 03 00 00 FF 0E          [0;32m | XF...U.......[0m |
+DBG:serial protocol recive frame cmd(3)
+[0m[0;32mINF:para to send | addr: 0x0x2000a4d0, length: 12 
+[0m	00000000: 58 46 0C 00 12 44 FF 00 A9 00 00 58             [0;32m | XF...D.....X[0m |
+[0;32mINF:frame.body.type 0xf0. frame.body.cmd 3
+[0m[0;32mINF:para to send | addr: 0x0x2000a4d0, length: 12 
+[0m	00000000: 58 46 0C 00 13 43 FF 00 03 00 00 FE             [0;32m | XF...C......[0m |
+
+[11:43:31.509]收←◆[0;32mINF:CDC_SET_LINE_CODING | addr: 0x0x20009a20, length: 7 
+[0m	00000000: 80 25 00 00 00 00 08                            [0;32m | .%.....[0m |

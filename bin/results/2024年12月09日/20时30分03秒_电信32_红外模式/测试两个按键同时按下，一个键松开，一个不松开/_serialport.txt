@@ -1,0 +1,58 @@
+2024-12-09 20:35:02.258       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10000000
+
+2024-12-09 20:35:02:284:    ==========================测试两个按键同时按下，一个键松开，一个不松开==========================
+2024-12-09 20:35:02.539       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:voltage: 3002mv, 
+INF:v_bat: 3002mv, 85%, 
+INF:    Key-2 was pressed
+INF
+2024-12-09 20:35:02.539       :led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:0
+
+2024-12-09 20:35:02.825       INF:gap stop ind,reason:0x45,type:0, actv:0,actv:0
+
+2024-12-09 20:35:02.826       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:35:03.392       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:90001000
+
+2024-12-09 20:35:03.428       INF:
+pressed_total:2, keypad_event:1, release_cnt:0
+
+2024-12-09 20:35:03.429       INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 85%, 
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:3
+INF:<
+2024-12-09 20:35:03.430       keypad_hdl/keypad_task.c, keypad_multi_pressed_handle, 327>
+
+2024-12-09 20:35:03.431       INF:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+INF:gap stop cmp,sta:0x00,type:0, actv:0,actv:0
+INF:adv_state:0, dd_flag_cnt:
+2024-12-09 20:35:03.432       0
+INF:sleep status:80001000
+
+2024-12-09 20:35:03.540       INF:adv_state:0, dd_flag_cnt:1
+INF:sleep status:80000000
+
+2024-12-09 20:35:03.688       INF:
+pressed_total:1, keypad_event:2, release_cnt:1
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 85%, 
+INF:    Key-2 was pressed
+INF
+2024-12-09 20:35:03.689       :led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:0
+
+2024-12-09 20:35:03.758       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:35:03.837       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-2 was release
+INF:adv_state:7, dd_flag_cnt:2
+INF:sleep status:10
+2024-12-09 20:35:03.838       001000
+
+*******************
+结果正常
+测试次数1
+*******************

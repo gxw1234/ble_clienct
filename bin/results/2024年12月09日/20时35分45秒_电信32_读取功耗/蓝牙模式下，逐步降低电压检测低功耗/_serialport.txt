@@ -1,0 +1,343 @@
+2024-12-09 20:47:25:080:    ==========================蓝牙模式下，逐步降低电压检测低功耗==========================
+2024-12-09 20:47:26.220       INF:
+msg_size:10240, buf_size:6400, noret_size:8788, env_size:5180
+INF:heap_msg:0x89c7c, heap_buf:0x8c48c, heap_noret:0x8dd9c, h
+2024-12-09 20:47:26.221       eap_env:0x85bb4
+
+2024-12-09 20:47:26.223       INF:LS2100 SDK version : v1.24_release
+INF:compile time : Jun 13 2024, 11:09:20
+
+2024-12-09 20:47:26.227       INF:2 Sectors of 4096 bytes
+
+2024-12-09 20:47:26.228       INF:factory mode init 0
+
+2024-12-09 20:47:26.229       INF:freq set 27
+
+2024-12-09 20:47:26.235       INF:local mac: 0c:f5:33:f2:e3:7c
+W
+2024-12-09 20:47:26.236       RN:ASSERT WARN: 0xb6d5, 0x8104, 0xda0
+
+2024-12-09 20:47:26.238       INF:power on mode:1
+
+2024-12-09 20:47:26.239       INF:pmu mode:1
+INF:Stack=3919, heap=3872, noret=8788
+INF:gap cmp,op:19,sta:0x00,actv:255
+INF:set wl cmp,op:83,sta:0x00,actv:255
+
+2024-12-09 20:47:26.240       INF:wakeup pressed_total:1, keypad_event:1, release_cnt:0
+
+2024-12-09 20:47:26.241       INF:voltage: 3596mv, 
+INF:v_bat: 3596mv, 100%, 
+
+2024-12-09 20:47:26.243       INF:    Key-ok was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:0
+
+2024-12-09 20:47:26.312       INF:
+pressed_total:2, keypad_event:1, release_cnt:0
+INF:voltage: 3596mv, 
+INF:v_bat: 3596mv, 100%, 
+INF:led start;mdoe:2, period
+2024-12-09 20:47:26.313       :1000, f_cnt:1, keep_timer:0, led_prio:3, now:3
+INF:<keypad_hdl/keypad_task.c, keypad_multi_pressed_handle, 327>
+INF:led start;m
+2024-12-09 20:47:26.314       doe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:3
+
+2024-12-09 20:47:26.315       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:47:26.318       INF:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+INF:gap stop cmp,sta:0x00,type:0, actv:0,actv:0
+INF:adv_state:0, dd_flag_cnt:
+2024-12-09 20:47:26.319       0
+INF:sleep status:84001000
+
+2024-12-09 20:47:27.243       INF:adv_state:0, dd_flag_cnt:1
+INF:sleep status:84000000
+
+2024-12-09 20:47:29.316       INF:pair combine key: 1
+INF:led start;mdoe:2, period:500, f_cnt:0, keep_timer:10000, led_prio:6, now:0
+INF:gap del all ltk
+
+2024-12-09 20:47:29.328       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:47:29.925       INF:adv_state:7, dd_flag_cnt:2
+INF:sleep status:96001000
+
+2024-12-09 20:47:31.255       INF:
+pressed_total:1, keypad_event:2, release_cnt:1
+
+2024-12-09 20:47:31.256       INF:voltage: 3596mv, 
+INF:v_bat: 3596mv, 100%, 
+INF:    Key-return was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_
+2024-12-09 20:47:31.257       timer:0, led_prio:3, now:6
+
+2024-12-09 20:47:31.326       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-return was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:sleep stat
+2024-12-09 20:47:31.327       us:12001000
+
+2024-12-09 20:47:31.641       INF:check rpa:0
+INF:actv_peer:0
+INF:ltk req:0
+INF:BLE connected
+
+2024-12-09 20:47:31.645       INF:latency:0
+WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xd91
+INF:led start;mdoe:1, period:0, f_cnt:0, keep_timer:0, led_prio:7, now:6
+IN
+2024-12-09 20:47:31.645       F:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:47:31.647       INF:adv_state:0, dd_flag_cnt:0
+INF:sleep status:a000000
+
+2024-12-09 20:47:31.759       INF:Phy 2M:0
+INF:gapc get peer feature,sta:0x00,idx:0
+
+2024-12-09 20:47:32.734       INF:gap bond ind,info:14
+INF:bond status: 10, condix: 0
+
+2024-12-09 20:47:32.834       INF:gap bond ind,info:9
+INF:rcv local ltk!
+
+2024-12-09 20:47:34.382       INF:gap bond ind,info:9
+INF:rcv remote ltk!
+INF:gap bond ind,info:4
+INF:bond status: 0, condix: 0
+INF:gap cmp,op:19,sta:0x00,actv:255
+INF:set wl cmp,op:83,sta:0x00,actv:255
+INF:connect success! adv type:5
+INF:led start;mdoe:2, period:100, f_cnt:3, keep_timer:0, led_prio:7, now:0
+INF:adv_state:0, dd_flag_cnt:1
+INF:sleep status:8400000
+INF:adv_state:0, dd_flag_cnt:2
+INF:sleep status:8400000
+
+2024-12-09 20:47:36.621       INF:adv_state:0, dd_flag_cnt:3
+INF:sleep status:8400000
+
+2024-12-09 20:47:37.315       INF:adv_state:0, dd_flag_cnt:4
+INF:sleep status:8400000
+
+2024-12-09 20:47:38.935       INF:ble para update
+INF:gapc upd param,sta:0x48,idx:0
+
+2024-12-09 20:47:39.323       INF:interval: 8; latency: 99; super: 500
+WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xd92
+INF:adv_state:0, dd_flag_cnt:5
+INF:sleep status:
+2024-12-09 20:47:39.324       400000
+
+2024-12-09 20:47:39.424       INF:light sleep
+
+
+2024-12-09 20:47:55.252       INF:Wakeup event: 16
+
+2024-12-09 20:47:55.259       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:voltage: 3405mv, 
+INF:v_bat: 3405mv, 100%, 
+INF:    Key-4 was pressed
+IN
+2024-12-09 20:47:55.261       F:led start;mdoe:0, period:0, f_cnt:0, keep_timer:0, led_prio:1, now:0
+
+2024-12-09 20:47:56.277       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-4 was release
+INF:led start;mdoe:1, period:0, f_cnt:0, keep_time
+2024-12-09 20:47:56.279       r:0, led_prio:2, now:1
+INF:led start;mdoe:1, period:0, f_cnt:0, keep_timer:0, led_prio:2, now:0
+INF:adv_state:0, dd_flag_cnt:6
+I
+2024-12-09 20:47:56.279       NF:sleep status:400000
+
+2024-12-09 20:47:56.378       INF:light sleep
+
+
+2024-12-09 20:48:01.283       INF:cnt:2353, ch:37, sta:192, error_cnt:1
+
+*******************
+结果正常
+测试次数1
+*******************
+2024-12-09 20:48:02.664       INF:Wakeup event: 16
+
+2024-12-09 20:48:02.670       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:voltage: 3402mv, 
+INF:v_bat: 3402mv, 100%, 
+INF:    Key-4 was pressed
+IN
+2024-12-09 20:48:02.672       F:led start;mdoe:0, period:0, f_cnt:0, keep_timer:0, led_prio:1, now:0
+
+2024-12-09 20:48:03.583       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-4 was release
+INF:led start;mdoe:1, period:0, f_cnt:0, keep_time
+2024-12-09 20:48:03.584       r:0, led_prio:2, now:1
+INF:led start;mdoe:1, period:0, f_cnt:0, keep_timer:0, led_prio:2, now:0
+INF:adv_state:0, dd_flag_cnt:0
+I
+2024-12-09 20:48:03.585       NF:sleep status:400000
+
+2024-12-09 20:48:03.685       INF:light sleep
+
+
+*******************
+结果正常
+测试次数1
+*******************
+2024-12-09 20:48:07.990       INF:Wakeup event: 16
+
+2024-12-09 20:48:07.996       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:voltage: 3218mv, 
+INF:v_bat: 3218mv, 100%, 
+INF:    Key-4 was pressed
+IN
+2024-12-09 20:48:07.998       F:led start;mdoe:0, period:0, f_cnt:0, keep_timer:0, led_prio:1, now:0
+
+2024-12-09 20:48:09.013       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-4 was release
+INF:led start;mdoe:1, period:0, f_cnt:0, keep_time
+2024-12-09 20:48:09.014       r:0, led_prio:2, now:1
+INF:led start;mdoe:1, period:0, f_cnt:0, keep_timer:0, led_prio:2, now:0
+INF:adv_state:0, dd_flag_cnt:1
+I
+2024-12-09 20:48:09.015       NF:sleep status:400000
+
+2024-12-09 20:48:09.115       INF:light sleep
+
+
+*******************
+结果正常
+测试次数1
+*******************
+2024-12-09 20:48:13.312       INF:Wakeup event: 16
+
+2024-12-09 20:48:13.319       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:voltage: 3002mv, 
+INF:v_bat: 3002mv, 85%, 
+INF:    Key-4 was pressed
+INF
+2024-12-09 20:48:13.320       :led start;mdoe:0, period:0, f_cnt:0, keep_timer:0, led_prio:1, now:0
+
+2024-12-09 20:48:14.335       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-4 was release
+INF:led start;mdoe:1, period:0, f_cnt:0, keep_time
+2024-12-09 20:48:14.336       r:0, led_prio:2, now:1
+INF:led start;mdoe:1, period:0, f_cnt:0, keep_timer:0, led_prio:2, now:0
+INF:adv_state:0, dd_flag_cnt:2
+I
+2024-12-09 20:48:14.337       NF:sleep status:400000
+
+2024-12-09 20:48:14.437       INF:light sleep
+
+
+*******************
+结果正常
+测试次数1
+*******************
+2024-12-09 20:48:18.743       INF:Wakeup event: 16
+
+2024-12-09 20:48:18.749       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:voltage: 2595mv, 
+INF:v_bat: 2595mv, 56%, 
+INF:    Key-4 was pressed
+INF
+2024-12-09 20:48:18.751       :led start;mdoe:0, period:0, f_cnt:0, keep_timer:0, led_prio:1, now:0
+
+2024-12-09 20:48:19.766       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-4 was release
+INF:led start;mdoe:1, period:0, f_cnt:0, keep_time
+2024-12-09 20:48:19.767       r:0, led_prio:2, now:1
+INF:led start;mdoe:1, period:0, f_cnt:0, keep_timer:0, led_prio:2, now:0
+INF:adv_state:0, dd_flag_cnt:3
+I
+2024-12-09 20:48:19.768       NF:sleep status:400000
+
+2024-12-09 20:48:19.868       INF:light sleep
+
+
+*******************
+结果正常
+测试次数1
+*******************
+2024-12-09 20:48:24.062       INF:Wakeup event: 16
+
+2024-12-09 20:48:24.069       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:voltage: 2210mv, 
+INF:v_bat: 2210mv, 29%, 
+INF:    Key-4 was pressed
+INF
+2024-12-09 20:48:24.070       :led start;mdoe:0, period:0, f_cnt:0, keep_timer:0, led_prio:1, now:0
+
+2024-12-09 20:48:25.085       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-4 was release
+INF:led start;mdoe:2, period:100, f_cnt:0, keep_ti
+2024-12-09 20:48:25.087       mer:3000, led_prio:4, now:1
+INF:led start;mdoe:1, period:0, f_cnt:0, keep_timer:0, led_prio:2, now:4
+INF:send low power key ble 
+2024-12-09 20:48:25.088       code
+INF:adv_state:0, dd_flag_cnt:4
+INF:sleep status:401000
+
+2024-12-09 20:48:27.773       INF:adv_state:0, dd_flag_cnt:5
+INF:sleep status:401000
+
+2024-12-09 20:48:28.087       INF:adv_state:0, dd_flag_cnt:6
+INF:sleep status:400000
+
+2024-12-09 20:48:28.187       INF:light sleep
+
+
+*******************
+结果正常
+测试次数1
+*******************
+2024-12-09 20:48:40.094       INF:cnt:6234, ch:9, sta:192, error_cnt:2
+
+2024-12-09 20:48:42.194       INF:cnt:6444, ch:2, sta:192, error_cnt:3
+
+2024-12-09 20:48:48.199       INF:Wakeup event: 16
+
+2024-12-09 20:48:48.205       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:voltage: 1926mv, 
+INF:v_bat: 1926mv, 9%, 
+INF:    Key-4 was pressed
+INF:
+2024-12-09 20:48:48.207       led start;mdoe:0, period:0, f_cnt:0, keep_timer:0, led_prio:1, now:0
+
+2024-12-09 20:48:49.222       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-4 was release
+INF:led start;mdoe:2, period:100, f_cnt:0, keep_ti
+2024-12-09 20:48:49.223       mer:3000, led_prio:4, now:1
+INF:led start;mdoe:1, period:0, f_cnt:0, keep_timer:0, led_prio:2, now:4
+INF:send low power key ble 
+2024-12-09 20:48:49.224       code
+INF:adv_state:0, dd_flag_cnt:0
+INF:sleep status:401000
+
+2024-12-09 20:48:51.914       INF:adv_state:0, dd_flag_cnt:1
+INF:sleep status:401000
+
+2024-12-09 20:48:52.222       INF:adv_state:0, dd_flag_cnt:2
+INF:sleep status:400000
+
+2024-12-09 20:48:52.322       INF:light sleep
+
+
+*******************
+结果正常
+测试次数1
+*******************

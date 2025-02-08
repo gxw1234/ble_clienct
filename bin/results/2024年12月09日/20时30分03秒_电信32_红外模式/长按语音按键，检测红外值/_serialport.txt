@@ -1,0 +1,35 @@
+2024-12-09 20:30:20:401:    ==========================长按语音按键，检测红外值==========================
+2024-12-09 20:30:20.691       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+
+2024-12-09 20:30:20.693       INF:voltage: 3006mv, 
+INF:v_bat: 3006mv, 86%, 
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:0
+
+2024-12-09 20:30:21.060       INF:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+INF:gap stop cmp,sta:0x00,type:0, actv:0,actv:0
+INF:adv_state:0, dd_flag_cnt:
+2024-12-09 20:30:21.061       0
+INF:sleep status:80001000
+
+2024-12-09 20:30:21.694       INF:adv_state:0, dd_flag_cnt:1
+INF:sleep status:80000000
+
+2024-12-09 20:30:22.443       INF:adv_state:0, dd_flag_cnt:2
+INF:sleep status:80000000
+
+2024-12-09 20:30:25.444       INF:adv_state:0, dd_flag_cnt:3
+INF:sleep status:80000000
+
+2024-12-09 20:30:25.541       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:adv_state:0, dd_flag_cnt:4
+INF:sleep status:0
+
+2024-12-09 20:30:25.641       INF:deep sleep
+
+
+*******************
+结果异常
+测试次数1
+*******************

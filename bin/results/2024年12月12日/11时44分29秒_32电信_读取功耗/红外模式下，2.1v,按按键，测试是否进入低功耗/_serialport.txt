@@ -1,0 +1,62 @@
+2024-12-12 11:49:00:534:    ==========================红外模式下，2.1v,按按键，测试是否进入低功耗==========================
+2024-12-12 11:49:00.965       INF:
+msg_size:10240, buf_size:6400, noret_size:8788, env_size:5180
+INF:heap_msg:0x89c7c, heap_buf:0x8c48c, heap_noret:0x8dd9c, h
+2024-12-12 11:49:00.965       eap_env:0x85bb4
+
+2024-12-12 11:49:00.967       INF:LS2100 SDK version : v1.24_release
+INF:compile time : Jun 13 2024, 11:09:20
+
+2024-12-12 11:49:00.971       INF:2 Sectors of 4096 bytes
+
+2024-12-12 11:49:00.972       INF:factory mode init 0
+
+2024-12-12 11:49:00.973       INF:freq set 27
+
+2024-12-12 11:49:00.984       INF:local mac: 0c:f5:33:f2:e3:7c
+
+2024-12-12 11:49:00.985       WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xda0
+
+2024-12-12 11:49:00.986       INF:power on mode:1
+
+2024-12-12 11:49:00.988       INF:pmu mode:1
+INF:Stack=3919, heap=3872, noret=8788
+INF:wakeup pressed_total:1, keypad_event:1, release_cnt:0
+
+2024-12-12 11:49:00.989       INF:voltage: 2109mv, 
+INF:v_bat: 2109mv, 22%, 
+
+2024-12-12 11:49:00.991       INF:    Key-3 was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:0
+
+2024-12-12 11:49:01.060       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-12 11:49:01.853       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-3 was release
+INF:led start;mdoe:2, period:100, f_cnt:0, keep_ti
+2024-12-12 11:49:01.854       mer:3000, led_prio:4, now:3
+INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10001000
+
+2024-12-12 11:49:01.961       INF:send low power key ir code
+
+2024-12-12 11:49:03.992       INF:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+INF:gap stop cmp,sta:0x00,type:0, actv:0,actv:0
+INF:adv_state:0, dd_flag_cnt:
+2024-12-12 11:49:03.993       0
+INF:sleep status:1000
+
+2024-12-12 11:49:04.690       INF:adv_state:0, dd_flag_cnt:1
+INF:sleep status:1000
+
+2024-12-12 11:49:04.854       INF:adv_state:0, dd_flag_cnt:2
+INF:sleep status:0
+
+2024-12-12 11:49:04.954       INF:deep sleep
+
+
+*******************
+结果正常
+测试次数1
+*******************

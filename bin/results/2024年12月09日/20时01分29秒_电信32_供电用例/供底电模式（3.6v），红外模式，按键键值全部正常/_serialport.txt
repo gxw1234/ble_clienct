@@ -1,0 +1,267 @@
+2024-12-09 20:05:09:715:    ==========================供底电模式（3.6v），红外模式，按键键值全部正常==========================
+2024-12-09 20:05:10.067       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:voltage: 3596mv, 
+INF:v_bat: 3596mv, 100%, 
+INF:    Key-1 was pressed
+IN
+2024-12-09 20:05:10.069       F:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:0
+
+2024-12-09 20:05:10.137       INF:gap stop ind,reason:0x45,type:0, actv:0,actv:0
+
+2024-12-09 20:05:10.138       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:05:10.476       INF:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+INF:gap stop cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:05:10.477       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:05:10.947       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-1 was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10
+2024-12-09 20:05:10.948       001000
+
+2024-12-09 20:05:11.069       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10000000
+
+2024-12-09 20:05:11.976       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:voltage: 3596mv, 
+INF:v_bat: 3596mv, 100%, 
+INF:    Key-2 was pressed
+IN
+2024-12-09 20:05:11.977       F:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:0
+
+2024-12-09 20:05:12.045       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:90001000
+
+2024-12-09 20:05:12.903       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-2 was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10
+2024-12-09 20:05:12.903       001000
+
+2024-12-09 20:05:12.978       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10000000
+
+2024-12-09 20:05:13.477       INF:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+INF:gap stop cmp,sta:0x00,type:0, actv:0,actv:0
+INF:adv_state:0, dd_flag_cnt:
+2024-12-09 20:05:13.477       0
+INF:sleep status:0
+
+2024-12-09 20:05:13.577       INF:deep sleep
+
+
+2024-12-09 20:05:14.142       INF:
+msg_size:10240, buf_size:6400, noret_size:8788, env_size:5180
+INF:heap_msg:0x89c7c, heap_buf:0x8c48c, heap_noret:0x8dd9c, h
+2024-12-09 20:05:14.142       eap_env:0x85bb4
+
+2024-12-09 20:05:14.144       INF:LS2100 SDK version : v1.24_release
+INF:compile time : Jun 13 2024, 11:09:20
+
+2024-12-09 20:05:14.148       INF:2 Sectors of 4096 bytes
+
+2024-12-09 20:05:14.149       INF:factory mode init 0
+
+2024-12-09 20:05:14.151       INF:freq set 27
+
+2024-12-09 20:05:14.162       INF:local mac: 0c:f5:33:f2:e3:7c
+
+2024-12-09 20:05:14.163       WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xda0
+
+2024-12-09 20:05:14.164       INF:power on mode:1
+
+2024-12-09 20:05:14.167       INF:pmu mode:1
+INF:Stack=3919, heap=3872, noret=8788
+INF:gap cmp,op:19,sta:0x00,actv:255
+INF:set wl cmp,op:83,sta:0x00,actv:255
+
+2024-12-09 20:05:14.168       INF:wakeup pressed_total:1, keypad_event:1, release_cnt:0
+
+2024-12-09 20:05:14.169       INF:voltage: 3596mv, 
+INF:v_bat: 3596mv, 100%, 
+
+2024-12-09 20:05:14.170       INF:    Key-3 was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:0
+
+2024-12-09 20:05:14.239       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:05:14.979       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-3 was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10
+2024-12-09 20:05:14.980       001000
+
+2024-12-09 20:05:15.171       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10000000
+
+2024-12-09 20:05:15.520       INF:gap stop ind,reason:0x45,type:0, actv:0,actv:0
+
+2024-12-09 20:05:15.522       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:05:16.007       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+
+2024-12-09 20:05:16.008       INF:voltage: 3596mv, 
+INF:v_bat: 3596mv, 100%, 
+INF:    Key-4 was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer
+2024-12-09 20:05:16.009       :0, led_prio:3, now:0
+
+2024-12-09 20:05:16.803       INF:gap stop ind,reason:0x45,type:0, actv:0,actv:0
+
+2024-12-09 20:05:16.804       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:05:17.010       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:90000000
+
+2024-12-09 20:05:17.037       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-4 was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10
+2024-12-09 20:05:17.038       000000
+
+2024-12-09 20:05:17.171       INF:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+INF:gap stop cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:05:17.172       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:05:17.847       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10000000
+
+2024-12-09 20:05:18.066       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+
+2024-12-09 20:05:18.067       INF:voltage: 3596mv, 
+INF:v_bat: 3596mv, 100%, 
+INF:    Key-5 was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer
+2024-12-09 20:05:18.068       :0, led_prio:3, now:0
+
+2024-12-09 20:05:19.068       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:90000000
+
+2024-12-09 20:05:19.096       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-5 was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10
+2024-12-09 20:05:19.097       000000
+
+2024-12-09 20:05:20.124       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:voltage: 3596mv, 
+INF:v_bat: 3596mv, 100%, 
+INF:    Key-6 was pressed
+IN
+2024-12-09 20:05:20.126       F:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:0
+
+2024-12-09 20:05:20.195       INF:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+INF:gap stop cmp,sta:0x00,type:0, actv:0,actv:0
+INF:adv_state:0, dd_flag_cnt:
+2024-12-09 20:05:20.196       0
+INF:sleep status:80001000
+
+2024-12-09 20:05:21.126       INF:adv_state:0, dd_flag_cnt:1
+INF:sleep status:80000000
+
+2024-12-09 20:05:21.154       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-6 was release
+INF:adv_state:0, dd_flag_cnt:2
+INF:sleep status:0
+
+2024-12-09 20:05:21.254       INF:deep sleep
+
+
+2024-12-09 20:05:22.284       INF:
+msg_size:10240, buf_size:6400, noret_size:8788, env_size:5180
+INF:heap_msg:0x89c7c, heap_buf:0x8c48c, heap_noret:0x8dd9c, h
+2024-12-09 20:05:22.285       eap_env:0x85bb4
+
+2024-12-09 20:05:22.287       INF:LS2100 SDK version : v1.24_release
+INF:compile time : Jun 13 2024, 11:09:20
+
+2024-12-09 20:05:22.290       INF:2 Sectors of 4096 bytes
+
+2024-12-09 20:05:22.292       INF:factory mode init 0
+
+2024-12-09 20:05:22.293       INF:freq set 27
+
+2024-12-09 20:05:22.304       INF:local mac: 0c:f5:33:f2:e3:7c
+
+2024-12-09 20:05:22.305       WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xda0
+
+2024-12-09 20:05:22.307       INF:power on mode:1
+
+2024-12-09 20:05:22.309       INF:pmu mode:1
+INF:Stack=3919, heap=3872, noret=8788
+INF:gap cmp,op:19,sta:0x00,actv:255
+INF:set wl cmp,op:83,sta:0x00,actv:255
+
+2024-12-09 20:05:22.310       INF:wakeup pressed_total:1, keypad_event:1, release_cnt:0
+
+2024-12-09 20:05:22.311       INF:voltage: 3596mv, 
+INF:v_bat: 3596mv, 100%, 
+
+2024-12-09 20:05:22.312       INF:    Key-7 was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:0
+
+2024-12-09 20:05:22.381       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:05:23.231       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-7 was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10
+2024-12-09 20:05:23.232       001000
+
+2024-12-09 20:05:23.313       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10000000
+
+2024-12-09 20:05:23.662       INF:gap stop ind,reason:0x45,type:0, actv:0,actv:0
+
+2024-12-09 20:05:23.663       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:05:24.258       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+
+2024-12-09 20:05:24.260       INF:voltage: 3596mv, 
+INF:v_bat: 3596mv, 100%, 
+INF:    Key-8 was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer
+2024-12-09 20:05:24.261       :0, led_prio:3, now:0
+
+2024-12-09 20:05:24.945       INF:gap stop ind,reason:0x45,type:0, actv:0,actv:0
+
+2024-12-09 20:05:24.946       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:05:25.261       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:90000000
+
+2024-12-09 20:05:25.289       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-8 was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10
+2024-12-09 20:05:25.290       000000
+
+2024-12-09 20:05:25.313       INF:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+INF:gap stop cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:05:25.315       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:05:25.989       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10000000
+
+*******************
+结果正常
+测试次数1
+*******************

@@ -1,0 +1,127 @@
+2024-12-09 20:30:04:693:    ==========================测试红外模式下所有红外按键值==========================
+2024-12-09 20:30:04.730       �INF:gap stop ind,reason:0x45,type:0, actv:0,actv:0
+INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:30:04.875       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:voltage: 3002mv, 
+INF:v_bat: 3002mv, 85%, 
+INF:    Key-return was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:0
+
+2024-12-09 20:30:04.947       INF:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+INF:gap stop cmp,sta:0x00,type:0, actv:0,actv:0
+INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:30:05.021       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-return was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:sleep stat
+2024-12-09 20:30:05.021       us:10001000
+
+*******************
+结果正常
+测试次数1
+*******************
+2024-12-09 20:30:05.596       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+
+2024-12-09 20:30:05.598       INF:voltage: 2984mv, 
+INF:v_bat: 2984mv, 84%, 
+INF:    Key-ok was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer
+2024-12-09 20:30:05.598       :0, led_prio:3, now:3
+
+2024-12-09 20:30:05.873       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:90000000
+
+2024-12-09 20:30:06.187       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-ok was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:1
+2024-12-09 20:30:06.187       0000000
+
+2024-12-09 20:30:06.225       INF:gap stop ind,reason:0x45,type:0, actv:0,actv:0
+
+2024-12-09 20:30:06.226       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+*******************
+结果正常
+测试次数1
+*******************
+2024-12-09 20:30:06.775       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+I
+2024-12-09 20:30:06.777       NF:voltage: 2991mv, 
+INF:v_bat: 2991mv, 85%, 
+INF:    Key-2 was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0
+2024-12-09 20:30:06.778       , led_prio:3, now:0
+
+2024-12-09 20:30:07.036       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-2 was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10
+2024-12-09 20:30:07.037       001000
+
+*******************
+结果正常
+测试次数1
+*******************
+2024-12-09 20:30:07.507       INF:gap stop ind,reason:0x45,type:0, actv:0,actv:0
+
+2024-12-09 20:30:07.508       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:30:07.624       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:voltage: 2991mv, 
+INF:v_bat: 2991mv, 85%, 
+INF:    Key-3 was pressed
+INF
+2024-12-09 20:30:07.626       :led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:3
+
+2024-12-09 20:30:07.778       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:90000000
+
+2024-12-09 20:30:07.884       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-3 was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10
+2024-12-09 20:30:07.885       000000
+
+2024-12-09 20:30:07.944       INF:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+INF:gap stop cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:30:07.945       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:30:08.247       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10000000
+
+*******************
+结果正常
+测试次数1
+*******************
+2024-12-09 20:30:08.471       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+
+2024-12-09 20:30:08.473       INF:voltage: 3002mv, 
+INF:v_bat: 3002mv, 85%, 
+INF:    Key-1 was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:
+2024-12-09 20:30:08.474       0, led_prio:3, now:0
+
+2024-12-09 20:30:08.732       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-1 was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10
+2024-12-09 20:30:08.733       001000
+
+*******************
+结果正常
+测试次数1
+*******************

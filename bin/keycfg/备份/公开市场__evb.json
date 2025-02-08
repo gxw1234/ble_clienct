@@ -1,0 +1,827 @@
+{
+    
+    "single_key_press": [
+        {
+            "feature_name": "TV按键按下",
+            "key_cmd": "58 46 0E 00 00 54 F0 00 03 00 01 01 17 F4",
+            "key_ir": "",
+            "key_ble": "",
+            "handler": "07"
+            
+        },
+
+        {
+            "feature_name": "红外学习音量-按键按下",
+            "key_cmd": "58 46 0E 00 00 54 F0 00 03 00 01 01 0B 00",
+            "key_ir": "",
+            "key_ble": "",
+            "handler": ""
+        },
+
+        {
+            "feature_name": "信源按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 1f EC",
+            "key_ir": "",
+            "key_ble": "",
+            "handler": "07"
+        },
+
+        {
+            "feature_name": "红外学习音量+按键按下",
+            "key_cmd": "58 46 0E 00 00 54 F0 00 03 00 01 01 19 F2",
+            "key_ir": "",
+            "key_ble": "",
+            "handler": "07"
+        },
+
+        {
+            "feature_name": "开关按键按下",
+            "key_cmd": "58 46 0E 00 00 54 F0 00 03 00 01 01 02 09",
+            "key_ir": "dc",
+            "key_ble": "66",
+            "handler": "07"
+        },
+
+
+        {
+            "feature_name": "菜单按键按下",
+            "key_cmd": "58 46 0E 00 00 54 F0 00 03 00 01 01 1C EF",
+            "key_ir": "82",
+            "key_ble": "65",
+            "handler": "07"
+        },
+
+        {
+            "feature_name": "静音按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 23 E8",
+            "key_ir": "9c",
+            "key_ble": "e2",
+            "handler": "0c"
+        },
+
+        
+        {
+            "feature_name": "设置按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 07 04",
+            "key_ir": "8d",
+            "key_ble": "eb",
+            "handler": "0c"
+        },
+
+        {
+            "feature_name": "向上按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 0e FD",
+            "key_ir": "ca",
+            "key_ble": "52",
+            "handler": "07"
+        },
+
+        {
+            "feature_name": "向下按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 10 FB",
+            "key_ir": "d2",
+            "key_ble": "51",
+            "handler": "07"
+        },
+
+        {
+            "feature_name": "向左按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 15 F6",
+            "key_ir": "99",
+            "key_ble": "50",
+            "handler": "07"
+        },
+
+        {
+            "feature_name": "向右按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 1e ED",
+            "key_ir": "c1",
+            "key_ble": "4f",
+            "handler": "07"
+        },
+
+        {
+            "feature_name": "确定按键按下",
+            "key_cmd": "58 46 0E 00 00 54 F0 00 03 00 01 01 18 F3",
+            "key_ir": "ce",
+            "key_ble": "41",
+            "handler": "0c"
+        },
+        
+        {
+            "feature_name": "首页按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 09 02",
+            "key_ir": "88",
+            "key_ble": "23",
+            "handler": "0c"
+        },
+        
+        {
+            "feature_name": "返回按键按下",
+            "key_cmd": "58 46 0E 00 00 54 F0 00 03 00 01 01 04 07",
+            "key_ir": "95",
+            "key_ble": "24",
+            "handler": "0c"
+        },
+        
+        {
+            "feature_name": "语音按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 20 EB",
+            "key_ir": "00",
+            "key_ble": "3e",
+            "handler": "07"
+        },
+
+        {
+            "feature_name": "音量+按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 19 F2",
+            "key_ir": "80",
+            "key_ble": "e9",
+            "handler": "0c"
+        },
+
+        {
+            "feature_name": "音量-按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 0b 00",
+            "key_ir": "81",
+            "key_ble": "ea",
+            "handler": "0c"
+        },
+
+        {
+            "feature_name": "M按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 12 F9",
+            "key_ir": "f0",
+            "key_ble": "f0",
+            "handler": "0c"
+        },
+
+        {
+            "feature_name": "频道+按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 04 07",
+            "key_ir": "85",
+            "key_ble": "4b",
+            "handler": "07"
+        },
+
+        {
+            "feature_name": "频道-按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 1a F1",
+            "key_ir": "86",
+            "key_ble": "4e",
+            "handler": "07"
+        },
+
+        {
+            "feature_name": "1按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 21 EA",
+            "key_ir": "92",
+            "key_ble": "1e",
+            "handler": "07"
+        },
+
+        {
+            "feature_name": "2按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 05 06", 
+            "key_ir": "93",
+            "key_ble": "1f",
+            "handler": "07"
+        },
+
+        {
+            "feature_name": "3按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 0c FF",
+            "key_ir": "cc",
+            "key_ble": "20",
+            "handler": "07"
+        },
+
+        {
+            "feature_name": "4按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 13 F8",
+            "key_ir": "8e",
+            "key_ble": "21",
+            "handler": "07"
+        },
+
+        {
+            "feature_name": "5按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 1b F0",
+            "key_ir": "8f",
+            "key_ble": "22",
+            "handler": "07"
+        },
+
+        {
+            "feature_name": "6按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 0d FE",
+            "key_ir": "c8",
+            "key_ble": "23",
+            "handler": "07"
+        },
+
+        {
+            "feature_name": "7按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 22 E9",
+            "key_ir": "8a",
+            "key_ble": "24",
+            "handler": "07"
+        },
+
+        {
+            "feature_name": "8按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 06 05",
+            "key_ir": "8b",
+            "key_ble": "25",
+            "handler": "07"
+        },
+
+        {
+            "feature_name": "9按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 14 F7",
+            "key_ir": "c4",
+            "key_ble": "26",
+            "handler": "07"
+        },
+
+        {
+            "feature_name": "0按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 1d EE",
+            "key_ir": "87",
+            "key_ble": "27",
+            "handler": "07"
+        },
+
+        {
+            "feature_name": "*按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 16 F5",
+            "key_ir": "da",
+            "key_ble": "cc",
+            "handler": "07"
+        },
+
+        {
+            "feature_name": "#按键按下",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 01 0A",
+            "key_ir": "cb",
+            "key_ble": "fc",
+            "handler": "0c"
+        }
+
+
+ 
+    ],
+    "single_key_up": [
+        {
+            "feature_name": "TV按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 18 F4"
+        },
+
+        {
+            "feature_name": "开关按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 03 09"
+        },
+
+        {
+            "feature_name": "红外学习音量-按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 0a 02"
+        },
+
+        {
+            "feature_name": "信源按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 1f ED"
+        },
+        
+        {
+            "feature_name": "红外学习音量+按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 11 FB"
+        },
+
+        {
+            "feature_name": "菜单按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 1c F0"
+        },
+
+        {
+            "feature_name": "静音按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 23 E9"
+        },
+
+        {
+            "feature_name": "设置按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 07 05"
+        },
+
+        {
+            "feature_name": "向上按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 0e FE"
+        },
+
+        {
+            "feature_name": "向下按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 10 FC"
+        },
+        {
+            "feature_name": "向左按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 15 F7"
+        },
+
+        {
+            "feature_name": "向右按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 1e EE"
+        },
+
+        {
+            "feature_name": "确定按键抬起",
+            "key_cmd": "58 46 0E 00 00 54 F0 00 03 00 00 01 18 F4"
+        },
+
+        {
+            "feature_name": "首页按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 09 03"
+        },
+
+        {
+            "feature_name": "返回按键抬起",
+            "key_cmd": "58 46 0E 00 00 54 F0 00 03 00 00 01 03 09"
+        },
+
+        {
+            "feature_name": "语音按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 20 EC"
+        },
+
+        
+        {
+            "feature_name": "音量+按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 19 F3"
+        },
+
+        {
+            "feature_name": "音量-按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 0b 01"
+        },
+        
+        {
+            "feature_name": "M按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 12 FA"
+        },
+
+        {
+            "feature_name": "频道+按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 04 08"
+        },
+
+        {
+            "feature_name": "频道-按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 1a F2"
+        },
+
+        {
+            "feature_name": "1按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 21 EB"
+        },
+        {
+            "feature_name": "2按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 05 07"
+        },
+
+        {
+            "feature_name": "3按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 0c 00"
+        },
+
+        {
+            "feature_name": "4按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 13 F9"
+        },
+        {
+            "feature_name": "5按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 1b F1"
+        },
+
+        {
+            "feature_name": "6按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 0d FF"
+        },
+
+        {
+            "feature_name": "7按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 22 EA"
+        },
+
+        {
+            "feature_name": "8按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 06 06"
+        },
+
+        {
+            "feature_name": "9按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 14 F8"
+        },
+
+        {
+            "feature_name": "0按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 1d EF"
+        },
+
+        {
+            "feature_name": "*按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 16 F6"
+        },
+
+        {
+            "feature_name": "#按键抬起",
+            "key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 01 0B"
+        }
+    ],
+    "combination_key": [
+        {
+            "feature_name": "按键配对",
+            "First_key_cmd":
+            [
+                {"key_cmd":"58 46 0E 00 00 54 F0 00 03 00 01 01 18 F3",
+                "delay": 50},
+                {"key_cmd":"58 46 0E 00 00 54 F0 00 03 00 01 01 03 08",
+                "delay": 0}
+            ],
+            "delay": 5000,
+            "aftert_key_cmd": [
+                {"key_cmd":"58 46 0E 00 00 54 F0 00 03 00 00 01 18 F4",
+                "delay": 50},
+                {"key_cmd":"58 46 0E 00 00 54 F0 00 03 00 00 01 03 09",
+                "delay": 0}
+
+            ]
+        },
+
+        {
+            "feature_name": "按键清除信息",
+            "First_key_cmd":
+            [
+                {"key_cmd":"58 46 0E 00 00 54 F0 00 03 00 01 01 19 F2",
+                "delay": 50},
+                {"key_cmd":"58 46 0E 00 00 54 F0 00 03 00 01 01 1A F1",
+                "delay": 0}
+            ],
+            "delay": 5000,
+            "aftert_key_cmd": [
+                {"key_cmd":"58 46 0E 00 00 54 F0 00 03 00 00 01 19 F3",
+                "delay": 50},
+                {"key_cmd":"58 46 0E 00 00 54 F0 00 03 00 00 01 1A F2",
+                "delay": 0}
+            ]
+        }
+
+    ],
+    "trigger_key": [
+        {
+            "feature_name": "TV按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 18 F3",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 18 F4"
+        },
+
+        {
+            "feature_name": "开关按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 03 08",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 03 09"
+        },
+
+        {
+            "feature_name": "静音按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 23 E8",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 23 E9"
+        },
+        
+        {
+            "feature_name": "设置按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 07 04",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 07 05"
+        },
+
+        {
+            "feature_name": "确定按键触发",
+            "First_key_cmd": "58 46 0E 00 00 54 F0 00 03 00 01 01 18 F3",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0E 00 00 54 F0 00 03 00 00 01 18 F4"
+        },
+        {
+            "feature_name": "返回按键触发",
+            "First_key_cmd": "58 46 0E 00 00 54 F0 00 03 00 01 01 03 08",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0E 00 00 54 F0 00 03 00 00 01 03 09"
+        },
+
+        {
+            "feature_name": "1按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 21 EA",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 21 EB"
+        },
+
+        {
+            "feature_name": "2按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 05 06",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 05 07"
+        },
+
+        {
+            "feature_name": "3按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 0c FF",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 0c 00"
+        },
+
+        {
+            "feature_name": "4按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 13 F8",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 13 F9"
+        },
+
+        {
+            "feature_name": "5按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 1b F0",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 1b F1"
+        },
+
+        {
+            "feature_name": "6按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 0d FE",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 0d FF"
+        },
+
+        {
+            "feature_name": "7按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 22 E9",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 22 EA"
+        },
+
+        {
+            "feature_name": "8按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 06 05",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 06 06"
+        },
+
+        {
+            "feature_name": "9按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 14 F7",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 14 F8"
+        },
+
+        {
+            "feature_name": "0按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 1d EE",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 1d EF"
+        },
+
+        {
+            "feature_name": "*按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 16 F5",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 16 F6"
+        },
+
+        {
+            "feature_name": "#按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 01 0A",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 01 0B"
+        },
+
+        {
+            "feature_name": "音量+按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 19 F2",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 19 F3"
+        },
+
+        {
+            "feature_name": "音量-按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 0b 00",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 0b 01"
+        },
+
+        {
+            "feature_name": "菜单按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 1c EF",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 1c F0"
+        },
+
+        {
+            "feature_name": "静音按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 23 E8",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 23 E9"
+        },
+
+        {
+            "feature_name": "首页按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 09 02",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 09 03"
+        },
+
+        {
+            "feature_name": "设置按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 07 04",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 07 05"
+        },
+
+        {
+            "feature_name": "向上按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 0e FD",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 0e FE"
+        },
+
+        {
+            "feature_name": "向下按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 10 FB",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 10 FC"
+        },
+
+        {
+            "feature_name": "向左按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 15 F6",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 15 F7"
+        },
+
+        {
+            "feature_name": "向右按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 1e ED",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 1e EE"
+        },
+
+        {
+            "feature_name": "M按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 12 F9",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 12 FA"
+        },
+
+        {
+            "feature_name": "频道+按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 04 07",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 04 08"
+        },
+
+        {
+            "feature_name": "频道-按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 1a F1",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 1a F2"
+        },
+
+        {
+            "feature_name": "语音按键触发",
+            "First_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 01 01 20 EB",
+            "delay": 1000,
+            "aftert_key_cmd": "58 46 0e 00 00 54 F0 00 03 00 00 01 20 EC"
+        }
+    ],
+    "Function_module": [
+        {
+            "feature_name": "延时",
+            "Description": "用来延时的模块，默认1000ms，设置参数单位ms， 如：延时30000",
+            "assert": ""
+        },
+        {
+            "feature_name": "扫描",
+            "Description": "用来延时的模块，默认1000ms，设置参数单位ms， 如：延时30000",
+            "assert": "蓝牙&已扫描"
+        },
+        {
+            "feature_name": "连接",
+            "Description": "用来延时的模块，默认1000ms，设置参数单位ms， 如：延时30000",
+            "assert": "蓝牙&已连接"
+        },
+        {
+            "feature_name": "断开",
+            "Description": "用来延时的模块，默认1000ms，设置参数单位ms， 如：延时30000",
+            "assert": "蓝牙&已断开"
+        },
+        {
+            "feature_name": "配对",
+            "Description": "用来延时的模块，默认1000ms，设置参数单位ms， 如：延时30000",
+            "assert": "蓝牙&已配对"
+        },
+        {
+            "feature_name": "取消配对",
+            "Description": "用来延时的模块，默认1000ms，设置参数单位ms， 如：延时30000",
+            "assert": ""
+        },
+        {
+            "feature_name": "上电",
+            "Description": "用来延时的模块，默认1000ms，设置参数单位ms， 如：延时30000",
+            "assert": ""
+        },
+        {
+            "feature_name": "断电",
+            "Description": "用来延时的模块，默认1000ms，设置参数单位ms， 如：延时30000",
+            "assert": ""
+        },
+        {
+            "feature_name": "设置电压",
+            "Description": "用来延时的模块，默认1000ms，设置参数单位ms， 如：延时30000",
+            "assert": ""
+        },
+        {
+            "feature_name": "抖动上电",
+            "Description": "用来延时的模块，默认1000ms，设置参数单位ms， 如：延时30000",
+            "assert": ""
+        },
+        {
+            "feature_name": "读取LED",
+            "Description": "用来延时的模块，默认1000ms，设置参数单位ms， 如：延时30000",
+            "assert": ""
+        },
+        {
+            "feature_name": "随机按键",
+            "Description": "用来延时的模块，默认1000ms，设置参数单位ms， 如：延时30000",
+            "assert": ""
+        },
+        {
+            "feature_name": "接收结果",
+            "Description": "用来延时的模块，默认1000ms，设置参数单位ms， 如：延时30000",
+            "assert": ""
+        },
+        {
+            "feature_name": "不接收结果",
+            "Description": "用来延时的模块，默认1000ms，设置参数单位ms， 如：延时30000",
+            "assert": ""
+        },
+        {
+            "feature_name": "蓝牙连接前置",
+            "Description": "",
+            "assert": ""
+        },
+        {
+            "feature_name": "蓝牙连接后置",
+            "Description": "",
+            "assert": ""
+        },
+        {
+            "feature_name": "读取功耗",
+            "Description": "",
+            "assert": ""
+        },
+        {
+            "feature_name": "读取指定长度功耗",
+            "Description": "",
+            "assert": ""
+        },
+        {
+            "feature_name": "开始循环",
+            "Description": "用来延时的模块，默认1000ms，设置参数单位ms， 如：延时30000",
+            "assert": ""
+        },
+        {
+            "feature_name": "停止循环",
+            "Description": "用来延时的模块，默认1000ms，设置参数单位ms， 如：延时30000",
+            "assert": ""
+        },
+        {
+            "feature_name": "临时",
+            "Description": "",
+            "assert": ""
+        }  ,
+        {
+            "feature_name": "1_连接时按按键",
+            "Description": "",
+            "assert": ""
+        }  ,
+        {
+            "feature_name": "2_配对时按按键",
+            "Description": "",
+            "assert": ""
+        }  
+    ],
+    "Read_version": [
+        {
+            "feature_name": "读取SN",
+            "Description": "",
+            "assert": ""
+        }
+    ],
+     "Random_keying":["确定按键","返回按键","1按键","2按键","语音按键"]
+
+}

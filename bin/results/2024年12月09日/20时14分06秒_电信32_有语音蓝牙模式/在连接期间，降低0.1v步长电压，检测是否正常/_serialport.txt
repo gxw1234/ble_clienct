@@ -1,0 +1,125 @@
+2024-12-09 20:16:30:714:    ==========================在连接期间，降低0.1v步长电压，检测是否正常==========================
+2024-12-09 20:16:30.751       INF:deep sleep
+
+
+2024-12-09 20:16:31.106       INF:
+msg_size:10240, buf_size:6400, noret_size:8788, env_size:5180
+INF:heap_msg:0x89c7c, heap_buf:0x8c48c, heap_noret:0x8dd9c, h
+2024-12-09 20:16:31.107       eap_env:0x85bb4
+
+2024-12-09 20:16:31.109       INF:LS2100 SDK version : v1.24_release
+INF:compile time : Jun 13 2024, 11:09:20
+
+2024-12-09 20:16:31.113       INF:2 Sectors of 4096 bytes
+
+2024-12-09 20:16:31.115       INF:factory mode init 0
+
+2024-12-09 20:16:31.116       INF:freq set 27
+
+2024-12-09 20:16:31.123       INF:local mac: 0c:f5:33:f2:e3:7c
+
+2024-12-09 20:16:31.124       WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xda0
+
+2024-12-09 20:16:31.126       INF:power on mode:1
+
+2024-12-09 20:16:31.128       INF:pmu mode:1
+INF:Stack=3919, heap=3872, noret=8788
+INF:
+pressed_total:2, keypad_event:1, release_cnt:0
+INF:voltage: 3333mv, 
+I
+2024-12-09 20:16:31.129       NF:v_bat: 3333mv, 100%, 
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:0
+INF:<keypad_hdl/keypad_task
+2024-12-09 20:16:31.131       .c, keypad_multi_pressed_handle, 327>
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:3
+
+2024-12-09 20:16:32.130       INF:adv_state:0, dd_flag_cnt:0
+INF:sleep status:84000000
+
+2024-12-09 20:16:34.133       INF:pair combine key: 1
+INF:led start;mdoe:2, period:500, f_cnt:0, keep_timer:10000, led_prio:6, now:0
+INF:gap del all ltk
+
+2024-12-09 20:16:34.139       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:16:34.815       INF:adv_state:7, dd_flag_cnt:1
+INF:sleep status:96001000
+
+2024-12-09 20:16:35.880       INF:
+pressed_total:1, keypad_event:2, release_cnt:1
+
+2024-12-09 20:16:35.882       INF:voltage: 3337mv, 
+INF:v_bat: 3337mv, 100%, 
+INF:    Key-return was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_
+2024-12-09 20:16:35.883       timer:0, led_prio:3, now:6
+
+2024-12-09 20:16:35.952       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-return was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:sleep stat
+2024-12-09 20:16:35.953       us:12001000
+
+2024-12-09 20:16:37.532       INF:check rpa:0
+INF:actv_peer:0
+INF:ltk req:0
+INF:BLE connected
+
+2024-12-09 20:16:37.536       INF:latency:0
+WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xd91
+INF:led start;mdoe:1, period:0, f_cnt:0, keep_timer:0, led_prio:7, now:6
+IN
+2024-12-09 20:16:37.537       F:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:16:37.538       INF:adv_state:0, dd_flag_cnt:0
+INF:sleep status:a000000
+
+2024-12-09 20:16:37.655       INF:Phy 2M:0
+INF:gapc get peer feature,sta:0x00,idx:0
+
+2024-12-09 20:16:38.515       INF:adv_state:0, dd_flag_cnt:1
+INF:sleep status:a000000
+
+2024-12-09 20:16:41.516       INF:adv_state:0, dd_flag_cnt:2
+INF:sleep status:a000000
+
+2024-12-09 20:16:42.221       INF:adv_state:0, dd_flag_cnt:3
+INF:sleep status:a000000
+
+2024-12-09 20:16:42.536       INF:user disconnect:0x13
+
+2024-12-09 20:16:42.581       INF:BLE disconnected: 22
+INF:master mac: 0xce73167cf2c
+WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xd93
+INF:gapc dis cmp,sta:0x00,idx:0
+
+2024-12-09 20:16:44.474       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+
+2024-12-09 20:16:44.475       INF:voltage: 2592mv, 
+INF:v_bat: 2592mv, 56%, 
+
+2024-12-09 20:16:44.477       INF:    Key-ok was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:0
+
+2024-12-09 20:16:44.546       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:16:45.477       INF:adv_state:7, dd_flag_cnt:4
+INF:sleep status:90000000
+
+2024-12-09 20:16:45.505       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-ok was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:1
+2024-12-09 20:16:45.506       0000000
+
+2024-12-09 20:16:45.927       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10000000
+
+*******************
+结果正常
+测试次数1
+*******************

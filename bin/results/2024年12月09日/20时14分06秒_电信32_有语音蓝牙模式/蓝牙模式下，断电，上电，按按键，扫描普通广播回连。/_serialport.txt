@@ -1,0 +1,6 @@
+2024-12-09 20:28:37:204:    ==========================蓝牙模式下，断电，上电，按按键，扫描普通广播回连。==========================
+2024-12-09 20:28:37.225       INF:BLE disconnected: 19
+INF:master mac: 0xce73167cf2c
+WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xd93
+INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+

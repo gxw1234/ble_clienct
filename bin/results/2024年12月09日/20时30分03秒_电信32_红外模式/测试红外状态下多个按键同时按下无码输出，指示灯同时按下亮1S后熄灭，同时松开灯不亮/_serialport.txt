@@ -1,0 +1,60 @@
+2024-12-09 20:35:00:924:    ==========================测试红外状态下多个按键同时按下无码输出，指示灯同时按下亮1S后熄灭，同时松开灯不亮==========================
+2024-12-09 20:35:01.254       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+
+2024-12-09 20:35:01.256       INF:voltage: 3002mv, 
+INF:v_bat: 3002mv, 85%, 
+INF:    Key-1 was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:
+2024-12-09 20:35:01.257       0, led_prio:3, now:0
+
+2024-12-09 20:35:01.325       INF:
+pressed_total:2, keypad_event:1, release_cnt:0
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 85%, 
+INF:led start;mdoe:2, period:
+2024-12-09 20:35:01.327       1000, f_cnt:1, keep_timer:0, led_prio:3, now:3
+INF:<keypad_hdl/keypad_task.c, keypad_multi_pressed_handle, 327>
+I
+2024-12-09 20:35:01.328       NF:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+INF:gap stop cmp,sta:0x00,type:0, actv:0,actv:0
+INF:adv_state:0, dd_flag_cnt:0
+2024-12-09 20:35:01.329       
+INF:sleep status:80001000
+
+2024-12-09 20:35:01.374       INF:
+pressed_total:3, keypad_event:1, release_cnt:0
+INF:voltage: 3006mv, 
+INF:v_bat: 3006mv, 86%, 
+INF:led start;mdoe:2, period:
+2024-12-09 20:35:01.375       1000, f_cnt:1, keep_timer:0, led_prio:3, now:3
+INF:<keypad_hdl/keypad_task.c, keypad_multi_pressed_handle, 327>
+
+2024-12-09 20:35:01.423       INF:
+pressed_total:2, keypad_event:2, release_cnt:1
+INF:voltage: 3002mv, 
+INF:v_bat: 3002mv, 85%, 
+INF:led start;mdoe:2, period:
+2024-12-09 20:35:01.424       1000, f_cnt:1, keep_timer:0, led_prio:3, now:3
+INF:<keypad_hdl/keypad_task.c, keypad_multi_pressed_handle, 327>
+
+2024-12-09 20:35:01.472       INF:
+pressed_total:1, keypad_event:2, release_cnt:1
+INF:voltage: 3006mv, 
+INF:v_bat: 3006mv, 86%, 
+INF:    Key-3 was pressed
+INF
+2024-12-09 20:35:01.473       :led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:3
+
+2024-12-09 20:35:01.542       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-3 was release
+INF:adv_state:1, dd_flag_cnt:1
+INF:sleep status:10
+2024-12-09 20:35:01.543       001000
+INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+*******************
+结果异常
+测试次数1
+*******************

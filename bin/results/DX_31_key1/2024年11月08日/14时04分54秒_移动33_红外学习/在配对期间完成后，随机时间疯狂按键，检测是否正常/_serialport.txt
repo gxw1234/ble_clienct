@@ -1,0 +1,1231 @@
+2024-11-08 14:04:55:172:    ==========================在配对期间完成后，随机时间疯狂按键，检测是否正常==========================
+INF:HL2596A SDK version : v2.0_release
+INF:compile time : Jul 17 2024, 09:39:45
+INF:Soft Version:XFRSD0X_M_17154_D01_1041_45038
+
+INF:flash lock:1
+
+INF:2 Sectors of 4096 bytes
+
+INF:freq set 2
+
+INF:local mac: 0c:f5:33:7b:ca:06
+
+WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xda0
+
+INF:power on mode:1
+
+INF:pmu mode:1
+INF:Stack=3919, heap=212, noret=9660
+INF:gap cmp,op:19,sta:0x00,actv:255
+INF:set wl cmp,op:83,sta:0x00,actv:255
+I
+NF:app evt:C000000
+INF:**************************************************
+INF:
+pressed_total:2, keypad_event:1, release_cnt:0
+IN
+F:**************************************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:<keypad_hdl/keypad_task.
+c, keypad_multi_pressed_handle, 272>
+
+INF:remote ble pair adv start handle
+
+INF:gap del all ltk
+
+INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+INF:adv_state:7, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:96001000
+INF:......sleep timer 3s......
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-return was pressed
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+INF:    Key-return was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:......sleep timer start.....
+.
+INF:remote status:12001000
+INF:......sleep timer 3s......
+
+INF:check rpa:0
+INF:actv_peer:0
+INF:ltk req:0
+INF:BLE connected
+
+INF:latency:0
+WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xd91
+INF:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+
+INF:gap bond ind,info:14
+INF:bond status: 10, condix: 0
+
+INF:gap bond ind,info:9
+INF:rcv local ltk!
+
+INF:gap bond ind,info:9
+INF:rcv remote ltk!
+INF:gap bond ind,info:4
+INF:bond status: 0, condix: 0
+INF:gap cmp,op:19,sta:0x00,actv:255
+INF:set wl cmp,op:83,sta:0x00,actv:255
+INF:connect success! adv type:5
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8401000
+INF:......sleep timer 3s......
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:latency:1
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+INF:0, 1
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:84
+01800
+INF:......sleep timer 3s......
+
+INF:hid_receive_data, index:4
+INF:receive voice cmd: 1
+INF:VOICE START CMD >>>
+INF:voice start
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-2 was pressed
+
+INF:hid_receive_data, index:4
+INF:receive voice cmd: 0
+INF:VOICE STOP CMD >>> 
+INF:voice stop
+INF:latency:0
+INF:adv_state:0, dd_
+flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:88400000
+INF:......sleep timer 3s......
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+
+INF:    Key-2 was release
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8400000
+INF:......s
+leep timer 3s......
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-return was pressed
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+
+INF:    Key-return was release
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8400000
+INF:..
+....sleep timer 3s......
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-2 was pressed
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+
+INF:    Key-2 was release
+
+WRN:OverFlow
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8400000
+INF:......sleep timer 3s
+......
+
+WRN:OverFlow
+WRN:OverFlow
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-2 was pressed
+
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event
+:2, release_cnt:1
+INF:**************************************************
+
+INF:    Key-2 was release
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8400000
+INF:......s
+leep timer 3s......
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-return was pressed
+
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+
+INF:    Key-return was release
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8400000
+INF:..
+....sleep timer 3s......
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 3002mv, 
+INF:v_bat: 3002mv, 80%, 
+INF:    Key-return was pressed
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event
+:2, release_cnt:1
+INF:**************************************************
+
+INF:    Key-return was release
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:840000
+0
+INF:......sleep timer 3s......
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-return was pressed
+
+WRN:OverFlow
+WRN:OverFlow
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_c
+nt:1
+INF:**************************************************
+
+INF:    Key-return was release
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:840000
+0
+INF:......sleep timer 3s......
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-return was pressed
+
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+
+INF:    Key-return was release
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8400000
+INF:..
+....sleep timer 3s......
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-2 was pressed
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event
+:2, release_cnt:1
+INF:**************************************************
+
+INF:    Key-2 was release
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:840000
+0
+INF:......sleep timer 3s......
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-return was pressed
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+
+INF:    Key-return was release
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8400000
+INF:..
+....sleep timer 3s......
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 3002mv, 
+INF:v_bat: 3002mv, 80%, 
+INF:latency:1
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+INF:0, 1
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:84
+00800
+INF:......sleep timer 3s......
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-2 was pressed
+
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event
+:2, release_cnt:1
+INF:**************************************************
+
+INF:    Key-2 was release
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8400800
+INF:......s
+leep timer 3s......
+
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event
+:1, release_cnt:0
+INF:**************************************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    
+Key-1 was pressed
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+INF:hid_receive_data, index:4
+INF:receive voice cmd: 1
+INF:VOICE START CMD >>>
+INF:voice start
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+
+INF:    Key-1 was release
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8601800
+INF:......s
+leep timer 3s......
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-return was pressed
+
+INF:hid_receive_data, index:4
+INF:receive voice cmd: 0
+INF:VOICE STOP CMD >>> 
+INF:voice stop
+INF:latency:0
+INF:adv_state:0, dd_
+flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:88400000
+INF:......sleep timer 3s......
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+
+INF:    Key-return was release
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8400000
+INF:..
+....sleep timer 3s......
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-1 was pressed
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+
+INF:    Key-1 was release
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:840000
+0
+INF:......sleep timer 3s......
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-1 was pressed
+
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+
+INF:    Key-1 was release
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8400000
+INF:......s
+leep timer 3s......
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-1 was pressed
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event
+:2, release_cnt:1
+INF:**************************************************
+
+INF:    Key-1 was release
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:840000
+0
+INF:......sleep timer 3s......
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:latency:1
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+INF:0, 1
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:840080
+0
+INF:......sleep timer 3s......
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-return was pressed
+
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+
+INF:    Key-return was release
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8400800
+INF:..
+....sleep timer 3s......
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-2 was pressed
+
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event
+:2, release_cnt:1
+INF:**************************************************
+
+INF:    Key-2 was release
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8400800
+INF:......s
+leep timer 3s......
+
+INF:hid_receive_data, index:4
+INF:receive voice cmd: 1
+INF:VOICE START CMD >>>
+INF:voice start
+
+INF:hid_receive_data, index:4
+INF:receive voice cmd: 0
+INF:VOICE STOP CMD >>> 
+INF:voice stop
+INF:latency:0
+INF:adv_state:0, dd_
+flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8400000
+INF:......sleep timer 3s......
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-2 was pressed
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+
+INF:    Key-2 was release
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8400000
+INF:......s
+leep timer 3s......
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:latency:1
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+INF:0, 1
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:84
+00800
+INF:......sleep timer 3s......
+
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-2 was pressed
+
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_c
+nt:1
+INF:**************************************************
+
+INF:    Key-2 was release
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:840080
+0
+INF:......sleep timer 3s......
+
+INF:hid_receive_data, index:4
+INF:receive voice cmd: 1
+INF:VOICE START CMD >>>
+INF:voice start
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2995mv, 
+INF:v_bat: 2995mv, 79%, 
+INF:    Key-ok was pressed
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+
+INF:    Key-ok was release
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8601800
+INF:......
+sleep timer 3s......
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-return was pressed
+
+WRN:OverFlow
+WRN:OverFlow
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_c
+nt:1
+INF:**************************************************
+
+INF:    Key-return was release
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8601800
+INF:..
+....sleep timer 3s......
+
+INF:hid_receive_data, index:4
+INF:receive voice cmd: 0
+INF:VOICE STOP CMD >>> 
+INF:voice stop
+INF:latency:0
+INF:adv_state:0, dd_
+flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8400000
+INF:......sleep timer 3s......
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-return was pressed
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+
+INF:    Key-return was release
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8400000
+INF:..
+....sleep timer 3s......
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2995mv, 
+INF:v_bat: 2995mv, 79%, 
+INF:latency:1
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+INF:0, 1
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:84
+00800
+INF:......sleep timer 3s......
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-1 was pressed
+
+INF:hid_receive_data, index:4
+INF:receive voice cmd: 1
+INF:VOICE START CMD >>>
+INF:voice start
+
+INF:hid_receive_data, index:4
+INF:receive voice cmd: 0
+INF:VOICE STOP CMD >>> 
+INF:voice stop
+INF:latency:0
+INF:adv_state:0, dd_
+flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:88400000
+INF:......sleep timer 3s......
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+
+INF:    Key-1 was release
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8400000
+INF:......s
+leep timer 3s......
+
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:*****************
+*********************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-1 was pressed
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+
+INF:    Key-1 was release
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8400000
+INF:......s
+leep timer 3s......
+
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8400000
+INF:......sleep timer 3s......
+
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+INF:**************************************************
+INF:
+pressed_total:1, keypad_event:1, release_c
+nt:0
+INF:**************************************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+INF:    Key-6 was pre
+ssed
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+INF:remote_ir_study_data_report_wrap call, ret:0, ble_statue:1, flag:1
+
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+*********************************
+
+INF:    Key-6 was release
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:8400000
+INF:......s
+leep timer 3s......
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+INF:ble para update
+INF:gapc upd param,sta:0x48,idx:0
+
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+
+WRN:OverFlow
+WRN:OverFlow
+WRN:OverFlow
+
+INF:interval: 8; latency: 99; super: 500
+WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xd92
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep t
+imer start......
+INF:remote status:400000
+INF:......sleep timer 100ms......
+
+INF:light sleep
+
+
+
+INF:BLE disconnected: 19
+INF:master mac: 0xf7e63167cf2c
+WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xd93
+INF:adv_state:0, dd_flag_cnt:0
+IN
+F:......sleep timer start......
+INF:remote status:0
+INF:......sleep timer 100ms......
+
+INF:deep sleep
+
+
+
+*******************
+结果正常
+测试次数1
+*******************

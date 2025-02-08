@@ -1,0 +1,170 @@
+2024-12-09 20:16:19:303:    ==========================在连接期间，断电再上电检测是否正常==========================
+2024-12-09 20:16:19.695       INF:
+msg_size:10240, buf_size:6400, noret_size:8788, env_size:5180
+INF:heap_msg:0x89c7c, heap_buf:0x8c48c, heap_noret:0x8dd9c, h
+2024-12-09 20:16:19.695       eap_env:0x85bb4
+
+2024-12-09 20:16:19.697       INF:LS2100 SDK version : v1.24_release
+INF:compile time : Jun 13 2024, 11:09:20
+
+2024-12-09 20:16:19.701       INF:2 Sectors of 4096 bytes
+
+2024-12-09 20:16:19.703       INF:factory mode init 0
+
+2024-12-09 20:16:19.704       INF:freq set 27
+
+2024-12-09 20:16:19.711       INF:local mac: 0c:f5:33:f2:e3:7c
+
+2024-12-09 20:16:19.712       WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xda0
+
+2024-12-09 20:16:19.713       INF:power on mode:1
+
+2024-12-09 20:16:19.715       INF:pmu mode:1
+INF:Stack=3919, heap=3872, noret=8788
+INF:
+pressed_total:2, keypad_event:1, release_cnt:0
+
+2024-12-09 20:16:19.717       INF:voltage: 3002mv, 
+INF:v_bat: 3002mv, 85%, 
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:0
+INF:<
+2024-12-09 20:16:19.718       keypad_hdl/keypad_task.c, keypad_multi_pressed_handle, 327>
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3
+2024-12-09 20:16:19.719       , now:3
+
+2024-12-09 20:16:20.718       INF:adv_state:0, dd_flag_cnt:0
+INF:sleep status:84000000
+
+2024-12-09 20:16:22.721       INF:pair combine key: 1
+INF:led start;mdoe:2, period:500, f_cnt:0, keep_timer:10000, led_prio:6, now:0
+INF:gap del all ltk
+
+2024-12-09 20:16:22.726       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:16:23.406       INF:adv_state:7, dd_flag_cnt:1
+INF:sleep status:96001000
+
+2024-12-09 20:16:24.375       INF:
+pressed_total:1, keypad_event:2, release_cnt:1
+
+2024-12-09 20:16:24.377       INF:voltage: 3002mv, 
+INF:v_bat: 3002mv, 85%, 
+INF:    Key-return was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_t
+2024-12-09 20:16:24.378       imer:0, led_prio:3, now:6
+
+2024-12-09 20:16:24.526       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-return was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:sleep stat
+2024-12-09 20:16:24.527       us:12001000
+
+2024-12-09 20:16:24.893       INF:check rpa:0
+INF:actv_peer:0
+INF:ltk req:0
+INF:BLE connected
+
+2024-12-09 20:16:24.897       INF:latency:0
+WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xd91
+INF:led start;mdoe:1, period:0, f_cnt:0, keep_timer:0, led_prio:7, now:6
+IN
+2024-12-09 20:16:24.898       F:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+I
+2024-12-09 20:16:24.899       NF:adv_state:0, dd_flag_cnt:0
+INF:sleep status:a000000
+
+2024-12-09 20:16:25.009       INF:Phy 2M:0
+INF:gapc get peer feature,sta:0x00,idx:0
+
+*******************
+结果正常
+测试次数1
+*******************
+2024-12-09 20:16:26.584       INF:
+msg_size:10240, buf_size:6400, noret_size:8788, env_size:5180
+INF:heap_msg:0x89c7c, heap_buf:0x8c48c, heap_noret:0x8dd9c, h
+2024-12-09 20:16:26.585       eap_env:0x85bb4
+
+2024-12-09 20:16:26.587       INF:LS2100 SDK version : v1.24_release
+INF:compile time : Jun 13 2024, 11:09:20
+
+2024-12-09 20:16:26.591       INF:2 Sectors of 4096 bytes
+
+2024-12-09 20:16:26.592       INF:factory mode init 0
+
+2024-12-09 20:16:26.593       INF:freq set 27
+
+2024-12-09 20:16:26.601       INF:local mac: 0c:f5:33:f2:e3:7c
+
+2024-12-09 20:16:26.602       WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xda0
+
+2024-12-09 20:16:26.603       INF:power on mode:1
+
+2024-12-09 20:16:26.604       INF:pmu mode:0
+
+2024-12-09 20:16:26.605       INF:CHIP CHECK PASS!
+
+
+2024-12-09 20:16:26.606       INF:voltage: 3002mv, 
+INF:v_bat: 3002mv, 85%, 
+INF:Stack=3919, heap=3872, noret=8788
+INF:adv_state:0, dd_flag_cnt:0
+INF:sleep st
+2024-12-09 20:16:26.607       atus:0
+
+2024-12-09 20:16:26.707       INF:deep sleep
+
+
+2024-12-09 20:16:27.611       INF:
+msg_size:10240, buf_size:6400, noret_size:8788, env_size:5180
+INF:heap_msg:0x89c7c, heap_buf:0x8c48c, heap_noret:0x8dd9c, h
+2024-12-09 20:16:27.612       eap_env:0x85bb4
+
+2024-12-09 20:16:27.614       INF:LS2100 SDK version : v1.24_release
+INF:compile time : Jun 13 2024, 11:09:20
+
+2024-12-09 20:16:27.619       INF:2 Sectors of 4096 bytes
+
+2024-12-09 20:16:27.620       INF:factory mode init 0
+
+2024-12-09 20:16:27.621       INF:freq set 27
+
+2024-12-09 20:16:27.628       INF:local mac: 0c:f5:33:f2:e3:7c
+
+2024-12-09 20:16:27.629       WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xda0
+
+2024-12-09 20:16:27.631       INF:power on mode:1
+
+2024-12-09 20:16:27.633       INF:pmu mode:1
+INF:Stack=3919, heap=3872, noret=8788
+INF:wakeup pressed_total:1, keypad_event:1, release_cnt:0
+
+2024-12-09 20:16:27.634       INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 85%, 
+
+2024-12-09 20:16:27.635       INF:    Key-2 was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:0
+
+2024-12-09 20:16:27.705       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:16:28.443       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-2 was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10
+2024-12-09 20:16:28.444       001000
+
+2024-12-09 20:16:28.636       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10000000
+
+*******************
+结果正常
+测试次数1
+*******************
+2024-12-09 20:16:30.636       INF:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+INF:gap stop cmp,sta:0x00,type:0, actv:0,actv:0
+INF:adv_state:0, dd_flag_cnt:
+2024-12-09 20:16:30.637       0
+INF:sleep status:0
+

@@ -1,0 +1,303 @@
+2024-11-08 14:28:25:186:    ==========================单按键检测LED==========================
+INF:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+INF:gap stop cmp,sta:0x00,type:0, actv:0,actv:0
+INF:adv_state:0, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:0
+INF:......sleep timer 100ms......
+INF:deep sleep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INF:HL2596A SDK version : v2.0_release
+INF:compile time : Jul 17 2024, 09:39:45
+INF:Soft Version:XFRSD0X_M_17154_D01_1041_45038
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INF:flash lock:1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INF:2 Sectors of 4096 bytes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INF:freq set 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INF:local mac: 0c:f5:33:7b:ca:06
+WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xda0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INF:power on mode:1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INF:pmu mode:1
+INF:Stack=3919, heap=212, noret=9660
+INF:gap cmp,op:19,sta:0x00,actv:255
+INF:set wl cmp,op:83,sta:0x00,actv:255
+I
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NF:app evt:8000000
+INF:**************************************************
+INF:wakeup pressed_total:1, keypad_event:1, release_cn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+t:0
+INF:**************************************************
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 79%, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INF:    Key-2 was pressed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INF:**************************************************
+INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:*****************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*********************************
+INF:    Key-2 was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:......sleep timer start......
+INF
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:remote status:10001000
+INF:......sleep timer 3s......
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*******************
+结果异常
+测试次数1
+*******************
+INF:adv_state:7, dd_flag_cnt:0
+INF:......sleep timer start......
+INF:remote status:10000000
+INF:......sleep timer 3s......
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,115 @@
+2024-12-09 20:52:36.117       INF:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+INF:gap stop cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:52:36.119       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:52:36:138:    ==========================多个按键同时按下上电==========================
+2024-12-09 20:52:36.831       INF:
+msg_size:10240, buf_size:6400, noret_size:8788, env_size:5180
+INF:heap_msg:0x89c7c, heap_buf:0x8c48c, heap_noret:0x8dd9c, h
+2024-12-09 20:52:36.832       eap_env:0x85bb4
+
+2024-12-09 20:52:36.834       INF:LS2100 SDK version : v1.24_release
+INF:compile time : Jun 13 2024, 11:09:20
+
+2024-12-09 20:52:36.838       INF:2 Sectors of 4096 bytes
+
+2024-12-09 20:52:36.840       INF:factory mode init 0
+
+2024-12-09 20:52:36.841       INF:freq set 27
+
+2024-12-09 20:52:36.851       INF:local mac: 0c:f5:33:f2:e3:7c
+
+2024-12-09 20:52:36.852       WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xda0
+
+2024-12-09 20:52:36.854       INF:power on mode:1
+
+2024-12-09 20:52:36.855       INF:pmu mode:0
+
+2024-12-09 20:52:36.856       INF:CHIP CHECK PASS!
+
+
+2024-12-09 20:52:36.857       INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 85%, 
+
+2024-12-09 20:52:36.859       INF:Stack=3919, heap=3848, noret=8788
+INF:gap cmp,op:19,sta:0x00,actv:255
+INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+INF:s
+2024-12-09 20:52:36.860       et wl cmp,op:83,sta:0x00,actv:255
+INF:
+pressed_total:4, keypad_event:1, release_cnt:0
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 8
+2024-12-09 20:52:36.862       5%, 
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:0
+INF:<keypad_hdl/keypad_task.c, keypad_multi_pre
+2024-12-09 20:52:36.863       ssed_handle, 327>
+INF:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+INF:gap stop cmp,sta:0x00,type:0, actv:0,actv:0
+INF:adv_sta
+2024-12-09 20:52:36.864       te:0, dd_flag_cnt:0
+INF:sleep status:80001000
+
+2024-12-09 20:52:37.498       INF:
+pressed_total:3, keypad_event:2, release_cnt:1
+INF:voltage: 3002mv, 
+INF:v_bat: 3002mv, 85%, 
+INF:led start;mdoe:2, period:
+2024-12-09 20:52:37.499       1000, f_cnt:1, keep_timer:0, led_prio:3, now:3
+INF:<keypad_hdl/keypad_task.c, keypad_multi_pressed_handle, 327>
+
+2024-12-09 20:52:37.547       INF:
+pressed_total:2, keypad_event:2, release_cnt:1
+INF:voltage: 3002mv, 
+INF:v_bat: 3002mv, 85%, 
+INF:led start;mdoe:2, period:
+2024-12-09 20:52:37.548       1000, f_cnt:1, keep_timer:0, led_prio:3, now:3
+INF:<keypad_hdl/keypad_task.c, keypad_multi_pressed_handle, 327>
+
+2024-12-09 20:52:37.596       INF:
+pressed_total:1, keypad_event:2, release_cnt:1
+INF:voltage: 3002mv, 
+INF:v_bat: 3002mv, 85%, 
+I
+2024-12-09 20:52:37.597       NF:    Key-4 was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:3
+
+2024-12-09 20:52:37.666       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-4 was release
+INF:adv_state:1, dd_flag_cnt:1
+INF:sleep status:10
+2024-12-09 20:52:37.667       001000
+INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:52:37.862       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10000000
+
+2024-12-09 20:52:38.532       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+
+2024-12-09 20:52:38.534       INF:voltage: 3002mv, 
+INF:v_bat: 3002mv, 85%, 
+INF:    Key-5 was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:
+2024-12-09 20:52:38.535       0, led_prio:3, now:0
+
+2024-12-09 20:52:38.949       INF:gap stop ind,reason:0x45,type:0, actv:0,actv:0
+
+2024-12-09 20:52:38.950       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-09 20:52:39.462       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-5 was release
+INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10
+2024-12-09 20:52:39.463       001000
+
+*******************
+结果正常
+测试次数1
+*******************
+2024-12-09 20:52:39.535       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:10000000
+

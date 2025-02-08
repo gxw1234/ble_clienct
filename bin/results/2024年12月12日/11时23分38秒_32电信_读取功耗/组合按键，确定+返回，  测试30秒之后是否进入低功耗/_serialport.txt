@@ -1,0 +1,92 @@
+2024-12-12 11:27:02:068:    ==========================组合按键，确定+返回，  测试30秒之后是否进入低功耗==========================
+2024-12-12 11:27:02.098       INF:BLE disconnected: 19
+INF:master mac: 0x24e73167cf2c
+WRN:ASSERT WARN: 0xb6d5, 0x8104, 0xd93
+INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-12 11:27:02.216       INF:
+pressed_total:1, keypad_event:1, release_cnt:0
+INF:voltage: 2991mv, 
+INF:v_bat: 2991mv, 85%, 
+INF:    Key-ok was pressed
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:0
+
+2024-12-12 11:27:02.282       INF:
+pressed_total:2, keypad_event:1, release_cnt:0
+INF:voltage: 2988mv, 
+INF:v_bat: 2988mv, 84%, 
+INF:led start;mdoe:2, period:
+2024-12-12 11:27:02.283       1000, f_cnt:1, keep_timer:0, led_prio:3, now:3
+INF:<keypad_hdl/keypad_task.c, keypad_multi_pressed_handle, 327>
+INF:led start;md
+2024-12-12 11:27:02.284       oe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:3
+INF:gap stop ind,reason:0x00,type:0, actv:0,actv:0
+INF:gap stop cmp,
+2024-12-12 11:27:02.286       sta:0x00,type:0, actv:0,actv:0
+INF:gap stop cmp,sta:0x43,type:0, actv:0,actv:0
+INF:adv_state:0, dd_flag_cnt:3
+INF:sleep status:8
+2024-12-12 11:27:02.287       4001000
+
+2024-12-12 11:27:03.214       INF:adv_state:0, dd_flag_cnt:4
+INF:sleep status:84000000
+
+2024-12-12 11:27:04.937       INF:adv_state:0, dd_flag_cnt:5
+INF:sleep status:84000000
+
+2024-12-12 11:27:05.286       INF:pair combine key: 1
+INF:led start;mdoe:2, period:500, f_cnt:0, keep_timer:10000, led_prio:6, now:0
+INF:gap del all ltk
+
+2024-12-12 11:27:05.297       INF:gap start cmp,sta:0x00,type:0, actv:0,actv:0
+
+2024-12-12 11:27:07.238       INF:
+pressed_total:1, keypad_event:2, release_cnt:1
+INF:voltage: 2998mv, 
+INF:v_bat: 2998mv, 85%, 
+INF:    Key-return was presse
+2024-12-12 11:27:07.240       d
+INF:led start;mdoe:2, period:1000, f_cnt:1, keep_timer:0, led_prio:3, now:6
+
+2024-12-12 11:27:07.308       INF:
+pressed_total:0, keypad_event:2, release_cnt:1
+INF:    Key-return was release
+INF:adv_state:7, dd_flag_cnt:6
+INF:sleep stat
+2024-12-12 11:27:07.309       us:12001000
+
+2024-12-12 11:27:08.639       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:12001000
+
+2024-12-12 11:27:11.639       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:12001000
+
+2024-12-12 11:27:12.341       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:12001000
+
+2024-12-12 11:27:14.787       INF:adv_state:7, dd_flag_cnt:0
+INF:sleep status:12000000
+
+2024-12-12 11:27:15.297       INF:led start;mdoe:1, period:0, f_cnt:0, keep_timer:0, led_prio:7, now:0
+INF:led start;mdoe:2, period:3000, f_cnt:1, keep_timer:
+2024-12-12 11:27:15.298       0, led_prio:8, now:0
+INF:led start;mdoe:1, period:0, f_cnt:0, keep_timer:0, led_prio:7, now:8
+INF:gap stop ind,reason:0x00,type:
+2024-12-12 11:27:15.299       0, actv:0,actv:0
+INF:gap stop cmp,sta:0x00,type:0, actv:0,actv:0
+INF:adv_state:0, dd_flag_cnt:0
+INF:sleep status:1000
+
+2024-12-12 11:27:16.044       INF:adv_state:0, dd_flag_cnt:1
+INF:sleep status:1000
+
+2024-12-12 11:27:18.299       INF:adv_state:0, dd_flag_cnt:2
+INF:sleep status:0
+
+2024-12-12 11:27:18.399       INF:deep sleep
+
+
+*******************
+结果正常
+测试次数1
+*******************

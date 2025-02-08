@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/start1.png</file>
+        <file>images/start2.png</file>
+        <file>images/connect.png</file>
+        <file>images/unconnect.png</file>
+        <file>images/blue.png</file>
+        <file>images/Bluetooth.png</file>
+        <file>images/Feature.png</file>
+        <file>images/key.png</file>
+        <file>images/read.png</file>
+        <file>images/edition.png</file>
+        <file>images/key_m.png</file>
+        <file>images/key_unde.png</file>
+        <file>images/key_up.png</file>
+        <file>images/key_up_unde.png</file>
+        <file>images/add.png</file>
+        <file>images/add_hover.png</file>
+        <file>images/minus.png</file>
+        <file>images/minus_hover.png</file>
+    </qresource>
+</RCC>
