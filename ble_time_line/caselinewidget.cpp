@@ -1181,8 +1181,8 @@ void TimelineWidget::actionPaste()
     // 直接复制到下一行
     insertItem(current_time, texts, current_index + 1);
     
-    // 调整所有行的位置
-    adjustBucketsPositions(current_index + 1);
+    // 使用动画调整所有行的位置
+    adjustBucketsPositionsWithAnimation(current_index + 1, buckets.size() - 1);
 }
 
 void TimelineWidget::debugcase()
