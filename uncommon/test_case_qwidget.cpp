@@ -44,7 +44,7 @@ void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buf
         if (ismd5_)
         {
             switch (static_cast<TCP_client_data>(dataType)) {
-            case Starttest:
+            case Test_Display_list_1:
             {
                 QString data = QString::fromUtf8(buffer);
                 QStringList list = data.split("&", QString::SkipEmptyParts);
@@ -54,12 +54,10 @@ void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buf
                 }
                 break;
             }
-            case 0x02:
+            case Test_Display_test_item_2:
             {
                 QString data = QString::fromUtf8(buffer);
-
                 QStringList list = data.split("&", QString::SkipEmptyParts);
-
                 if (list.size()==2)
                 {
                     onHandleS_ignal(list.at(0).toInt(),list.at(1));
@@ -83,11 +81,9 @@ void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buf
             case 0x05:
             {
                 QString data = QString::fromUtf8(buffer);
-
                 bool stringAsBool = STRING_TO_BOOL(data);
                 if(stringAsBool)
                 {
-
                     start_test->setChecked(true);
                     start_test->setTextLabel(START_ING_TEXT);
                     start_test->setIconPath(":/images/images/start2.png");
@@ -129,8 +125,6 @@ void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buf
             }
             case 0x0B:
             {
-
-
                  sertext = QString::fromUtf8(buffer);
                  break;
             }
@@ -178,7 +172,7 @@ void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buf
 
                 break;
             }
-            case 0x14:
+            case Test_Individual_function_14:
             {
                 QString data = QString::fromUtf8(buffer);
                 setcolumncolor(data);
@@ -236,17 +230,6 @@ void Test_case_qwidget::initView()
     set_up_qframe =new QFrame;
     start_test  = new IconPushButton(":/images/images/start2.png", START_TEXT);
     start_test->setCheckable(true);
-//    start_test->setStyleSheet(       "QPushButton {\
-//                                     font-size: 16px;\
-//                                 }\
-//                                 QPushButton::checked {\
-//                                     background: #3cb371;\
-//                                 }\
-//                                 QPushButton:pressed {\
-//                                     background: #808080;\
-//                                 }");
-
-
     start_test->setStyleSheet(
         "QPushButton {\
             font-size: 16px;\
@@ -271,13 +254,9 @@ void Test_case_qwidget::initView()
     mac_title->setText("设置MAC地址：");
     mac_text =new QLineEdit;
     ip_text =new QLineEdit;
-
-    mac_text->setText("0C:F5:33:DC:5A:E2");
-//    mac_text->setText("0C:F5:33:82:A1:0D");
     file_text = new QLabel;
     file_text->setText("测试文件：");
     file_box = new QComboBox;
-
     test_ser_label= new QLabel;
     test_ser_label->setText("通讯串口:");
     test_ser_Box= new QComboBox;
@@ -831,14 +810,10 @@ void Test_case_qwidget::save_row(ReportInfo reportInfo)
 void Test_case_qwidget::setcolumncolor(QString data)
 {
     QStringList testingtemp = data.split("&", QString::SkipEmptyParts);
-
     int row_temp = testingtemp[0].toInt();
     int column_temp = testingtemp[1].toInt();
     rewrite_widget->setTextLabelBorderColor(Clear_color_row, Clear_color_column,QColor(0,0,255));
-
     rewrite_widget->setTextLabelBorderColor(row_temp, column_temp,QColor(255,0,0));
-
-
     Clear_color_row=row_temp;
     Clear_color_column=column_temp;
 }

@@ -22,10 +22,15 @@
 
 
 enum TCP_client_data {
-    Starttest = 0x01, //开始测试
-    Test_file = 0x02, //测试文件
-    Test_number = 0x03, //测试文件
-    Test_mac = 0x04, //mac
+    Test_Display_list_1 = 0x01, //显示列表
+    Test_Display_test_item_2 = 0x02, //显示测试项
+    Test_number_3 = 0x03, //测试文件
+    Test_mac_3 = 0x04, //mac
+    Starttest_4 = 0x01, //开始测试
+    Test_file_5 = 0x02, //测试文件
+    Test_numbe_6 = 0x03, //测试文件
+    Test_Individual_function_14 = 0x14, //每一条用例的每一个功能
+
 };
 
 
