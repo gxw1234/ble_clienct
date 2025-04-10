@@ -39,6 +39,7 @@ Test_case_qwidget::~Test_case_qwidget()
  */
 void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buffer,bool islen_,bool ismd5_)
 {
+    QString currentTime = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
     if (isreceivetcp)
     {
         if (ismd5_)
@@ -46,21 +47,24 @@ void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buf
             switch (static_cast<TCP_client_data>(dataType)) {
             case Test_Display_list_1:
             {
-                QString data = QString::fromUtf8(buffer);
-                QStringList list = data.split("&", QString::SkipEmptyParts);
-                if (list.size()==3)
-                {
-                    onCase_info_use_Signal(list.at(0).toInt(),list.at(1),list.at(2).toInt());
+                QJsonDocument jsonDoc = QJsonDocument::fromJson(buffer);
+                if (jsonDoc.isObject()) {
+                    QJsonObject jsonObj = jsonDoc.object();
+                    int type = jsonObj["type"].toInt();
+                    QString data = jsonObj["data"].toString();
+                    int colour = jsonObj["colour"].toInt();
+                    onCase_info_use_Signal(type, data, colour);
                 }
                 break;
             }
             case Test_Display_test_item_2:
             {
-                QString data = QString::fromUtf8(buffer);
-                QStringList list = data.split("&", QString::SkipEmptyParts);
-                if (list.size()==2)
-                {
-                    onHandleS_ignal(list.at(0).toInt(),list.at(1));
+                QJsonDocument jsonDoc = QJsonDocument::fromJson(buffer);
+                if (jsonDoc.isObject()) {
+                    QJsonObject title_jsonObj = jsonDoc.object();
+                    int line = title_jsonObj["line"].toInt();
+                    QString case_name = title_jsonObj["case_name"].toString();
+                    onHandleS_ignal(line,case_name);
                 }
                 break;
             }
@@ -81,13 +85,13 @@ void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buf
             case 0x05:
             {
                 QString data = QString::fromUtf8(buffer);
-                bool stringAsBool = STRING_TO_BOOL(data);
+                stringAsBool = STRING_TO_BOOL(data);
                 if(stringAsBool)
                 {
                     start_test->setChecked(true);
                     start_test->setTextLabel(START_ING_TEXT);
                     start_test->setIconPath(":/images/images/start2.png");
-                    tcpaap->sendMessageapp("OUTPUTACCORD",OUTPUTACCORD);
+                    tcpaap->sendMessageapp("OUTPUTACCORD",OUTPUT_TEST_ING);
                 }
                  break;
             }
@@ -149,39 +153,34 @@ void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buf
             {
                 QString temp = QString::fromUtf8(buffer);
                 QStringList stringList = temp.split("&");
-
                 ReportInfo info(stringList.at(0),
                                       stringList.at(1),
                                       stringList.at(2),
                                       stringList.at(3),
                                       stringList.at(4),
                                       stringList.at(5));
-
-
-
-
                 save_row(ReportInfo(info));
-
                 ReportInfolist.append(ReportInfo(stringList.at(0),
                                                  stringList.at(1),
                                                  stringList.at(2),
                                                  stringList.at(3),
                                                  "",
                                                  ""));
-
-
                 break;
             }
             case Test_Individual_function_14:
             {
-                QString data = QString::fromUtf8(buffer);
-                setcolumncolor(data);
+                if (!stringAsBool)
+                {
+                    QString data = QString::fromUtf8(buffer);
+                    setcolumncolor(data);
+                }
                break;
             }
             case 0x16:
             {
-                Generation_path = createOrGetDailyFolder();
-                qDebug() <<"Generation_path" <<Generation_path;
+                stringAsBool =false;
+                Generation_path = createOrGetDailyFolder(file_box->currentText());
                 QString testfile = QString::fromUtf8(buffer);
                 if (!testfile.isEmpty())
                 {
@@ -192,13 +191,16 @@ void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buf
             }
             case OUTPUTCASENAMEDATALIST_TO:
             {
-
                 QString tempdata =QString::fromUtf8(buffer);
                 file_box->setCurrentText(tempdata);
-                Generation_path = createOrGetDailyFolder();
+                Generation_path = createOrGetDailyFolder(file_box->currentText());
                 show_debug_log->setText("");
                 show_detailed_debug_log->setText("");
-
+               break;
+            }
+            case Test_update_file_1d:
+            {
+               Generation_path = createOrGetDailyFolder(QString::fromUtf8(buffer));
                break;
             }
             default:
@@ -473,7 +475,7 @@ void Test_case_qwidget::import_file(QString test_file)
 
 void Test_case_qwidget::home_file_switching(int index)
 {
-
+    show_debug_log->clear();
     rewrite_widget->clearAll();
     QString read_file_text =  testFilePath;
     QString file_currentText  =file_box->currentText();
@@ -744,27 +746,45 @@ void Test_case_qwidget::Generate_report(QString filepath, bool isSuccessful, QLi
 
 }
 
-QString Test_case_qwidget::createOrGetDailyFolder()
+QString Test_case_qwidget::createOrGetDailyFolder(const QString &str = QString())
 {
+//    QString currentPath = QDir::currentPath();
+//    QString dateString = QDateTime::currentDateTime().toString("yyyy年MM月dd日");
+//    QRegularExpression regex(R"(机器名称:\s*\*+(\w+)\*+\s*ip:)");
+//    QRegularExpressionMatch match = regex.match(ip_text->text());
+//    QString dailyFolderPath = currentPath + "/results/" + match.captured(1) +"/" +dateString;
+//    QDir dir(dailyFolderPath);
+//    if (!dir.exists()) {
+//        dir.mkpath(dailyFolderPath);
+//    }
+//    QString timeString = QDateTime::currentDateTime().toString("HH时mm分ss秒");
+//    QString subFolderPath = dailyFolderPath + "/" + timeString +"_"+ file_box->currentText();
+
+//    QDir subDir(subFolderPath);
+//    if (!subDir.exists()) {
+//        subDir.mkpath(subFolderPath);
+//    }
+//    return subFolderPath;
+
+
+
+
     QString currentPath = QDir::currentPath();
     QString dateString = QDateTime::currentDateTime().toString("yyyy年MM月dd日");
-
-
-//    QRegularExpression regex(R"(.*\*{5}(\w+)\*{5}.*)");
-//    QRegularExpressionMatch match = regex.match(ip_text->text());
     QRegularExpression regex(R"(机器名称:\s*\*+(\w+)\*+\s*ip:)");
     QRegularExpressionMatch match = regex.match(ip_text->text());
 
-
-    QString dailyFolderPath = currentPath + "/results/" + match.captured(1) +"/" +dateString;
-
+    // 构建每日文件夹路径
+    QString dailyFolderPath = currentPath + "/results/" + match.captured(1) + "/" + dateString;
     QDir dir(dailyFolderPath);
     if (!dir.exists()) {
         dir.mkpath(dailyFolderPath);
     }
 
     QString timeString = QDateTime::currentDateTime().toString("HH时mm分ss秒");
-    QString subFolderPath = dailyFolderPath + "/" + timeString +"_"+ file_box->currentText();
+    // 如果传入的 str 为空，则使用 file_box->currentText()
+    QString folderName = str.isEmpty() ? file_box->currentText() : str;
+    QString subFolderPath = dailyFolderPath + "/" + timeString + "_" + folderName;
 
     QDir subDir(subFolderPath);
     if (!subDir.exists()) {
@@ -778,15 +798,10 @@ void Test_case_qwidget::save_row(ReportInfo reportInfo)
 {
 
      QString subFolderPath = Generation_path + "/" + reportInfo.title;
-
-
-
      QDir subDir(subFolderPath);
      if (!subDir.exists()) {
          subDir.mkpath(subFolderPath);
      }
-
-
      QString serialPortFileName =  "_serialport.txt";
      QString serialPortFilePath = QString("%1/%2").arg(subFolderPath).arg(serialPortFileName);
 
@@ -837,8 +852,6 @@ void Test_case_qwidget::start_network()
     show_debug_log->setText("");
     show_detailed_debug_log->setText("");
     Generation_path = createOrGetDailyFolder();
-
-
 
 }
 

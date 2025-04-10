@@ -15,11 +15,11 @@
 #define OUTPUTARGUMENT 12 // 查询配置文件
 #define OUTPUTFILASTOP 13  // 是否异常停止
 #define OUTPUTINFOMAC 16  //查询MAC
-#define OUTPUTACCORD 17  //  当发现在测试中，需要同步数据
+#define OUTPUTACCORD 17  //  下载数据
 #define OUTPUTCASENAMELIAT 26 //测试文件list
 #define OUTPUTCASENAMEDATALIST 27 //测试文件名称list
 #define OUTPUTCASENAMEDATALIST_TO 28 //接收测试文件的名称
-
+#define OUTPUT_TEST_ING 29 //测试中
 
 enum TCP_client_data {
     Test_Display_list_1 = 0x01, //显示列表
@@ -30,7 +30,7 @@ enum TCP_client_data {
     Test_file_5 = 0x02, //测试文件
     Test_numbe_6 = 0x03, //测试文件
     Test_Individual_function_14 = 0x14, //每一条用例的每一个功能
-
+    Test_update_file_1d = 0x1D,
 };
 
 

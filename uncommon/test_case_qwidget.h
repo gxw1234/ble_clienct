@@ -128,7 +128,7 @@ private:
 
     QString Generation_path;
 
-    QString createOrGetDailyFolder();
+    QString createOrGetDailyFolder(const QString &str);
     void save_row(ReportInfo reportInfo);
     void setcolumncolor(QString data);
     void start_network();
@@ -140,6 +140,7 @@ private:
 //    SelectionWindow *selectionWindow;
 
     QStringList test_name_list;
+    bool stringAsBool =false;
 
 private slots:
     void home_file_switching(int);
