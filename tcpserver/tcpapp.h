@@ -16,7 +16,9 @@
 #define OUTPUTFILASTOP 13  // 是否异常停止
 #define OUTPUTINFOMAC 16  //查询MAC
 #define OUTPUTACCORD 17  //  当发现在测试中，需要同步数据
-
+#define OUTPUTCASENAMELIAT 26 //测试文件list
+#define OUTPUTCASENAMEDATALIST 27 //测试文件名称list
+#define OUTPUTCASENAMEDATALIST_TO 28 //接收测试文件的名称
 
 
 enum TCP_client_data {

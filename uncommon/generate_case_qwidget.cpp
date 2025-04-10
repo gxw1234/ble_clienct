@@ -28,6 +28,10 @@ void Generate_case_qwidget::initView()
     added_file_lindit =new QLineEdit;
     added_file_button = new  QPushButton;
     added_file_button->setText("新增测试文件名");
+
+    added_refresh = new  QPushButton;
+    added_refresh->setText("刷新");
+
     save_file_button = new  QPushButton;
     save_file_button->setText("保存文件");
     delete_file_button = new  QPushButton;
@@ -81,6 +85,7 @@ void Generate_case_qwidget::initView()
     qroupbox_layout->addWidget(pattern_label1,1,2,1,1);
     qroupbox_layout->addWidget(pattern_new,1,3,1,1);
     qroupbox_layout->addWidget(added_file_button,1,4,1,1);
+    qroupbox_layout->addWidget(added_refresh,1,5,1,1);
 
 
 
@@ -99,6 +104,9 @@ void Generate_case_qwidget::initView()
     setLayout(layout);
     connect(save_file_button, SIGNAL(clicked()), this, SLOT(save_file_func()));
     connect(added_file_button, SIGNAL(clicked()), this, SLOT(added_file_func()));
+
+    connect(added_refresh, SIGNAL(clicked()), this, SLOT(added_refresh_func()));
+
     connect(delete_file_button, SIGNAL(clicked()), this, SLOT(deletefile_func()));
     connect(file_box_new, SIGNAL(currentIndexChanged(int)), this, SLOT(file_switching(int)));
 
@@ -161,7 +169,7 @@ void Generate_case_qwidget::indexinit()
 //    file_box_new->setCurrentIndex(0);
     file_switching(0);
 
-    qDebug() <<"debug0000000000000000";
+
 
     widget_case->host_qstackedWidgetinit();
 
@@ -221,6 +229,13 @@ void Generate_case_qwidget::added_file_func()
             }
         }
     }
+}
+
+void Generate_case_qwidget::added_refresh_func()
+{
+    file_box_new->clear();
+
+    file_box_new->addItems(get_all_file());
 }
 
 

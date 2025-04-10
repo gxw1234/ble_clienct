@@ -3,6 +3,40 @@
 #include <QFileDialog>
 #include <QDebug>
 #include <QMessageBox>
+#include <QProcess>
+#include <QCoreApplication>
+#include <QApplication>
+#include <QScrollBar>
+
+// ProcessThread implementation
+ProcessThread::ProcessThread(const QString& program, const QStringList& args, QObject* parent)
+    : QThread(parent), m_program(program), m_args(args)
+{
+}
+
+void ProcessThread::run()
+{
+    QProcess process;
+    process.setProcessChannelMode(QProcess::MergedChannels);
+    
+    // 使用直接连接处理输出
+    connect(&process, &QProcess::readyRead, this, [this, &process]() {
+        QByteArray output = process.readAll();
+        if (!output.isEmpty()) {
+            emit outputReceived(QString::fromLocal8Bit(output));
+        }
+    }, Qt::DirectConnection);
+    
+    process.start(m_program, m_args);
+    if (!process.waitForStarted()) {
+        emit errorOccurred("启动失败");
+        return;
+    }
+    
+    // 等待进程结束
+    process.waitForFinished(-1);
+}
+
 burn_qwidget::burn_qwidget(QWidget *parent) : QWidget(parent)
 {
     initView();
@@ -94,17 +128,34 @@ void burn_qwidget::onstart_burn()
 
 void burn_qwidget::oninfo_mac_button()
 {
-    if (connection_state)
-    {
     showlog->clear();
-    showlog->append("***************正在查询mac***************");
-    tcpaap->sendMessageapp("11",OUTPUTINFOMAC);
-
-    }
-    else {
-        QMessageBox::information(this, "提示", "TCP连接失败");
-
-    }
+    
+    QString program = QCoreApplication::applicationDirPath() + "/tool/temp.exe";
+    QStringList arguments;
+    arguments << "10";
+    
+    // 创建并启动进程线程
+    ProcessThread* thread = new ProcessThread(program, arguments, this);
+    
+    // 处理输出
+    connect(thread, &ProcessThread::outputReceived, this, [this](const QString& text) {
+        showlog->moveCursor(QTextCursor::End);
+        showlog->insertPlainText(text);
+        showlog->moveCursor(QTextCursor::End);
+        showlog->verticalScrollBar()->setValue(showlog->verticalScrollBar()->maximum());
+        QApplication::processEvents();  // 强制处理事件
+    }, Qt::QueuedConnection);
+    
+    // 处理错误
+    connect(thread, &ProcessThread::errorOccurred, this, [this](const QString& error) {
+        showlog->append("错误：" + error);
+    }, Qt::QueuedConnection);
+    
+    // 当线程结束时自动删除
+    connect(thread, &ProcessThread::finished, thread, &ProcessThread::deleteLater);
+    
+    showlog->append("蓝牙设备扫描中，扫描10秒，结果最后一起输出。。。。。。。。");
+    thread->start();
 }
 
 void burn_qwidget::handleDataReceived(quint8 dataType, const QByteArray &buffer, bool islen_, bool ismd5_)

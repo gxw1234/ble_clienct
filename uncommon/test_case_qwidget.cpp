@@ -37,17 +37,14 @@ Test_case_qwidget::~Test_case_qwidget()
  *
  * 9:查询串口设置
  */
-
-
-
 void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buffer,bool islen_,bool ismd5_)
 {
     if (isreceivetcp)
     {
         if (ismd5_)
         {
-            switch (dataType) {
-            case 0x01:
+            switch (static_cast<TCP_client_data>(dataType)) {
+            case Starttest:
             {
                 QString data = QString::fromUtf8(buffer);
                 QStringList list = data.split("&", QString::SkipEmptyParts);
@@ -167,7 +164,7 @@ void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buf
                                       stringList.at(5));
 
 
-                qDebug() << "---------------" <<info.textlog;
+
 
                 save_row(ReportInfo(info));
 
@@ -190,6 +187,7 @@ void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buf
             case 0x16:
             {
                 Generation_path = createOrGetDailyFolder();
+                qDebug() <<"Generation_path" <<Generation_path;
                 QString testfile = QString::fromUtf8(buffer);
                 if (!testfile.isEmpty())
                 {
@@ -197,6 +195,17 @@ void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buf
                     rewrite_widget->fromString(testfile);
                 }
                 break;
+            }
+            case OUTPUTCASENAMEDATALIST_TO:
+            {
+
+                QString tempdata =QString::fromUtf8(buffer);
+                file_box->setCurrentText(tempdata);
+                Generation_path = createOrGetDailyFolder();
+                show_debug_log->setText("");
+                show_detailed_debug_log->setText("");
+
+               break;
             }
             default:
                 break;
@@ -218,7 +227,6 @@ void Test_case_qwidget::handleConnected_state(bool _connected_state)
         start_test->setChecked(false);
         start_test->setTextLabel(START_TEXT);
         start_test->setIconPath(":/images/images/start1.png");
-
     }
 }
 
@@ -227,7 +235,6 @@ void Test_case_qwidget::initView()
     //设置层的QFrame
     set_up_qframe =new QFrame;
     start_test  = new IconPushButton(":/images/images/start2.png", START_TEXT);
-
     start_test->setCheckable(true);
 //    start_test->setStyleSheet(       "QPushButton {\
 //                                     font-size: 16px;\
@@ -517,9 +524,7 @@ void Test_case_qwidget::startclicked(bool start)
     {
         if(start)
         {
-
             if(Multiple_choice_qCheckBox->isChecked())
-
             {
                 all_count =rewrite_widget->count();
                 if (all_count !=0)
@@ -531,18 +536,14 @@ void Test_case_qwidget::startclicked(bool start)
                     start_test->setTextLabel(START_TEXT);
                     start_test->setIconPath(":/images/images/start1.png");
                 }
-
             }
             else {
-
                 QStringList items =  FileUtil::getAllFile(testFilePath);
-
                 SelectionWindow *selectionWindow = new SelectionWindow(items);
                 selectionWindow->setWindowModality(Qt::ApplicationModal);
                 connect(selectionWindow, &SelectionWindow::selectionMade, this, &Test_case_qwidget::handleSelection); // 连接自定义信号
                 selectionWindow->show();
             }
-
         }
         else {
             QString message1 =  "停止测试";
@@ -602,12 +603,24 @@ void Test_case_qwidget::handleSelection(QStringList selectedItems)
         QMessageBox::information(this, "选择结果", "没有选择任何项目");
         start_test->setChecked(false);
     } else {
-
         test_name_list = selectedItems;
         if (!test_name_list.isEmpty()) {
+
+
+        for (int i = 1; i < test_name_list.size(); ++i) {
+             file_box->setCurrentText(test_name_list.at(i));
+
+
+             tcpaap->sendMessageapp(Savefiledata,OUTPUTCASENAMELIAT);
+                             QThread::msleep(50);
+            tcpaap->sendMessageapp(CONCAT_STRINGS_WITH_AMPERSAND(file_box->currentText(),pattern_qlneEdit->text()),OUTPUTCASENAMEDATALIST);
+
+        }
+
             file_box->setCurrentText(test_name_list.at(0));
-            test_name_list.removeFirst();
-            QThread::msleep(500);
+//            test_name_list.removeFirst();
+
+            QThread::msleep(50);
             start_network();
         }
     }
@@ -635,6 +648,7 @@ void Test_case_qwidget::onEnd_handleSignal(bool result)
 
     if(recordTestNp !=settestnpbox->value())
     {
+
     }
     else {
         step_qlneEdit->setText("测试已完成");
@@ -644,27 +658,10 @@ void Test_case_qwidget::onEnd_handleSignal(bool result)
         start_test->setIconPath(":/images/images/start1.png");
         recordTestNp =0;
     }
-
-
-    if (!test_name_list.isEmpty()) {
-        file_box->setCurrentText(test_name_list.at(0));
-        test_name_list.removeFirst();
-        QThread::msleep(500);
-        start_network();
-    }
-
-
-
-
-
-
 }
 
 void Test_case_qwidget::onCase_row_result_Signal(int type_tl, bool result)
 {
-
-
-
     rewrite_widget->setTextLabelBorderColor(Clear_color_row, Clear_color_column,QColor(0,0,255));
     if (result)
     {
@@ -804,8 +801,7 @@ void Test_case_qwidget::save_row(ReportInfo reportInfo)
      QString subFolderPath = Generation_path + "/" + reportInfo.title;
 
 
-     qDebug()<<"Generation_path" <<Generation_path;
-     qDebug()<< "subFolderPath"<<subFolderPath;
+
      QDir subDir(subFolderPath);
      if (!subDir.exists()) {
          subDir.mkpath(subFolderPath);
@@ -866,6 +862,8 @@ void Test_case_qwidget::start_network()
     show_debug_log->setText("");
     show_detailed_debug_log->setText("");
     Generation_path = createOrGetDailyFolder();
+
+
 
 }
 

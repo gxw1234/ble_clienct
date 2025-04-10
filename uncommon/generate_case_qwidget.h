@@ -54,6 +54,7 @@ private:
     QPushButton *delete_file_button=nullptr;
     QLineEdit *added_file_lindit=nullptr;
     QPushButton *added_file_button=nullptr;
+    QPushButton *added_refresh=nullptr;
     QPushButton *save_file_button=nullptr;
     QString testFilePath ;
     TimelineWidget *rewrite_file_widget=nullptr;
@@ -88,6 +89,7 @@ private:
 
 private slots:
     void added_file_func();
+    void added_refresh_func();
     void save_file_func();
     void deletefile_func();
     void file_switching(int);

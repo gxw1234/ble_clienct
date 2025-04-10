@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     MainWindow win;
     QFont font;
     font.setPointSize(20);
-    QString text_title = "遥控_1.2.7";
+    QString text_title = "遥控_2.0.1";
 
 
 //    win.top_qframe->setMaximumSize(QSize(15000, 70));
