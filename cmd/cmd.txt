@@ -1,2 +1,1 @@
-windeployqt D:\qtobj\ble_client\bin\bleserver.exe
-
+windeployqt D:\py\qtqbj\bin\SimpleQtApp.exe

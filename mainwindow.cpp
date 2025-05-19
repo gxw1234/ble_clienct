@@ -12,7 +12,6 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),settings("./record/config.ini", QSettings::IniFormat)
 {
-
     this->setWindowTitle("1.3.1");
     this->setWindowIcon(QIcon(":/images/images/Bluetooth.png"));
     mdiArea = new QMdiArea(this);
@@ -21,34 +20,26 @@ MainWindow::MainWindow(QWidget *parent)
     tiledcomboBox= new QPushButton;
     showwindowBox= new QComboBox;
     showwindow= new QPushButton;
-
     topsidebolabel=  new QLabel;
     topsidebolabel->setText("窗口最上面");
     maximizebolabel=  new QLabel;
     maximizebolabel->setText("窗口最大化");
     tiledcombolabel=  new QLabel;
     tiledcombolabel->setText("平铺");
-
-
     connect(topsideboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::ontopsideboBox);
     connect(maximizeboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::onmaximizeboBox);
     connect(showwindow, &QPushButton::clicked, this, &MainWindow::onshowwindow);
-
     QFrame * temp = new QFrame;
     QGridLayout *temp_ly;
     temp_ly =new QGridLayout(temp);
-
     temp_ly->addWidget(topsidebolabel,0,0,1,1);
     temp_ly->addWidget(topsideboBox,0,1,1,1);
     temp_ly->addWidget(maximizebolabel,0,2,1,1);
     temp_ly->addWidget(maximizeboBox,0,3,1,1);
     temp_ly->addWidget(tiledcombolabel,0,4,1,1);
     temp_ly->addWidget(tiledcomboBox,0,5,1,1);
-
     temp_ly->addWidget(showwindowBox,0,6,1,1);
     temp_ly->addWidget(showwindow,0,7,1,1);
-
-
     settings.beginGroup("Settings");
     QStringList valueList;
     QStringList keys = settings.allKeys();
@@ -81,7 +72,6 @@ void MainWindow::createSubWindow(const QString &title,const QString &ip,const QS
     subassembleqwidget *subWidget = new subassembleqwidget(title,ip,mac);
     QMdiSubWindow *subWindow = mdiArea->addSubWindow(subWidget);
     subWidget->setAttribute(Qt::WA_DeleteOnClose);
-//    subWidget->show();
     subWidget->showMaximized();
     topsideboBox->addItem(title, QVariant::fromValue(static_cast<void*>(subWindow)));
     maximizeboBox->addItem(title, QVariant::fromValue(static_cast<void*>(subWindow)));
@@ -101,7 +91,6 @@ void MainWindow::ontopsideboBox(int index)
 
 void MainWindow::onshowwindow()
 {
-
     int index = showwindowBox->currentIndex();
     if (index != -1) {
         QVariant data = showwindowBox->itemData(index);
