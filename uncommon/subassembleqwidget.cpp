@@ -53,7 +53,7 @@ void subassembleqwidget::ui_init()
 
     close_ui->setText("关闭");
     show_title->setStyleSheet("background-color: transparent;");
-    show_title->setReadOnly(true);  // 设置为只读
+    show_title->setReadOnly(true);
     show_title->setFocusPolicy(Qt::NoFocus);  //
     close_ui->setMaximumSize(QSize(50, 30));
     top_qframe =new QFrame;
@@ -87,13 +87,9 @@ void subassembleqwidget::ui_init()
     show_tcp_state_qframe_ly->addWidget(tcpconnectstate_show,0,3,1,1);
     show_tcp_state_qframe_ly->addWidget(tcpteststate,0,4,1,1);
     show_tcp_state_qframe_ly->addWidget(tcpteststate_show,0,5,1,1);
-
-
-     //主界面布局
      QGridLayout *ui_ly;
      ui_ly =new QGridLayout();
      ui_ly->addWidget(show_tcp_state_qframe,0,0,1,1);
-
      ui_ly->addWidget(host_qstackedWidget,1,0,1,1);
      ui_ly->setContentsMargins(0, 0, 0, 0);
      QWidget * maina =new QWidget;
@@ -126,9 +122,6 @@ QStringList subassembleqwidget::iniInit()
 void subassembleqwidget::settitle(QString pagename)
 {
     QString temp = _title+ "   当前页面：***************" + pagename+ "***************";
-
-
-
     this->setWindowTitle(temp);
 }
 

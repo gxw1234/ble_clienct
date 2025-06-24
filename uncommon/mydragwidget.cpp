@@ -85,14 +85,6 @@ MyDragWidget::MyDragWidget(QWidget *parent) :
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     scrollArea->verticalScrollBar()->setValue(100);
-//    QGridLayout *layout = new QGridLayout(this);
-//    layout->addWidget(typboBox,1,0,1,1);
-//    layout->addWidget(PlatecutBox,1,1,1,1);
-//    layout->addWidget(scrollArea,2,0,1,2);
-
-
-//    setLayout(layout);
-
     reconfiguration();
 
 
@@ -110,20 +102,9 @@ MyDragWidget::~MyDragWidget()
 
 void MyDragWidget::setitems(QStringList _addItems)
 {
-
-
     PlatecutBox->clear();
-
     PlatecutBox->addItems(_addItems);
-//    QList<QIcon> icons;
-//    icons.append(QIcon(":/images/images/Feature.png"));
-//    icons.append(QIcon(":/images/images/key.png"));
-//    icons.append(QIcon(":/images/images/edition.png"));
-//    icons.append(QIcon(":/images/images/edition.png"));
-//    icons.append(QIcon(":/images/images/edition.png"));
-//    for (int i = 0; i < _addItems.size(); ++i) {
-//        PlatecutBox->addItem(icons[0], _addItems[i]);
-//    }
+
 
 }
 
@@ -194,47 +175,12 @@ void MyDragWidget::Refresh_box()
 
 }
 
-//void MyDragWidget::setQWidgetlayout( QWidget *widnew, QStringList funlist , bool f_clear)
-//{
-
-//    if (f_clear) {
-//        // 遍历并删除所有子部件
-//        QList<QWidget*> children = widnew->findChildren<QWidget*>();
-//        for (QWidget* child : children) {
-//            child->deleteLater();
-//        }
-//    }
-
-//    for (int i = 0; i < funlist.size(); i++) {
-//        TimelineTextLabel* label = new TimelineTextLabel(widnew);
-//        label->setInoutState(widnew);
-//        label->setText(funlist.at(i));
-//        label->adjustSize();
-//        label->move(20 + (i % 2) * columnSpacing, 20 + (i / 2) * (labelHeight + lineSpacing));
-//        label->resize(labelWidth, labelHeight);
-//        connect(label, &TimelineTextLabel::mouseEntered, this, &MyDragWidget::onLabelMouseEntered);
-//        connect(label, &TimelineTextLabel::mouseLeft, this, &MyDragWidget::onLabelMouseLeft);
-//        if (i > 0) {
-
-//            QFrame* line = new QFrame(widnew);
-//            line->setFrameShape(QFrame::HLine);
-//            line->setFrameShadow(QFrame::Sunken);
-//            line->setLineWidth(2);
-//            line->setGeometry(20 + (i % 2) * columnSpacing, 20 + (i / 2) * (labelHeight + lineSpacing) - lineSpacing/2, columnSpacing, 2); // 设置模线的位置和尺寸
-//        }
-//    }
-//}
-
 
 void MyDragWidget::setQWidgetlayout( QWidget *widnew, QStringList funlist , bool f_clear)
 {
-
-
     if (!widnew) {
         return;
     }
-
-
     if (f_clear) {
 
         QLayout *layout = widnew->layout();
@@ -320,9 +266,6 @@ void MyDragWidget::reconfiguration()
     QWidget_trigger_scrollArea->setWidgetResizable(true);
     QWidget_combination_scrollArea->setWidgetResizable(true);
     QWidget_Set_parameters_scrollArea->setWidgetResizable(true);
-
-
-
 
 
     tabWidget->addTab(QWidget_feature_tab, QIcon(":/images/images/Feature.png"),"");

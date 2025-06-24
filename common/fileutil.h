@@ -36,20 +36,7 @@ public:
             QString baseName = QFileInfo(fileName).baseName();
             jsonFilesList.append(baseName);
         }
-
         return jsonFilesList;
-
-
-
-//        QStringList all_list;
-//        QDir directory(testFilePath);
-//        QStringList fileNames = directory.entryList(QDir::Files | QDir::NoDotAndDotDot);
-//        foreach(QString fileName, fileNames) {
-//            QString baseName = QFileInfo(fileName).baseName();
-//            all_list.append(baseName);
-//        }
-//        return all_list;
-
     }
 
     static QString readTextFile(QString path, QString codec)

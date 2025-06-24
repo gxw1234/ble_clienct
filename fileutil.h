@@ -40,6 +40,7 @@ public:
     //        QMessageBox::critical(nullptr, QObject::tr("错误"), QObject::tr("该文件不可读\n路径：%1").arg(path));
             return "";
         }
+
         QTextStream text_stream(&file);
         text_stream.setCodec(codec);
         while(!text_stream.atEnd())

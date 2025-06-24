@@ -4,7 +4,6 @@
 TimelineBucket::TimelineBucket(QWidget *parent) : QWidget(parent)
 {
     setAcceptDrops(true);
-
     selecting = false;
     current_index = -1;
     line_color = QColor(0, 0, 255, 126);

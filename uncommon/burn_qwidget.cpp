@@ -115,8 +115,6 @@ void burn_qwidget::oninfo_mac_button()
     QString program = QCoreApplication::applicationDirPath() + "/tool/temp.exe";
     QStringList arguments;
     arguments << "10";
-    
-
     ProcessThread* thread = new ProcessThread(program, arguments, this);
     
 

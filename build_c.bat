@@ -4,9 +4,8 @@ echo           Qt Application Build Tool
 echo =================================================
 
 REM Set Qt environment paths
-REM 使用原始的32位编译器
-set QT_DIR=D:\qt\5.12.2\mingw73_32
-set MINGW_DIR=D:\qt\Tools\mingw730_32\bin
+set QT_DIR=D:\qt\5.12.2\mingw73_64
+set MINGW_DIR=D:\qt\Tools\mingw730_64\bin
 
 echo Setting up environment...
 set PATH=%QT_DIR%\bin;%MINGW_DIR%;%PATH%

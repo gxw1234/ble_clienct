@@ -60,15 +60,10 @@ MainWindow::MainWindow(QWidget *parent)
     setCentralWidget(maina);
     mdiArea->tileSubWindows();
 
-
-
-
-
 }
 
 void MainWindow::createSubWindow(const QString &title,const QString &ip,const QString &mac)
 {
-
     subassembleqwidget *subWidget = new subassembleqwidget(title,ip,mac);
     QMdiSubWindow *subWindow = mdiArea->addSubWindow(subWidget);
     subWidget->setAttribute(Qt::WA_DeleteOnClose);
@@ -101,9 +96,10 @@ void MainWindow::onshowwindow()
     }
 }
 
+
+
 void MainWindow::onmaximizeboBox(int index)
 {
-
     int currentIndex = showwindowBox->currentIndex();
     if (currentIndex != -1) {
         QVariant data = showwindowBox->itemData(currentIndex);

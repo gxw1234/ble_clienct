@@ -308,31 +308,16 @@ void Test_case_qwidget::initView()
 
     set_up_qframe_Layout =new QGridLayout(set_up_qframe);
     set_up_qframe_Layout->addWidget(start_test,0,0,1,1);
-
-
     set_up_qframe_Layout->addWidget(file_text,0,3,1,1);
     set_up_qframe_Layout->addWidget(file_box,0,4,1,1);
-
-
-
-
-
     set_up_qframe_Layout->addWidget(pattern_label,0,5,1,1);
     set_up_qframe_Layout->addWidget(pattern_qlneEdit,0,6,1,1);
-
     set_up_qframe_Layout->addWidget(abnormal_stop_label,0,8,1,1);
     set_up_qframe_Layout->addWidget(abnormal_stop_qCheckBox,0,9,1,1);
-
-
     set_up_qframe_Layout->addWidget(Multiple_choice_label,0,1,1,1);
     set_up_qframe_Layout->addWidget(Multiple_choice_qCheckBox,0,2,1,1);
-
-
-
     set_up_qframe_Layout->addWidget(settestnp,0,10,1,1);
     set_up_qframe_Layout->addWidget(settestnpbox,0,11,1,1);
-
-
     set_up_qframe_Layout->addWidget(tests_all_numbe_label,0,14,1,1);
     set_up_qframe_Layout->addWidget(tests_all_numbe_lineEdit,0,15,1,1);
     set_up_qframe_Layout->addWidget(tests_pass_numbe_label,0,16,1,1);
@@ -350,11 +335,8 @@ void Test_case_qwidget::initView()
     step_qlneEdit->setAlignment(Qt::AlignCenter);
     step_qlneEdit->setStyleSheet("border: 3px solid rgb(0, 85, 255); background-color: rgb(0, 0, 0); color: rgb(0, 85, 255);");
     progressBar_test = new QProgressBar;
-
-
     progressBar_test->setAlignment(Qt::AlignCenter);
     progressBar_test->setFormat("%p%");
-
     progressBar_test->setStyleSheet(
         "QProgressBar {"
         "    border: 2px solid grey;"
@@ -402,9 +384,6 @@ void Test_case_qwidget::initView()
     detailed_debug_log_qwidget = new QWidget;
     debug_qstackedWidget->addWidget(debug_log_qwidget);
     debug_qstackedWidget->addWidget(detailed_debug_log_qwidget);
-
-
-
     QVBoxLayout *debug_log_qwidget_layout = new QVBoxLayout(debug_log_qwidget);
     debug_log_qwidget_layout->addWidget(show_debug_log);
     debug_log_qwidget->setLayout(debug_log_qwidget_layout);
@@ -423,6 +402,7 @@ void Test_case_qwidget::initView()
     debug_log_qframe_ly->addWidget(Single_use_case_Box,1,1,1,1);
     debug_log_qframe_ly->addWidget(debug_qstackedWidget,2,0,1,2);
     debug_log_qframe_ly->setContentsMargins(0, 0, 0, 0);
+    
     QGridLayout *layout = new QGridLayout(this);
     layout->addWidget(set_up_qframe,0,0,1,2);
     layout->addWidget(step_qlneEdit,1,0,1,2);
@@ -432,8 +412,6 @@ void Test_case_qwidget::initView()
     setLayout(layout);
     QString file_currentText  =file_box->currentText();
     import_file(file_currentText);
-
-
     }
 
 void Test_case_qwidget::key_signal()
@@ -452,9 +430,7 @@ void Test_case_qwidget::import_file(QString test_file)
      {
         read_file_text.append(file_currentText);
         read_file_text.append(suffix_text);
-
         QStringList fulltext = FileUtil::readTextFileIfExistJSON(read_file_text);
-
         QString content =fulltext.at(2);
         QString Device_name = fulltext.at(0);
         pattern_qlneEdit->setText(Device_name);
@@ -586,12 +562,8 @@ void Test_case_qwidget::handleSelection(QStringList selectedItems)
     } else {
         test_name_list = selectedItems;
         if (!test_name_list.isEmpty()) {
-
-
         for (int i = 1; i < test_name_list.size(); ++i) {
              file_box->setCurrentText(test_name_list.at(i));
-
-
              tcpaap->sendMessageapp(Savefiledata,OUTPUTCASENAMELIAT);
                              QThread::msleep(50);
             tcpaap->sendMessageapp(CONCAT_STRINGS_WITH_AMPERSAND(file_box->currentText(),pattern_qlneEdit->text()),OUTPUTCASENAMEDATALIST);
@@ -773,8 +745,6 @@ QString Test_case_qwidget::createOrGetDailyFolder(const QString &str = QString()
     QString dateString = QDateTime::currentDateTime().toString("yyyy年MM月dd日");
     QRegularExpression regex(R"(机器名称:\s*\*+(\w+)\*+\s*ip:)");
     QRegularExpressionMatch match = regex.match(ip_text->text());
-
-    // 构建每日文件夹路径
     QString dailyFolderPath = currentPath + "/results/" + match.captured(1) + "/" + dateString;
     QDir dir(dailyFolderPath);
     if (!dir.exists()) {
@@ -790,13 +760,11 @@ QString Test_case_qwidget::createOrGetDailyFolder(const QString &str = QString()
     if (!subDir.exists()) {
         subDir.mkpath(subFolderPath);
     }
-
     return subFolderPath;
 }
 
 void Test_case_qwidget::save_row(ReportInfo reportInfo)
 {
-
      QString subFolderPath = Generation_path + "/" + reportInfo.title;
      QDir subDir(subFolderPath);
      if (!subDir.exists()) {
@@ -804,7 +772,6 @@ void Test_case_qwidget::save_row(ReportInfo reportInfo)
      }
      QString serialPortFileName =  "_serialport.txt";
      QString serialPortFilePath = QString("%1/%2").arg(subFolderPath).arg(serialPortFileName);
-
      QFile serialPortFile(serialPortFilePath);
      if (serialPortFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
          QTextStream out(&serialPortFile);
