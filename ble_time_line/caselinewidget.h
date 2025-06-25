@@ -1,4 +1,4 @@
-﻿#ifndef TIMELINEWIDGET_H
+#ifndef TIMELINEWIDGET_H
 #define TIMELINEWIDGET_H
 
 #include <QObject>
@@ -24,7 +24,8 @@ class TimelineWidget : public QScrollArea
 public:
     TimelineWidget(QWidget *parent = nullptr);
 
-    void setTextLabelBorderColor(int ,int ,QColor);
+    void setTextLabelBorderColor(int index,int value,QColor p_color);
+    void setTextLabelBorderAndBackgroundColor(int index, int value, QColor borderColor, QColor backgroundColor);
 
     void setTimelineUndoVirtual(TimelineUndoVirtual*);
     TimelineUndoVirtual* m_xx_undos;

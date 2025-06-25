@@ -93,14 +93,11 @@ void Generate_case_qwidget::initView()
     connect( widget_case, &MyDragWidget::Tipsevent, this, &Generate_case_qwidget::handTipsevent);
     connect( widget_case, &MyDragWidget::Tipsleavevent, this, &Generate_case_qwidget::handTipsleavevent);
     connect( widget_case, &MyDragWidget::myselect_Device, this, &Generate_case_qwidget::handleselect_Device);
-
     QGridLayout *layout = new QGridLayout(this);
     layout->addWidget(test_file_qroupbox,0,0,1,10);
     layout->addWidget(assertion_QFrame,0,10,1,2);
     layout->addWidget(rewrite_file_widget,1,0,1,10);
     layout->addWidget(widget_case,1,10,1,2);
-
-
     setLayout(layout);
     connect(save_file_button, SIGNAL(clicked()), this, SLOT(save_file_func()));
     connect(added_file_button, SIGNAL(clicked()), this, SLOT(added_file_func()));
@@ -462,14 +459,15 @@ void Generate_case_qwidget::handleDataReceived(quint8 dataType, const QByteArray
     if (ismd5_)
     {
         switch (dataType) {
-        case 0x01:
+        case Test_Display_list_1:
         {
-            QString data = QString::fromUtf8(buffer);
-
-            QStringList list = data.split("&", QString::SkipEmptyParts);
-            if (list.size()==3)
-            {
-                onCase_info_use_Signal(list.at(0).toInt(),list.at(1),list.at(2).toInt());
+            QJsonDocument jsonDoc = QJsonDocument::fromJson(buffer);
+            if (jsonDoc.isObject()) {
+                QJsonObject jsonObj = jsonDoc.object();
+                int type = jsonObj["type"].toInt();
+                QString data = jsonObj["data"].toString();
+                int colour = jsonObj["colour"].toInt();
+                onCase_info_use_Signal(type, data, colour);
             }
             break;
         }

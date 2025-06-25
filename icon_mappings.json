@@ -1,0 +1,23 @@
+{
+  "icon_path_prefix": ":/images/images/",
+  "icon_mappings": {
+    "连接": "connect.png",
+
+    
+    "断开": "unconnect.png",
+
+    
+    "按键": "key.png",
+    "key": "key.png",
+    "按键测试": "key.png",
+    "按键配置": "key.png",
+    "按键设置": "key.png"
+    
+  },
+  "default_icon": "add.png",
+  "icon_size": {
+    "width": 16,
+    "height": 16
+  },
+  "icon_position": "left_center"
+} 

@@ -358,7 +358,6 @@ void Test_case_qwidget::initView()
 
     rewrite_widget = new TimelineWidget;
     new TimelineUndoStack(rewrite_widget);
-
     connect(rewrite_widget,SIGNAL(selectItemsChanged( QVector<QVariant>)),this,SLOT(acceptSelectItemsChanged( QVector<QVariant>)));
     connect(rewrite_widget, SIGNAL(debugChanged_ch()), this, SLOT(m_debugChanged_ch()));
 
@@ -795,7 +794,9 @@ void Test_case_qwidget::setcolumncolor(QString data)
     int row_temp = testingtemp[0].toInt();
     int column_temp = testingtemp[1].toInt();
     rewrite_widget->setTextLabelBorderColor(Clear_color_row, Clear_color_column,QColor(0,0,255));
-    rewrite_widget->setTextLabelBorderColor(row_temp, column_temp,QColor(255,0,0));
+    QColor borderColor(255, 0, 0);  
+    QColor backgroundColor(255, 255, 200); 
+    rewrite_widget->setTextLabelBorderAndBackgroundColor(row_temp, column_temp, borderColor, backgroundColor);
     Clear_color_row=row_temp;
     Clear_color_column=column_temp;
 }

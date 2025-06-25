@@ -7,6 +7,10 @@ TimelineTextLabel::TimelineTextLabel(QWidget *parent) : QLabel(parent)
     setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this,SIGNAL(customContextMenuRequested (const QPoint&)),this,SLOT(slotMenuShowed(const QPoint&)));
     setWordWrap(true);
+    
+    // 初始化图标相关成员变量
+    m_iconSize = QSize(16, 16);
+    m_iconPosition = Qt::AlignLeft | Qt::AlignVCenter;
 }
 
 TimelineTextLabel::TimelineTextLabel(const TimelineTextLabel *&another, QWidget *parent) : TimelineTextLabel(parent)
@@ -138,28 +142,107 @@ void TimelineTextLabel::mouseMoveEvent(QMouseEvent *event)
     }
     QLabel::mouseMoveEvent(event);
 }
-//
-void TimelineTextLabel::paintEvent(QPaintEvent *event)
-{
-    if(m_inoutState == true){
-        QPainter painter(this);
-        painter.setRenderHint(QPainter::Antialiasing);
-        painter.setBrush(Qt::white);
-        painter.setPen(Qt::blue);
-        painter.drawRoundedRect(0, 0, 100, 40, 10, 10);
 
-        QTextOption textOption;
-        textOption.setAlignment(Qt::AlignCenter);
-        painter.drawText(this->rect(),this->text(),textOption);
-    }else{
-        QPainter painter(this);
-        painter.setBrush(QColor("blue"));
-        painter.setRenderHint(QPainter::Antialiasing);
-        QTextOption textOption;
-        textOption.setAlignment(Qt::AlignCenter);
-        painter.drawText(this->rect(),this->text(),textOption);
-    }
+// 新增图标相关方法实现
+void TimelineTextLabel::setIcon(const QIcon& icon)
+{
+    m_icon = icon;
+    update(); // 重绘控件
 }
+
+void TimelineTextLabel::setIcon(const QString& iconPath)
+{
+    m_icon = QIcon(iconPath);
+    update(); // 重绘控件
+}
+
+void TimelineTextLabel::setIconSize(const QSize& size)
+{
+    m_iconSize = size;
+    update(); // 重绘控件
+}
+
+QIcon TimelineTextLabel::getIcon() const
+{
+    return m_icon;
+}
+
+QSize TimelineTextLabel::getIconSize() const
+{
+    return m_iconSize;
+}
+
+void TimelineTextLabel::setIconPosition(Qt::Alignment position)
+{
+    m_iconPosition = position;
+    update(); // 重绘控件
+}
+
+Qt::Alignment TimelineTextLabel::getIconPosition() const
+{
+    return m_iconPosition;
+}
+
+void TimelineTextLabel::drawIconAndText(QPainter& painter, const QRect& rect)
+{
+    if (m_icon.isNull()) {
+        // 没有图标，只绘制文本
+        QTextOption textOption;
+        textOption.setAlignment(Qt::AlignCenter);
+        painter.drawText(rect, this->text(), textOption);
+        return;
+    }
+
+    QPixmap iconPixmap = m_icon.pixmap(m_iconSize);
+    if (iconPixmap.isNull()) {
+        // 图标加载失败，只绘制文本
+        QTextOption textOption;
+        textOption.setAlignment(Qt::AlignCenter);
+        painter.drawText(rect, this->text(), textOption);
+        return;
+    }
+
+    // 计算图标和文本的位置
+    QRect iconRect;
+    QRect textRect;
+    
+    int iconTextSpacing = 4; // 图标和文本之间的间距
+    
+    if (m_iconPosition & Qt::AlignLeft) {
+        // 图标在左侧
+        iconRect = QRect(rect.left() + 2, rect.center().y() - m_iconSize.height()/2, 
+                        m_iconSize.width(), m_iconSize.height());
+        textRect = QRect(iconRect.right() + iconTextSpacing, rect.top(), 
+                        rect.width() - iconRect.width() - iconTextSpacing - 4, rect.height());
+    } else if (m_iconPosition & Qt::AlignRight) {
+        // 图标在右侧
+        iconRect = QRect(rect.right() - m_iconSize.width() - 2, rect.center().y() - m_iconSize.height()/2, 
+                        m_iconSize.width(), m_iconSize.height());
+        textRect = QRect(rect.left() + 2, rect.top(), 
+                        rect.width() - iconRect.width() - iconTextSpacing - 4, rect.height());
+    } else if (m_iconPosition & Qt::AlignTop) {
+        // 图标在上方
+        iconRect = QRect(rect.center().x() - m_iconSize.width()/2, rect.top() + 2, 
+                        m_iconSize.width(), m_iconSize.height());
+        textRect = QRect(rect.left(), iconRect.bottom() + iconTextSpacing, 
+                        rect.width(), rect.height() - iconRect.height() - iconTextSpacing - 4);
+    } else {
+        // 图标在下方
+        iconRect = QRect(rect.center().x() - m_iconSize.width()/2, rect.bottom() - m_iconSize.height() - 2, 
+                        m_iconSize.width(), m_iconSize.height());
+        textRect = QRect(rect.left(), rect.top() + 2, 
+                        rect.width(), rect.height() - iconRect.height() - iconTextSpacing - 4);
+    }
+
+    // 绘制图标
+    painter.drawPixmap(iconRect, iconPixmap);
+    
+    // 绘制文本
+    QTextOption textOption;
+    textOption.setAlignment(Qt::AlignCenter);
+    painter.drawText(textRect, this->text(), textOption);
+}
+
 //单个输入框菜单
 void TimelineTextLabel::slotMenuShowed(const QPoint &)
 {
@@ -211,4 +294,26 @@ void TimelineTextLabel::leaveEvent(QEvent* event) {
 
     emit mouseLeft(this->text());
     QLabel::leaveEvent(event);
+}
+
+//
+void TimelineTextLabel::paintEvent(QPaintEvent *event)
+{
+    if(m_inoutState == true){
+        QPainter painter(this);
+        painter.setRenderHint(QPainter::Antialiasing);
+        painter.setBrush(Qt::white);
+        painter.setPen(Qt::blue);
+        painter.drawRoundedRect(0, 0, 100, 40, 10, 10);
+
+        // 使用新的绘制方法，支持图标
+        drawIconAndText(painter, this->rect());
+    }else{
+        QPainter painter(this);
+        painter.setBrush(QColor("blue"));
+        painter.setRenderHint(QPainter::Antialiasing);
+        
+        // 使用新的绘制方法，支持图标
+        drawIconAndText(painter, this->rect());
+    }
 }

@@ -55,7 +55,8 @@ SOURCES += \
     uncommon/test_case_qwidget.cpp\
     common/wechatnotifier.cpp \
     uncommon/selectionwindow.cpp \
-    ble_time_line/caselineinputdialog.cpp
+    ble_time_line/caselineinputdialog.cpp \
+    common/icon_config.cpp
 
 
 
@@ -91,7 +92,8 @@ HEADERS += \
     uncommon/selectionwindow.h \
     ble_time_line/caselineinputdialog.h \
     keycfg/key_cfg.h \
-    ble_time_line/controldata.h
+    ble_time_line/controldata.h \
+    common/icon_config.h
 
 
 # Default rules for deployment.

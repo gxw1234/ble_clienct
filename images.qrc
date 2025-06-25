@@ -18,5 +18,20 @@
         <file>images/add_hover.png</file>
         <file>images/minus.png</file>
         <file>images/minus_hover.png</file>
+        <file>images/Delay_ico.png</file>
+        <file>images/Bluetooth_connect.png</file>
+        <file>images/Bluetooth_disconnect.png</file>
+        <file>images/Bluetooth_scan.png</file>
+        <file>images/Random_delay_ico.png</file>
+        <file>images/Bluetooth_deper.png</file>
+        <file>images/Power_off.png</file>
+        <file>images/Power_on.png</file>
+        <file>images/Bluetooth_per.png</file>
+        <file>images/led_ico.png</file>
+        <file>images/Setthe_voltage.png</file>
+        <file>images/Start_the_cycle.png</file>
+        <file>images/Stop_the_cycle.png</file>
+        <file>images/Assertion_f.png</file>
+        <file>images/Assertion_p.png</file>
     </qresource>
 </RCC>

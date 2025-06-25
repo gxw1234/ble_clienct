@@ -210,6 +210,11 @@ void MyDragWidget::setQWidgetlayout( QWidget *widnew, QStringList funlist , bool
         TimelineTextLabel* label = new TimelineTextLabel(widnew);
         label->setInoutState(widnew);
         label->setText(text);
+        QString iconPath = IconConfig::getInstance().getIconPath(text);
+        label->setIcon(iconPath);
+        label->setIconSize(QSize(16, 16));
+        label->setIconPosition(Qt::AlignLeft | Qt::AlignVCenter);
+        
         label->adjustSize();
         label->setFixedSize(labelWidth, labelHeight);
         gridLayout->addWidget(label, row, column);
@@ -219,7 +224,6 @@ void MyDragWidget::setQWidgetlayout( QWidget *widnew, QStringList funlist , bool
             row++;
         }
     }
-
     widnew->layout()->update();
 }
 

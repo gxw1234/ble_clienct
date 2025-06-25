@@ -1,6 +1,7 @@
-﻿#pragma execution_character_set("utf-8")
+#pragma execution_character_set("utf-8")
 #include "caselinebucket.h"
 #include <QPainterPath>
+#include "../common/icon_config.h"
 TimelineBucket::TimelineBucket(QWidget *parent) : QWidget(parent)
 {
     setAcceptDrops(true);
@@ -8,6 +9,9 @@ TimelineBucket::TimelineBucket(QWidget *parent) : QWidget(parent)
     current_index = -1;
     line_color = QColor(0, 0, 255, 126);
     ell_color = QColor(0, 0, 255, 126);
+    // 保存初始颜色，用于RadioButton状态切换恢复
+    original_line_color = line_color;
+    original_ell_color = ell_color;
     initView();
     m_inoutState = false;
 }
@@ -15,6 +19,16 @@ TimelineBucket::TimelineBucket(QWidget *parent) : QWidget(parent)
 void TimelineBucket::setTextLabelBorderColor(int index, QColor p_color)
 {
     QString style = QString("#TimelineTextLabel { background:white; border: 1px solid rgb(%1,%2,%3); border-radius: 5px; padding: 10px; }").arg(p_color.red()).arg(p_color.green()).arg(p_color.blue());
+    if(index < text_widgets.size()){
+         text_widgets.at(index)->setStyleSheet(style);
+    }
+}
+
+void TimelineBucket::setTextLabelBorderAndBackgroundColor(int index, QColor borderColor, QColor backgroundColor)
+{
+    QString style = QString("#TimelineTextLabel { background:rgb(%1,%2,%3); border: 1px solid rgb(%4,%5,%6); border-radius: 5px; padding: 10px; }")
+        .arg(backgroundColor.red()).arg(backgroundColor.green()).arg(backgroundColor.blue())
+        .arg(borderColor.red()).arg(borderColor.green()).arg(borderColor.blue());
     if(index < text_widgets.size()){
          text_widgets.at(index)->setStyleSheet(style);
     }
@@ -33,6 +47,11 @@ void TimelineBucket::initView()
     leading_dot->setRadius(5);
 
     adjustWidgetsPositions();
+
+    // 连接圆点选中状态变化信号
+    connect(leading_dot, &QRadioButton::toggled, this, [=](bool checked) {
+        updateRowAppearance(checked);
+    });
 
     connect(time_widget, &TimelineTimeLabel::signalClicked, this, [=] {
         emit signalTimeWidgetClicked(time_widget);
@@ -170,6 +189,11 @@ TimelineTextLabel* TimelineBucket::insertTextWidget(QString text, int index)
     TimelineTextLabel* label = new TimelineTextLabel(this);
     label->setText(text);
     label->adjustSize(false);
+    
+    // 为文本标签设置图标
+    QIcon icon = IconConfig::getInstance().getIcon(text);
+    label->setIcon(icon);
+    label->setIconSize(QSize(16, 16));
 
     if (index > -1)
     {
@@ -239,6 +263,7 @@ void TimelineBucket::actionInsertLeft(TimelineTextLabel *label)
 
     m_xx_undos->addCommand(this, index);
     emit signalBucketContentsChanged();
+    qDebug()<<"actionInsertLeft"<<index;    
 }
 
 void TimelineBucket::actionInsertRight(TimelineTextLabel *label)
@@ -249,6 +274,8 @@ void TimelineBucket::actionInsertRight(TimelineTextLabel *label)
 
     m_xx_undos->addCommand(this, index+1);
     emit signalBucketContentsChanged();
+
+    qDebug()<<"actionInsertRight"<<index;    
 }
 
 void TimelineBucket::actionDelete(TimelineTextLabel *label)
@@ -671,16 +698,16 @@ void TimelineBucket::dropEvent(QDropEvent *event)
                     break;
                 }
             }
-            qDebug()<<"TimelineTextLabel3";
+            // qDebug()<<"TimelineTextLabel3";
             if(label->getInoutState() == false){//内部文本
                 // 获取被拖拽的目标
                 int from_index = text_widgets.indexOf(label);
-                qDebug()<<"TimelineTextLabel4";
+                // qDebug()<<"TimelineTextLabel4";
                 if (from_index == -1) // 外面拖进来的
                 {
-                    qDebug()<<"TimelineTextLabel6";
+                    // qDebug()<<"TimelineTextLabel6";
                     auto prev_bucket = static_cast<TimelineBucket*>(label->parentWidget());
-                    qDebug()<<"TimelineTextLabel7";
+                    // qDebug()<<"TimelineTextLabel7";
 
                     if(prev_bucket!=nullptr){
                         bool state = prev_bucket->getInoutState();
@@ -688,15 +715,32 @@ void TimelineBucket::dropEvent(QDropEvent *event)
                             qDebug()<<"自己人--";
                             int prev_index = prev_bucket->indexOf(label);
                             qDebug()<<"prev_index=="<<prev_index;
+                            
+                            // 在调用moveCommand前，确保获取原始标签的图标信息
+                            QIcon icon = label->getIcon();
+                            QSize iconSize = label->getIconSize();
+                            
+                            // 执行移动命令
                             m_xx_undos->moveCommand(prev_bucket, this, prev_index, to_index);
+                            
+                            // 确保移动后的标签拥有正确的图标
+                            if (!text_widgets.isEmpty() && to_index < text_widgets.size()) {
+                                TimelineTextLabel* movedLabel = text_widgets.at(to_index);
+                                movedLabel->setIcon(icon);
+                                movedLabel->setIconSize(iconSize);
+                            }
                         }else{
                             qDebug()<<"外部来的--"<<label->text();
                             auto widget = new TimelineTextLabel( this);
                             connectWidgetEvent(widget);
                             widget->setText(label->text());
                             widget->move(label->x(), label->getGlobalPos().y() - this->pos().y());
+                            
+                           
+                            QIcon icon = IconConfig::getInstance().getIcon(label->text());
+                            widget->setIcon(icon);
+                            widget->setIconSize(QSize(16, 16));
                             widget->show();
-
                             text_widgets.insert(to_index, widget);
                             adjustBucketSize(); // 从其他bucket那里移动过来，需要手动更换位置
                             adjustWidgetsPositionsWithAnimation(); // TODEL
@@ -716,6 +760,12 @@ void TimelineBucket::dropEvent(QDropEvent *event)
                 connectWidgetEvent(widget);
                 widget->setText(label->text());
                 widget->move(label->x(), label->getGlobalPos().y() - this->pos().y());
+                
+                // 为新创建的文本标签设置图标
+                QIcon icon = IconConfig::getInstance().getIcon(label->text());
+                widget->setIcon(icon);
+                widget->setIconSize(QSize(16, 16));
+                
                 widget->show();
                 text_widgets.insert(to_index, widget);
                 adjustBucketSize(); // 从其他bucket那里移动过来，需要手动更换位置
@@ -743,7 +793,7 @@ bool TimelineBucket::canDropMimeData(QDropEvent *event)
     }
     else if (mime->hasFormat(TIMELINE_TEXT_MIME_KEY)) // 单个TextWidget拖拽
     {
-        qDebug() <<"整行";
+        // qDebug() <<"整行";
         return true;
     }
     return false;
@@ -758,4 +808,11 @@ void TimelineBucket::setWaterProp(int p)
 {
     water_prop = p;
     update();
+}
+
+// 更新整行外观，根据圆点选中状态
+void TimelineBucket::updateRowAppearance(bool checked)
+{
+    
+
 }

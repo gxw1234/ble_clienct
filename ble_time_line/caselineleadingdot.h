@@ -1,14 +1,14 @@
-﻿#ifndef TIMELINELEADINGDOT_H
+#ifndef TIMELINELEADINGDOT_H
 #define TIMELINELEADINGDOT_H
 
 #include <QObject>
-#include <QWidget>
+#include <QRadioButton>
 #include <QPainter>
 #include <QDebug>
 #include "caselineglobal.h"
 
 //这里画圆点
-class TimelineLeadingDot : public QWidget
+class TimelineLeadingDot : public QRadioButton
 {
     Q_OBJECT
 public:
@@ -16,6 +16,8 @@ public:
 
     void setColor(QColor c);
     void setRadius(int r);
+    void setChecked(bool checked);
+    bool isChecked() const;
 
 protected:
     void paintEvent(QPaintEvent *event) override;

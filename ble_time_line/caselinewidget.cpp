@@ -78,6 +78,13 @@ void TimelineWidget::setTextLabelBorderColor(int index,int value,QColor p_color)
 
 }
 
+void TimelineWidget::setTextLabelBorderAndBackgroundColor(int index, int value, QColor borderColor, QColor backgroundColor)
+{
+    if(index < buckets.size()){
+        buckets.at(index)->setTextLabelBorderAndBackgroundColor(value, borderColor, backgroundColor);
+    }
+}
+
 void TimelineWidget::setTimelineUndoVirtual(TimelineUndoVirtual *strcs)
 {
     m_xx_undos = strcs;

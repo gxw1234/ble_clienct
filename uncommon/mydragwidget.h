@@ -15,6 +15,7 @@
 #include <QSpacerItem>
 
 #include <QTabWidget>
+#include "common/icon_config.h"
 class QDragEnterEvent;
 class QDropEvent;
 

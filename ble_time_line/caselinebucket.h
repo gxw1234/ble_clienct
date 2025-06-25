@@ -1,4 +1,4 @@
-﻿#ifndef TIMELINEBUCKET_H
+#ifndef TIMELINEBUCKET_H
 #define TIMELINEBUCKET_H
 
 #include <QObject>
@@ -24,7 +24,8 @@ class TimelineBucket : public QWidget
 public:
     TimelineBucket(QWidget *parent = nullptr);
 
-    void setTextLabelBorderColor(int ,QColor);
+    void setTextLabelBorderColor(int index, QColor p_color);
+    void setTextLabelBorderAndBackgroundColor(int index, QColor borderColor, QColor backgroundColor);
 
     void setTimelineUndoVirtual(TimelineUndoVirtual*);
     TimelineUndoVirtual* m_xx_undos;
@@ -67,6 +68,7 @@ public:
     void setInoutState(bool);
     void setLineColor(QColor);
     void setEllColor(QColor);
+    void updateRowAppearance(bool checked);
 
 protected:
     void showEvent(QShowEvent* event) override;
@@ -137,6 +139,10 @@ private:
     QColor line_color = QColor(0, 0, 200, 126);
     //圆点颜色
     QColor ell_color = QColor(0, 0, 200, 126);
+    // 原始线颜色（用于状态恢复）
+    QColor original_line_color;
+    // 原始圆点颜色（用于状态恢复）
+    QColor original_ell_color;
 };
 
 #endif // TIMELINEBUCKET_H
