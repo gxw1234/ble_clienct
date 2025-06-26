@@ -106,6 +106,8 @@ public slots:
     void actionCopyText();
     void actionPaste();
     void debugcase();
+    void actionSelectAllDots();
+    void actionUnselectAllDots();
 
 private:
     QWidget* center_widget;

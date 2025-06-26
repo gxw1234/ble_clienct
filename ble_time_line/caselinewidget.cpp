@@ -979,17 +979,31 @@ void TimelineWidget::slotMenuShowed(const QPoint &pos)
     QAction* copy_text_action = new QAction("复制文字", this);
     QAction* paste_action = new QAction("剪贴板导入", this);
     QAction* debug_action = new QAction("调试", this);
+    QAction* select_all_dots_action = new QAction("全部选中", this);
+    QAction* unselect_all_dots_action = new QAction("全部未选中", this);
 
-    menu->addAction(add_text_action);
-    menu->addAction(add_line_action);
-    menu->addAction(insert_above_action);
-    menu->addAction(insert_under_action);
-    menu->addAction(delete_line_action);
-    menu->addSeparator();
-    menu->addAction(copy_text_action);
-    menu->addAction(paste_action);
-    menu->addSeparator();
-    menu->addAction(debug_action);
+    // 根据界面类型显示不同的菜单项
+    if (ispop_up) {
+        // 调试界面：显示所有菜单项
+        menu->addAction(add_text_action);
+        menu->addAction(add_line_action);
+        menu->addAction(insert_above_action);
+        menu->addAction(insert_under_action);
+        menu->addAction(delete_line_action);
+        menu->addSeparator();
+        menu->addAction(copy_text_action);
+        menu->addAction(paste_action);
+
+        menu->addSeparator();
+        menu->addAction(select_all_dots_action);
+        menu->addAction(unselect_all_dots_action);
+        menu->addSeparator();
+        menu->addAction(debug_action);
+    } else {
+        // 正式界面：只显示全部选中和全部未选中
+        menu->addAction(select_all_dots_action);
+        menu->addAction(unselect_all_dots_action);
+    }
 
     if (current_index == -1)
     {
@@ -1009,6 +1023,8 @@ void TimelineWidget::slotMenuShowed(const QPoint &pos)
     connect(copy_text_action, SIGNAL(triggered()), this, SLOT(actionCopyText()));
     connect(paste_action, SIGNAL(triggered()), this, SLOT(actionPaste()));//粘贴
     connect(debug_action, SIGNAL(triggered()), this, SLOT(debugcase()));
+    connect(select_all_dots_action, SIGNAL(triggered()), this, SLOT(actionSelectAllDots()));
+    connect(unselect_all_dots_action, SIGNAL(triggered()), this, SLOT(actionUnselectAllDots()));
     menu->exec(QCursor::pos());
 }
 
@@ -1195,5 +1211,28 @@ void TimelineWidget::actionPaste()
 void TimelineWidget::debugcase()
 {
     emit debugChanged_ch();
+}
 
+void TimelineWidget::actionSelectAllDots()
+{
+    // 选中所有行的leading_dot
+    for (int i = 0; i < buckets.size(); ++i) {
+        TimelineBucket* bucket = buckets.at(i);
+        if (bucket && bucket->leading_dot) {
+            bucket->leading_dot->setChecked(true);
+        }
+    }
+    qDebug() << "已选中所有行的leading_dot";
+}
+
+void TimelineWidget::actionUnselectAllDots()
+{
+    // 取消选中所有行的leading_dot
+    for (int i = 0; i < buckets.size(); ++i) {
+        TimelineBucket* bucket = buckets.at(i);
+        if (bucket && bucket->leading_dot) {
+            bucket->leading_dot->setChecked(false);
+        }
+    }
+    qDebug() << "已取消选中所有行的leading_dot";
 }

@@ -70,6 +70,7 @@ private:
 
     QLabel *pattern_label=nullptr;
     QLineEdit *pattern_qlneEdit=nullptr;
+    bool test_isChecked =false;
 
 
     Tcpapp *tcpaap = nullptr;
@@ -78,8 +79,6 @@ private:
     QString macValue;
     Tips_widget *tipsWidget =nullptr ;
     QList<equipmentcfg> stringToBluetoothDataList(const QString& string);
-
-
     QLabel *save_file_button_qlabel=nullptr;
     QString Device_name;
     QVector<QVariant> _m_selectInfo;

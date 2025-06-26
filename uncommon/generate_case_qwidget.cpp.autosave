@@ -440,7 +440,6 @@ void Generate_case_qwidget::m_debugChanged_ch()
     {
 
         tcpaap->sendMessageapp("Query the test status",5);
-
         if(test_isChecked)
         {
             tcpaap->sendMessageapp("停止测试",1);

@@ -141,6 +141,7 @@ private:
 
     QStringList test_name_list;
     bool stringAsBool =false;
+    int checkLeadingDotsStatus();
 
 private slots:
     void home_file_switching(int);
@@ -150,6 +151,7 @@ private slots:
     void acceptSelectItemsChanged( QVector<QVariant>);
     void m_debugChanged_ch();
     void handleSelection(QStringList selectedItems);
+
 };
 
 #endif // TEST_CASE_QWIDGET_H

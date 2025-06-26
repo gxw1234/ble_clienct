@@ -411,6 +411,7 @@ void Test_case_qwidget::initView()
     setLayout(layout);
     QString file_currentText  =file_box->currentText();
     import_file(file_currentText);
+    
     }
 
 void Test_case_qwidget::key_signal()
@@ -482,9 +483,12 @@ void Test_case_qwidget::startclicked(bool start)
         {
             if(Multiple_choice_qCheckBox->isChecked())
             {
-                all_count =rewrite_widget->count();
+//                all_count =rewrite_widget->count();
+                all_count =checkLeadingDotsStatus();
                 if (all_count !=0)
                 {
+
+//                    checkLeadingDotsStatus();
                     start_network();
                 }
                 else {
@@ -821,5 +825,66 @@ void Test_case_qwidget::start_network()
     show_detailed_debug_log->setText("");
     Generation_path = createOrGetDailyFolder();
 
+}
+
+int Test_case_qwidget::checkLeadingDotsStatus()
+{
+    qDebug() << "=== 检查每一行的leading_dot选中状态 ===";
+    int totalRows = rewrite_widget->count();
+    qDebug() << "总行数:" << totalRows;
+    
+    // 存储选中的行内容
+    QString result;
+    int selectedCount = 0;
+    int unselectedCount = 0;
+    
+    for (int i = 0; i < totalRows; ++i) {
+        TimelineBucket* bucket = rewrite_widget->at(i);
+        if (bucket && bucket->leading_dot) {
+            bool isChecked = bucket->leading_dot->isChecked();
+            QString timeText = bucket->getTime();
+            qDebug() << QString("第%1行 - 时间:%2 - leading_dot选中状态:%3")
+                        .arg(i + 1)
+                        .arg(timeText)
+                        .arg(isChecked ? "已选中" : "未选中");
+            
+            // 如果被选中，添加到结果中
+            if (isChecked) {
+                selectedCount++;
+                // 添加时间
+                result += timeText + "\n";
+                // 添加该行的所有文本
+                QStringList texts = bucket->getTexts();
+                for (int j = 0; j < texts.size(); ++j) {
+                    result += texts[j];
+                    if (j != texts.size() - 1) {
+                        result += '\n';
+                    }
+                }
+                result += "\nend\n";
+            } else {
+                unselectedCount++;
+            }
+        } else {
+            qDebug() << QString("第%1行 - 无法获取bucket或leading_dot").arg(i + 1);
+        }
+    }
+    
+    qDebug() << "选中的行数:" << selectedCount;
+    qDebug() << "未选中的行数:" << unselectedCount;
+    qDebug() << "=== 检查完成 ===";
+    
+    // 只有当有未选中的行时才进行清除和重新绘制
+    if (unselectedCount > 0) {
+        qDebug() << "发现未选中的行，重新绘制选中的行...";
+        rewrite_widget->clearAll();
+        rewrite_widget->fromString(result);
+        Savefiledata = result;
+        qDebug() << "重新绘制完成";
+    } else {
+        qDebug() << "全部行都已选中，无需重新绘制";
+    }
+    
+    return selectedCount;
 }
 

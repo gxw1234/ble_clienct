@@ -69,6 +69,7 @@ public:
     void setLineColor(QColor);
     void setEllColor(QColor);
     void updateRowAppearance(bool checked);
+    TimelineLeadingDot* leading_dot; // 开头的小点
 
 protected:
     void showEvent(QShowEvent* event) override;
@@ -110,7 +111,7 @@ public slots:
     void actionMoveTextLabel(int from, int to);
 
 private:
-    TimelineLeadingDot* leading_dot; // 开头的小点
+    
     TimelineTimeLabel* time_widget; // 时间点的线
     //所有的文本
     QList<TimelineTextLabel*> text_widgets; // 这个时间点的text控件列表
