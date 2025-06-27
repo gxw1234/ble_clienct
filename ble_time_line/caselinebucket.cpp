@@ -306,7 +306,12 @@ void TimelineBucket::clearText()
 
 QString TimelineBucket::toString(QString time_format, QString para_split)
 {
-    QString result = QString(time_format).arg(time_widget->text());
+    bool checked = false;
+    QRadioButton* radio = qobject_cast<QRadioButton*>(leading_dot);
+    if (radio) checked = radio->isChecked();
+    QString result = (checked ? "√" : "×");
+    result += para_split;
+    result += QString(time_format).arg(time_widget->text());
     foreach (auto widget, text_widgets)
     {
         result += para_split + widget->text();
@@ -455,7 +460,6 @@ void TimelineBucket::setPressPos(QPoint pos)
 
 bool TimelineBucket::getInoutState()
 {
-    qDebug()<<"m_inoutState==="<<m_inoutState;
     return m_inoutState;
 }
 
@@ -810,9 +814,40 @@ void TimelineBucket::setWaterProp(int p)
     update();
 }
 
-// 更新整行外观，根据圆点选中状态
 void TimelineBucket::updateRowAppearance(bool checked)
 {
-    
+    if (checked) {
+        setLineColor(original_line_color);
+        setEllColor(original_ell_color);
+        if (time_widget) {
+            time_widget->setStyleSheet("");
+        }
+        for (TimelineTextLabel* label : text_widgets) {
+            label->setStyleSheet("");
+        }
+    } else {
+        if (original_line_color.isValid() == false) {
+            original_line_color = line_color;
+            original_ell_color = ell_color;
+        }
+        setLineColor(QColor(128, 128, 128, 126));
+        setEllColor(QColor(128, 128, 128, 126));
+        if (time_widget) {
+            time_widget->setStyleSheet("color: gray;");
+        }
+        for (TimelineTextLabel* label : text_widgets) {
+            label->setStyleSheet("color: gray;");
+        }
+    }
+    update();
+    emit radioStateChanged();
+}
 
+bool TimelineBucket::getRadioState() const
+{
+    QRadioButton* radio = qobject_cast<QRadioButton*>(leading_dot);
+    if (radio) {
+        return radio->isChecked();
+    }
+    return false;
 }

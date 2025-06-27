@@ -20,6 +20,7 @@
 #define OUTPUTCASENAMEDATALIST 27 //测试文件名称list
 #define OUTPUTCASENAMEDATALIST_TO 28 //接收测试文件的名称
 #define OUTPUT_TEST_ING 29 //测试中
+#define OUTPUT_TEST_MODE 30 //测试测试模式
 
 enum TCP_client_data {
     Test_Display_list_1 = 0x01, //显示列表

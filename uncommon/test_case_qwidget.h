@@ -141,7 +141,7 @@ private:
 
     QStringList test_name_list;
     bool stringAsBool =false;
-    int checkLeadingDotsStatus();
+    bool is_modified = false;
 
 private slots:
     void home_file_switching(int);

@@ -255,6 +255,7 @@ void Generate_case_qwidget::save_file_func()
     }
 }
 
+
 void Generate_case_qwidget::deletefile_func()
 {
 
@@ -447,6 +448,8 @@ void Generate_case_qwidget::m_debugChanged_ch()
             QMessageBox::information(this, "提示", "服务端正在测试，已停止服务端测试，请稍后重试");
         }
         else {
+
+            tcpaap->sendMessageapp( "1",OUTPUT_TEST_MODE);
             QString message1 =  "开始测试";
             tcpaap->sendMessageapp(debug_case,2);
             QThread::msleep(50);

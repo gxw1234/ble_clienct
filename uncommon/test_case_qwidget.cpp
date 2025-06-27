@@ -17,8 +17,13 @@ Test_case_qwidget::Test_case_qwidget(QWidget *parent) : QWidget(parent)
     connection_state= false;
     isreceivetcp =true;
     weChatMessageSender =new WeChatMessageSender;
-
-
+    if (rewrite_widget) {
+        for (auto bucket : rewrite_widget->getBuckets()) {
+            connect(bucket, &TimelineBucket::radioStateChanged, this, [this]() {
+                is_modified = true;
+            });
+        }
+    }
 }
 
 Test_case_qwidget::~Test_case_qwidget()
@@ -440,13 +445,6 @@ void Test_case_qwidget::import_file(QString test_file)
              rewrite_widget->fromString(content);
          }
     }
-
-//    rewrite_widget->setTextLabelBorderColor(1,3,QColor(255,0,0));
-
-
-
-
-
 }
 
 void Test_case_qwidget::home_file_switching(int index)
@@ -476,6 +474,8 @@ void Test_case_qwidget::home_file_switching(int index)
 
 void Test_case_qwidget::startclicked(bool start)
 {
+
+
     test_name_list.clear();  //开始的时候把多选清除掉
     if (connection_state)
     {
@@ -483,12 +483,18 @@ void Test_case_qwidget::startclicked(bool start)
         {
             if(Multiple_choice_qCheckBox->isChecked())
             {
-//                all_count =rewrite_widget->count();
-                all_count =checkLeadingDotsStatus();
+                all_count =rewrite_widget->count();
                 if (all_count !=0)
                 {
-
-//                    checkLeadingDotsStatus();
+                    if (is_modified) {
+                        if (rewrite_widget) {
+                            QString file_text = testFilePath;
+                            file_text.append(file_box->currentText());
+                            file_text.append(suffix_text);
+                            FileUtil::writeTextFileJSON(file_text, rewrite_widget->toString(), pattern_qlneEdit->text());
+                            is_modified = false;
+                        }
+                    }
                     start_network();
                 }
                 else {
@@ -528,33 +534,35 @@ void Test_case_qwidget::onMessage(QString)
 void Test_case_qwidget::acceptSelectItemsChanged(QVector<QVariant> p_selectInfo)
 {
     _m_selectInfo = p_selectInfo;
+    is_modified = true; // 内容变动，标记为已修改
 }
 
 void Test_case_qwidget::m_debugChanged_ch()
 {
     QString result;
-       for (const QVariant &var : _m_selectInfo) {
-           if (var.type() == QVariant::String) {
-               QString title = var.toString();
-               result += title+"\n";
-           } else if (var.type() == QVariant::StringList) {
-               QStringList caseList = var.toStringList();
-               int size = caseList.size();
-               for (int i = 0; i < size; ++i) {
-                   result += caseList[i];
-                   if (i != size - 1) {
-                       result += '\n';
-                   } else {
-                       result += "\nend\n";
-                   }
-               }
-           }
-       }
-       rewrite_widget->clearAll();
-       rewrite_widget->fromString(result);
-       Savefiledata =result;
-       start_test->setChecked(true);
-       startclicked(true);
+    for (const QVariant &var : _m_selectInfo) {
+        if (var.type() == QVariant::String) {
+            QString title = var.toString();
+            result += title+"\n";
+        } else if (var.type() == QVariant::StringList) {
+            QStringList caseList = var.toStringList();
+            int size = caseList.size();
+            for (int i = 0; i < size; ++i) {
+                result += caseList[i];
+                if (i != size - 1) {
+                    result += '\n';
+                } else {
+                    result += "\nend\n";
+                }
+            }
+        }
+    }
+    rewrite_widget->clearAll();
+    rewrite_widget->fromString(result);
+    Savefiledata =result;
+    start_test->setChecked(true);
+    startclicked(true);
+
 }
 
 void Test_case_qwidget::handleSelection(QStringList selectedItems)
@@ -567,7 +575,7 @@ void Test_case_qwidget::handleSelection(QStringList selectedItems)
         if (!test_name_list.isEmpty()) {
         for (int i = 1; i < test_name_list.size(); ++i) {
              file_box->setCurrentText(test_name_list.at(i));
-             tcpaap->sendMessageapp(Savefiledata,OUTPUTCASENAMELIAT);
+             tcpaap->sendMessageapp(rewrite_widget->toString(),OUTPUTCASENAMELIAT);
                              QThread::msleep(50);
             tcpaap->sendMessageapp(CONCAT_STRINGS_WITH_AMPERSAND(file_box->currentText(),pattern_qlneEdit->text()),OUTPUTCASENAMEDATALIST);
 
@@ -653,6 +661,12 @@ void Test_case_qwidget::onCase_info_use_Signal(int type_tl, QString b, int resul
     else if (result_colour ==3) {
         format.setForeground(QColor(Qt::red)); // 设置字体颜色为红色
     }
+    else if (result_colour ==4) {
+        format.setForeground(QColor(Qt::gray)); // 设置字体颜色为红色
+    }else {
+
+         format.setForeground(QColor(Qt::black)); // 默认黑色
+}
     add_Results_Log.setCharFormat(format);
     add_Results_Log.insertText(b);
     show_debug_log->moveCursor(QTextCursor::End);
@@ -811,7 +825,11 @@ void Test_case_qwidget::start_network()
     start_test->setTextLabel(START_ING_TEXT);
     start_test->setIconPath(":/images/images/start2.png");
     QString message1 =  START_TEXT;
-    tcpaap->sendMessageapp(Savefiledata,OUTPUTTESTDOCUMENT);
+
+
+    tcpaap->sendMessageapp( "0",OUTPUT_TEST_MODE);
+
+    tcpaap->sendMessageapp(rewrite_widget->toString(),OUTPUTTESTDOCUMENT);
                     QThread::msleep(50);
     tcpaap->sendMessageapp(QString::number(settestnpbox->value()),OUTPUTTESTNP);
                     QThread::msleep(50);
@@ -825,66 +843,5 @@ void Test_case_qwidget::start_network()
     show_detailed_debug_log->setText("");
     Generation_path = createOrGetDailyFolder();
 
-}
-
-int Test_case_qwidget::checkLeadingDotsStatus()
-{
-    qDebug() << "=== 检查每一行的leading_dot选中状态 ===";
-    int totalRows = rewrite_widget->count();
-    qDebug() << "总行数:" << totalRows;
-    
-    // 存储选中的行内容
-    QString result;
-    int selectedCount = 0;
-    int unselectedCount = 0;
-    
-    for (int i = 0; i < totalRows; ++i) {
-        TimelineBucket* bucket = rewrite_widget->at(i);
-        if (bucket && bucket->leading_dot) {
-            bool isChecked = bucket->leading_dot->isChecked();
-            QString timeText = bucket->getTime();
-            qDebug() << QString("第%1行 - 时间:%2 - leading_dot选中状态:%3")
-                        .arg(i + 1)
-                        .arg(timeText)
-                        .arg(isChecked ? "已选中" : "未选中");
-            
-            // 如果被选中，添加到结果中
-            if (isChecked) {
-                selectedCount++;
-                // 添加时间
-                result += timeText + "\n";
-                // 添加该行的所有文本
-                QStringList texts = bucket->getTexts();
-                for (int j = 0; j < texts.size(); ++j) {
-                    result += texts[j];
-                    if (j != texts.size() - 1) {
-                        result += '\n';
-                    }
-                }
-                result += "\nend\n";
-            } else {
-                unselectedCount++;
-            }
-        } else {
-            qDebug() << QString("第%1行 - 无法获取bucket或leading_dot").arg(i + 1);
-        }
-    }
-    
-    qDebug() << "选中的行数:" << selectedCount;
-    qDebug() << "未选中的行数:" << unselectedCount;
-    qDebug() << "=== 检查完成 ===";
-    
-    // 只有当有未选中的行时才进行清除和重新绘制
-    if (unselectedCount > 0) {
-        qDebug() << "发现未选中的行，重新绘制选中的行...";
-        rewrite_widget->clearAll();
-        rewrite_widget->fromString(result);
-        Savefiledata = result;
-        qDebug() << "重新绘制完成";
-    } else {
-        qDebug() << "全部行都已选中，无需重新绘制";
-    }
-    
-    return selectedCount;
 }
 

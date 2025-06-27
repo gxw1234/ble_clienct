@@ -70,6 +70,7 @@ public:
     void setEllColor(QColor);
     void updateRowAppearance(bool checked);
     TimelineLeadingDot* leading_dot; // 开头的小点
+    bool getRadioState() const;
 
 protected:
     void showEvent(QShowEvent* event) override;
@@ -103,6 +104,8 @@ signals:
     void signalTextWidgetDoubleClicked(TimelineTextLabel* label);
     void signalDroppedAndMoved(TimelineBucket* bucket); // 被拖拽到外面去，从现在这里删掉
     void signalBucketContentsChanged();
+    // 新增：QRadioButton状态变更信号
+    void radioStateChanged();
 
 public slots:
     void actionInsertLeft(TimelineTextLabel* label);

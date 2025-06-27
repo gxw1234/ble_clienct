@@ -23,7 +23,6 @@ INCLUDEPATH += \
     backpack/
     common/
      uncommon/
-    keycfg/
 
 SOURCES += \
     common/cmdanalyze.cpp \
@@ -47,6 +46,7 @@ SOURCES += \
     ble_time_line/caselineundostack.cpp \
     ble_time_line/caselineundovirtual.cpp \
     ble_time_line/caselinewidget.cpp\
+    ble_time_line/caselineinputdialog.cpp \
     uncommon/burn_qwidget.cpp \
     uncommon/disposition.cpp \
     uncommon/generate_case_qwidget.cpp \
@@ -55,7 +55,6 @@ SOURCES += \
     uncommon/test_case_qwidget.cpp\
     common/wechatnotifier.cpp \
     uncommon/selectionwindow.cpp \
-    ble_time_line/caselineinputdialog.cpp \
     common/icon_config.cpp
 
 
@@ -82,6 +81,7 @@ HEADERS += \
     ble_time_line/caselineundostack.h \
     ble_time_line/caselineundovirtual.h \
     ble_time_line/caselinewidget.h\
+    ble_time_line/caselineinputdialog.h \
     uncommon/burn_qwidget.h \
     uncommon/disposition.h \
     uncommon/generate_case_qwidget.h \
@@ -90,9 +90,6 @@ HEADERS += \
     uncommon/test_case_qwidget.h\
     common/wechatnotifier.h \
     uncommon/selectionwindow.h \
-    ble_time_line/caselineinputdialog.h \
-    keycfg/key_cfg.h \
-    ble_time_line/controldata.h \
     common/icon_config.h
 
 

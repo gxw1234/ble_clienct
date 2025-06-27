@@ -1,6 +1,5 @@
 #pragma execution_character_set("utf-8")
 #include "caselinewidget.h"
-#include "keycfg/key_cfg.h"
 TimelineWidget::TimelineWidget(QWidget *parent) : QScrollArea(parent)
 {
     setAcceptDrops(true);
@@ -452,6 +451,7 @@ void TimelineWidget::fromString(QString string, QString time_reg, QString node_s
     unselectAll();
     QList<QString> times;
     QList<QStringList> textss;
+    QList<bool> radioStates; // 存储每个bucket的QRadioButton状态
     clearAll();
     if (node_split == nodes_split)
     {
@@ -464,9 +464,35 @@ void TimelineWidget::fromString(QString string, QString time_reg, QString node_s
         for (const QString &line : lines) {
             if (line == "end") {
                 if (!currentBlock.isEmpty()) {
-                    times.append(currentBlock.first());
-                    currentBlock.removeFirst();
-                    textss.append(currentBlock);
+
+                    bool radioState = true;
+                    QString timeStr;
+                    QStringList remainingTexts = currentBlock;
+                    if (!currentBlock.isEmpty()) {
+                        QString firstElement = currentBlock.first().trimmed();
+                        if (firstElement == "√") {
+                            radioState = true;
+                            remainingTexts.removeFirst();
+                            if (!remainingTexts.isEmpty()) {
+                                timeStr = remainingTexts.first();
+                                remainingTexts.removeFirst();
+                            }
+                        } else if (firstElement == "×") {
+                            radioState = false;
+                            remainingTexts.removeFirst();
+                            if (!remainingTexts.isEmpty()) {
+                                timeStr = remainingTexts.first();
+                                remainingTexts.removeFirst();
+                            }
+                        } else {
+                            timeStr = firstElement;
+                            remainingTexts.removeFirst();
+                        }
+                    }
+                    
+                    times.append(timeStr);
+                    textss.append(remainingTexts);
+                    radioStates.append(radioState);
                     currentBlock.clear();
                 }
             } else {
@@ -474,19 +500,42 @@ void TimelineWidget::fromString(QString string, QString time_reg, QString node_s
             }
         }
         if (!currentBlock.isEmpty()) {
-
-            times.append(currentBlock.first());
-
-            currentBlock.removeFirst();
-
+            bool radioState = true;
+            QString timeStr;
+            QStringList remainingTexts = currentBlock;
+            
             if (!currentBlock.isEmpty()) {
-                textss.append(currentBlock);
+                QString firstElement = currentBlock.first().trimmed();
+                if (firstElement == "√") {
+                    radioState = true;
+                    remainingTexts.removeFirst();
+                    if (!remainingTexts.isEmpty()) {
+                        timeStr = remainingTexts.first();
+                        remainingTexts.removeFirst();
+                    }
+                } else if (firstElement == "×") {
+                    radioState = false;
+                    remainingTexts.removeFirst();
+                    if (!remainingTexts.isEmpty()) {
+                        timeStr = remainingTexts.first();
+                        remainingTexts.removeFirst();
+                    }
+                } else {
+
+                    timeStr = firstElement;
+                    remainingTexts.removeFirst();
+                }
             }
+            
+            times.append(timeStr);
+            textss.append(remainingTexts);
+            radioStates.append(radioState);
         }
         if ( texts.length() > 0)
         {
             times.append(time);
             textss.append(texts);
+            radioStates.append(true); // 默认选中
             time = "";
             texts.clear();
         }
@@ -513,15 +562,57 @@ void TimelineWidget::fromString(QString string, QString time_reg, QString node_s
             {
                 texts[i] = texts[i].trimmed();
             }
-            times.append(time);
-            textss.append(texts);
+            
+
+            bool radioState = true; // 默认选中
+            QString timeStr = time; // 默认使用正则提取的时间
+            QStringList remainingTexts = texts;
+            
+            if (!texts.isEmpty()) {
+                QString firstElement = texts.first().trimmed();
+                if (firstElement == "√") {
+                    radioState = true;
+                    remainingTexts.removeFirst(); // 移除状态标识
+                    if (!remainingTexts.isEmpty()) {
+                        timeStr = remainingTexts.first(); // 第二个元素是时间
+                        remainingTexts.removeFirst();
+                    }
+                } else if (firstElement == "×") {
+                    radioState = false;
+                    remainingTexts.removeFirst(); // 移除状态标识
+                    if (!remainingTexts.isEmpty()) {
+                        timeStr = remainingTexts.first(); // 第二个元素是时间
+                        remainingTexts.removeFirst();
+                    }
+                } else {
+                    // 第一个元素不是状态标识，它就是时间
+                    timeStr = firstElement;
+                    remainingTexts.removeFirst();
+                }
+            }
+            
+            times.append(timeStr);
+            textss.append(remainingTexts);
+            radioStates.append(radioState);
         }
     }
     QList<int> indexs;
     int c = count();
     for (int i = 0; i < times.size(); i++)
         indexs.append(c);
+    
     m_xx_undos->addCommand(indexs, times, textss);
+
+    for (int i = 0; i < radioStates.size() && i < buckets.size(); i++) {
+        TimelineBucket* bucket = buckets.at(i);
+        if (bucket && bucket->leading_dot) {
+            QRadioButton* radioButton = qobject_cast<QRadioButton*>(bucket->leading_dot);
+            if (radioButton) {
+                radioButton->setChecked(radioStates.at(i));
+                bucket->updateRowAppearance(radioStates.at(i));
+            }
+        }
+    }
 }
 
 
