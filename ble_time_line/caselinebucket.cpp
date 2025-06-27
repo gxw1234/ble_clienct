@@ -282,9 +282,19 @@ void TimelineBucket::actionDelete(TimelineTextLabel *label)
 {
     int index = text_widgets.indexOf(label);
     if (index == -1)
-        return ;
+        return;
 
     m_xx_undos->deleteCommand(this, index);
+    QTimer::singleShot(10, this, [this]() {
+        adjustWidgetsPositionsWithAnimation(0, text_widgets.size());
+        update();
+        if (parentWidget()) {
+            QEvent event(QEvent::LayoutRequest);
+            QApplication::sendEvent(parentWidget(), &event);
+            parentWidget()->update();
+        }
+    });
+    
     emit signalBucketContentsChanged();
 }
 

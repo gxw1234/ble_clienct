@@ -1,4 +1,4 @@
-﻿#ifndef TIMELINETEXTLABEL_H
+#ifndef TIMELINETEXTLABEL_H
 #define TIMELINETEXTLABEL_H
 
 #include <QObject>

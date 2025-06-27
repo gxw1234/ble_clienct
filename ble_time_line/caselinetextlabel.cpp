@@ -299,6 +299,8 @@ void TimelineTextLabel::leaveEvent(QEvent* event) {
 //
 void TimelineTextLabel::paintEvent(QPaintEvent *event)
 {
+
+    // qDebug()<<"paintEvent----------";
     if(m_inoutState == true){
         QPainter painter(this);
         painter.setRenderHint(QPainter::Antialiasing);

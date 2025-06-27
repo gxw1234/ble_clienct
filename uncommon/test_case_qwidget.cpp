@@ -97,6 +97,11 @@ void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buf
                     start_test->setTextLabel(START_ING_TEXT);
                     start_test->setIconPath(":/images/images/start2.png");
                     tcpaap->sendMessageapp("OUTPUTACCORD",OUTPUT_TEST_ING);
+                    file_box->setEnabled(false);
+                }
+                else {
+
+                      file_box->setEnabled(true);
                 }
                  break;
             }
@@ -106,6 +111,8 @@ void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buf
                 start_test->setChecked(false);
                 start_test->setTextLabel(START_TEXT);
                 start_test->setIconPath(":/images/images/start1.png");
+                file_box->setEnabled(true);
+
                 break;
             }
             case 0x07:
@@ -495,6 +502,7 @@ void Test_case_qwidget::startclicked(bool start)
                             is_modified = false;
                         }
                     }
+                       file_box->setEnabled(false);
                     start_network();
                 }
                 else {
@@ -512,6 +520,7 @@ void Test_case_qwidget::startclicked(bool start)
             }
         }
         else {
+            file_box->setEnabled(true);
             QString message1 =  "停止测试";
             tcpaap->sendMessageapp(message1,OUTPUTSTARTTEST);
         }
@@ -595,6 +604,7 @@ void Test_case_qwidget::handleSelection(QStringList selectedItems)
 
 void Test_case_qwidget::onEnd_handleSignal(bool result)
 {
+    file_box->setEnabled(true);
 
     int totalTests = tests_all_numbe_lineEdit ->text().toInt();
     int passedTests = tests_pass_numbe_lineEdit ->text().toInt();
@@ -811,6 +821,9 @@ void Test_case_qwidget::setcolumncolor(QString data)
     QStringList testingtemp = data.split("&", QString::SkipEmptyParts);
     int row_temp = testingtemp[0].toInt();
     int column_temp = testingtemp[1].toInt();
+
+//    qDebug() <<"row_temp"<<row_temp <<"column_temp"<<column_temp;
+
     rewrite_widget->setTextLabelBorderColor(Clear_color_row, Clear_color_column,QColor(0,0,255));
     QColor borderColor(255, 0, 0);  
     QColor backgroundColor(255, 255, 200); 
