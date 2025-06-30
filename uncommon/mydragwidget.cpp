@@ -29,12 +29,12 @@ MyDragWidget::MyDragWidget(QWidget *parent) :
     items2 << "功能模块" <<"读取版本"  << "单按键按下" << "单按键抬起"<< "按键触发"<<"组合按键"<<"设置";
     QList<QIcon> icons;
 
-    icons.append(QIcon(":/images/images/Feature.png"));
-    icons.append(QIcon(":/images/images/edition.png"));
-    icons.append(QIcon(":/images/images/key_unde.png"));
-    icons.append(QIcon(":/images/images/key_up.png"));
-    icons.append(QIcon(":/images/images/key_up_unde.png"));
-    icons.append(QIcon(":/images/images/key_m.png"));
+    icons.append(IconConfig::getInstance().getComboBoxIcon("Feature"));
+    icons.append(IconConfig::getInstance().getComboBoxIcon("edition"));
+    icons.append(IconConfig::getInstance().getComboBoxIcon("key_unde"));
+    icons.append(IconConfig::getInstance().getComboBoxIcon("key_up"));
+    icons.append(IconConfig::getInstance().getComboBoxIcon("key_up_unde"));
+    icons.append(IconConfig::getInstance().getComboBoxIcon("key_m"));
     for (int i = 0; i < items2.size(); ++i) {
         typboBox->addItem(icons[i], items2[i]);
     }
@@ -208,9 +208,11 @@ void MyDragWidget::setQWidgetlayout( QWidget *widnew, QStringList funlist , bool
     int column = 0;
     for (const QString &text : funlist) {
         TimelineTextLabel* label = new TimelineTextLabel(widnew);
-        label->setInoutState(widnew);
+        label->setInoutState(true);
         label->setText(text);
-        QString iconPath = IconConfig::getInstance().getIconPath(text);
+        
+        // 使用IconConfig统一处理图标设置
+        QString iconPath = IconConfig::getInstance().getIconPathByText(text);
         label->setIcon(iconPath);
         label->setIconSize(QSize(16, 16));
         label->setIconPosition(Qt::AlignLeft | Qt::AlignVCenter);
@@ -272,13 +274,13 @@ void MyDragWidget::reconfiguration()
     QWidget_Set_parameters_scrollArea->setWidgetResizable(true);
 
 
-    tabWidget->addTab(QWidget_feature_tab, QIcon(":/images/images/Feature.png"),"");
-    tabWidget->addTab(QWidget_Key_press_tab, QIcon(":/images/images/key_unde.png"), "");
-    tabWidget->addTab(QWidget_key_tab, QIcon(":/images/images/key_up.png"), "");
-    tabWidget->addTab(QWidget_trigger_tab, QIcon(":/images/images/key_up_unde.png"), "");
-    tabWidget->addTab(QWidget_combination_tab, QIcon(":/images/images/key.png"), "");
-    tabWidget->addTab(QWidget_read_tab, QIcon(":/images/images/read.png"), "");
-    tabWidget->addTab(QWidget_Set_parameters_tab, QIcon(":/images/images/key_m.png"), "");
+    tabWidget->addTab(QWidget_feature_tab, IconConfig::getInstance().getTabIcon("feature"),"");
+    tabWidget->addTab(QWidget_Key_press_tab, IconConfig::getInstance().getTabIcon("key_press"), "");
+    tabWidget->addTab(QWidget_key_tab, IconConfig::getInstance().getTabIcon("key"), "");
+    tabWidget->addTab(QWidget_trigger_tab, IconConfig::getInstance().getTabIcon("trigger"), "");
+    tabWidget->addTab(QWidget_combination_tab, IconConfig::getInstance().getTabIcon("combination"), "");
+    tabWidget->addTab(QWidget_read_tab, IconConfig::getInstance().getTabIcon("read"), "");
+    tabWidget->addTab(QWidget_Set_parameters_tab, IconConfig::getInstance().getTabIcon("set_parameters"), "");
 
 
     //--------

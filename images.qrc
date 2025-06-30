@@ -33,5 +33,10 @@
         <file>images/Stop_the_cycle.png</file>
         <file>images/Assertion_f.png</file>
         <file>images/Assertion_p.png</file>
+        <file>images/configure_ui.png</file>
+        <file>images/debug_ui.png</file>
+        <file>images/Download_ui.png</file>
+        <file>images/test_ui.png</file>
+        <file>images/brun_ui.png</file>
     </qresource>
 </RCC>

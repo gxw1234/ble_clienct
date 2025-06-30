@@ -105,7 +105,13 @@ void TimelineBucket::setText(QStringList texts)
     clearText();
     foreach (QString text, texts)
     {
-        addTextWidget(text);
+        TimelineTextLabel* label = addTextWidget(text);
+        
+        // 使用IconConfig统一处理图标设置
+        QString iconPath = IconConfig::getInstance().getIconPathByText(text);
+        label->setIcon(iconPath);
+        label->setIconSize(QSize(16, 16));
+        label->setIconPosition(Qt::AlignLeft | Qt::AlignVCenter);
     }
 
     adjustWidgetsSize();
@@ -190,10 +196,7 @@ TimelineTextLabel* TimelineBucket::insertTextWidget(QString text, int index)
     label->setText(text);
     label->adjustSize(false);
     
-    // 为文本标签设置图标
-    QIcon icon = IconConfig::getInstance().getIcon(text);
-    label->setIcon(icon);
-    label->setIconSize(QSize(16, 16));
+    // 注意：图标设置现在由setText(texts)方法处理，这里不再设置图标
 
     if (index > -1)
     {
@@ -750,10 +753,11 @@ void TimelineBucket::dropEvent(QDropEvent *event)
                             widget->setText(label->text());
                             widget->move(label->x(), label->getGlobalPos().y() - this->pos().y());
                             
-                           
-                            QIcon icon = IconConfig::getInstance().getIcon(label->text());
-                            widget->setIcon(icon);
+                            // 使用IconConfig统一处理图标设置
+                            QString iconPath = IconConfig::getInstance().getIconPathByText(label->text());
+                            widget->setIcon(iconPath);
                             widget->setIconSize(QSize(16, 16));
+                            widget->setIconPosition(Qt::AlignLeft | Qt::AlignVCenter);
                             widget->show();
                             text_widgets.insert(to_index, widget);
                             adjustBucketSize(); // 从其他bucket那里移动过来，需要手动更换位置
@@ -775,10 +779,11 @@ void TimelineBucket::dropEvent(QDropEvent *event)
                 widget->setText(label->text());
                 widget->move(label->x(), label->getGlobalPos().y() - this->pos().y());
                 
-                // 为新创建的文本标签设置图标
-                QIcon icon = IconConfig::getInstance().getIcon(label->text());
-                widget->setIcon(icon);
+                // 使用IconConfig统一处理图标设置
+                QString iconPath = IconConfig::getInstance().getIconPathByText(label->text());
+                widget->setIcon(iconPath);
                 widget->setIconSize(QSize(16, 16));
+                widget->setIconPosition(Qt::AlignLeft | Qt::AlignVCenter);
                 
                 widget->show();
                 text_widgets.insert(to_index, widget);

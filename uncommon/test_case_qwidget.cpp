@@ -49,6 +49,10 @@ void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buf
     {
         if (ismd5_)
         {
+            qDebug()<<"dataType----------"<< static_cast<TCP_client_data>(dataType);
+
+            qDebug()<<"buffer content length:" << buffer.length();
+            qDebug()<<"buffer content preview:" << QString::fromUtf8(buffer.left(100));
             switch (static_cast<TCP_client_data>(dataType)) {
             case Test_Display_list_1:
             {
@@ -100,7 +104,6 @@ void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buf
                     file_box->setEnabled(false);
                 }
                 else {
-
                       file_box->setEnabled(true);
                 }
                  break;
@@ -191,6 +194,7 @@ void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buf
             }
             case 0x16:
             {
+                qDebug() <<"-----------------重新连接----------------";
                 stringAsBool =false;
                 Generation_path = createOrGetDailyFolder(file_box->currentText());
                 QString testfile = QString::fromUtf8(buffer);

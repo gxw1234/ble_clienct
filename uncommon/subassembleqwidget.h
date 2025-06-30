@@ -33,8 +33,8 @@ class subassembleqwidget:  public QMainWindow
 public:
     subassembleqwidget(const QString &title, const QString &ip, const QString &mac,QMainWindow *parent = nullptr);
     ~subassembleqwidget();
-
     void ui_init();
+    void addToolBar();
     QPushButton *close_ui =nullptr;
     QLineEdit *show_title =nullptr;
     QFrame *top_qframe =nullptr;
@@ -42,7 +42,6 @@ public:
     Test_case_qwidget *test_case_widget;
     burn_qwidget * my_burn_qwidget;
     Disposition * my_disposition_qwidget;
-
     Tcpapp *tcpaap;
 
 private:
@@ -60,12 +59,17 @@ private:
     QString ipValue;
     QString macValue;
     QSettings settings;
+    QAction *currentSelectedAction = nullptr;
     void tcpinit();
     QStringList iniInit();
     QString _title;
     void settitle( QString pagename  );
+    void updateButtonStyle(QAction *action, bool isSelected);
 
     NetworkThread * _NetworkThread;
+
+    QPushButton *testStatusButton = nullptr;
+    QPushButton *networkStatusButton = nullptr;
 
 
 private slots:
@@ -73,6 +77,11 @@ private slots:
     void closeApplication();
     void handleDataReceivedmain(quint8 dataType, const QByteArray& buffer,bool islen_, bool ismd5_);
     void get_connected_state(bool state);
+    void onTestActionTriggered();
+    void onDebugActionTriggered();
+    void onButton1Clicked();
+    void onButton2Clicked();
+    void onButton3Clicked();
 
 };
 

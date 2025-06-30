@@ -5,6 +5,12 @@
 #include <QMenu>
 #include <QAction>
 #include <QEvent>
+#include <QMessageBox>
+#include <QSizePolicy>
+#include <QToolBar>
+#include <QToolButton>
+#include <QDir>
+#include <QIcon>
 
 
 
@@ -18,10 +24,23 @@ subassembleqwidget::subassembleqwidget(const QString &title, const QString &ip, 
     this->setWindowIcon(QIcon(":/images/images/Bluetooth.png"));
     QString currentPath = QDir::currentPath();
     testFilePath = currentPath + "/test_file/";
-    MenuBar *menuBar = new MenuBar(this);
-    setMenuBar(menuBar);
-    connect(menuBar, &MenuBar::menuActionTriggered, this, &subassembleqwidget::onMenuActionTriggered);
+
+
+//    MenuBar *menuBar = new MenuBar(this);
+//    setMenuBar(menuBar);
+//    connect(menuBar, &MenuBar::menuActionTriggered, this, &subassembleqwidget::onMenuActionTriggered);
+
+    //加了工具栏 不需要菜单栏
+    #ifdef USE_MENUBAR
+        MenuBar *menuBar = new MenuBar(this);
+        setMenuBar(menuBar);
+        connect(menuBar, &MenuBar::menuActionTriggered, this, &subassembleqwidget::onMenuActionTriggered);
+    #endif
+
+
+
     ui_init();
+    addToolBar();
     tcpinit();
 }
 
@@ -78,15 +97,18 @@ void subassembleqwidget::ui_init()
     tcpteststate =  new QLabel;
     tcpteststate->setText("测试状态");
     tcpteststate_show =  new  QPushButton;
-    QGridLayout *show_tcp_state_qframe_ly;
 
-    show_tcp_state_qframe_ly =new QGridLayout(show_tcp_state_qframe);
-    show_tcp_state_qframe_ly->addWidget(tcpip,0,0,1,1);
-    show_tcp_state_qframe_ly->addWidget(tcpip_show,0,1,1,1);
-    show_tcp_state_qframe_ly->addWidget(tcpconnectstate,0,2,1,1);
-    show_tcp_state_qframe_ly->addWidget(tcpconnectstate_show,0,3,1,1);
-    show_tcp_state_qframe_ly->addWidget(tcpteststate,0,4,1,1);
-    show_tcp_state_qframe_ly->addWidget(tcpteststate_show,0,5,1,1);
+//    QGridLayout *show_tcp_state_qframe_ly;
+
+//    show_tcp_state_qframe_ly =new QGridLayout(show_tcp_state_qframe);
+//    show_tcp_state_qframe_ly->addWidget(tcpip,0,0,1,1);
+//    // tcpip_show 已移到工具栏中
+//    show_tcp_state_qframe_ly->addWidget(tcpconnectstate,0,2,1,1);
+//    show_tcp_state_qframe_ly->addWidget(tcpconnectstate_show,0,3,1,1);
+//    show_tcp_state_qframe_ly->addWidget(tcpteststate,0,4,1,1);
+//    show_tcp_state_qframe_ly->addWidget(tcpteststate_show,0,5,1,1);
+
+
      QGridLayout *ui_ly;
      ui_ly =new QGridLayout();
      ui_ly->addWidget(show_tcp_state_qframe,0,0,1,1);
@@ -185,14 +207,210 @@ void subassembleqwidget::get_connected_state(bool state)
         test_case_widget->setnetworkserviceOBJECT(tcpaap,state);
         my_burn_qwidget->setnetworkserviceOBJECT(tcpaap,state);
         my_disposition_qwidget->setnetworkserviceOBJECT(tcpaap,state);
-        tcpconnectstate_show->setStyleSheet("QPushButton { background-color: green; }");
-        tcpconnectstate_show->setText("已连接");
+        networkStatusButton->setStyleSheet("QPushButton { background-color: #4CAF50; color: white; padding: 5px 10px; border-radius: 3px; }");
+        networkStatusButton->setText("客户端已连接");
         tcpaap->sendMessageapp("test_state",OUTPUTTESTSTATE);
     }
     else {
-        tcpconnectstate_show->setStyleSheet("QPushButton { background-color: red; }");
-        tcpconnectstate_show->setTextLabel("未连接");
+        networkStatusButton->setStyleSheet("QPushButton { background-color: #808080; color: white; padding: 5px 10px; border-radius: 3px; }");
+        networkStatusButton->setText("客户端未连接");
     }
+}
+
+void subassembleqwidget::addToolBar()
+{
+
+    QToolBar *toolbar = new QToolBar(this);
+    toolbar->setObjectName("mainToolBar");
+    toolbar->setMovable(false);
+    
+
+    QAction *testAction = new QAction(QIcon(":/images/images/test_ui.png"), "", this);
+    QAction *debugAction = new QAction(QIcon(":/images/images/debug_ui.png"), "", this);
+    QAction *button1Action = new QAction(QIcon(":/images/images/brun_ui.png"), "", this);
+    QAction *button2Action = new QAction(QIcon(":/images/images/configure_ui.png"), "", this);
+    QAction *button3Action = new QAction(QIcon(":/images/images/Download_ui.png"), "", this);
+    
+    testAction->setToolTip("测试界面");
+    debugAction->setToolTip("调试界面");
+    button1Action->setToolTip("烧录界面");
+    button2Action->setToolTip("配置界面");
+    button3Action->setToolTip("下载数据");
+
+    // 设置按钮样式
+    QString normalStyle = "QToolButton { padding: 5px; margin: 2px; border: 1px solid #d0d0d0; background-color: #f0f0f0; }";
+    QString selectedStyle = "QToolButton { padding: 5px; margin: 2px; border: 2px solid #0078d4; background-color: #e3f2fd; }";
+    
+    // 为每个按钮设置样式表
+    testAction->setProperty("normalStyle", normalStyle);
+    testAction->setProperty("selectedStyle", selectedStyle);
+    debugAction->setProperty("normalStyle", normalStyle);
+    debugAction->setProperty("selectedStyle", selectedStyle);
+    button1Action->setProperty("normalStyle", normalStyle);
+    button1Action->setProperty("selectedStyle", selectedStyle);
+    button2Action->setProperty("normalStyle", normalStyle);
+    button2Action->setProperty("selectedStyle", selectedStyle);
+    button3Action->setProperty("normalStyle", normalStyle);
+    button3Action->setProperty("selectedStyle", selectedStyle);
+
+    toolbar->addAction(testAction);
+    toolbar->addSeparator();
+    toolbar->addAction(debugAction);
+    toolbar->addSeparator();
+    toolbar->addAction(button1Action);
+    toolbar->addSeparator();
+    toolbar->addAction(button2Action);
+    toolbar->addSeparator();
+    toolbar->addAction(button3Action);
+    
+    QWidget* spacer = new QWidget();
+    spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    toolbar->addWidget(spacer);
+    tcpip_show->setFixedWidth(120);
+    toolbar->addWidget(tcpip_show);
+    
+    testStatusButton = new QPushButton("服务端未开始测试");
+    networkStatusButton = new QPushButton("客户端未连网");
+    testStatusButton->setStyleSheet("QPushButton { background-color: #808080; color: black; padding: 5px 10px; border-radius: 3px; }");
+    networkStatusButton->setStyleSheet("QPushButton { background-color: #808080; color: white; padding: 5px 10px; border-radius: 3px; }");
+    
+    testStatusButton->setMinimumWidth(80);
+    networkStatusButton->setMinimumWidth(80);
+    
+    toolbar->addWidget(testStatusButton);
+
+    toolbar->addWidget(networkStatusButton);
+    
+    toolbar->setStyleSheet("QToolBar {background-color: #f0f0f0; border: 1px solid #d0d0d0;}"
+                         "QToolButton {padding: 5px; margin: 2px;}");
+    
+    QMainWindow::addToolBar(Qt::TopToolBarArea, toolbar);
+
+
+    connect(testAction, &QAction::triggered, this, &subassembleqwidget::onTestActionTriggered);
+    connect(debugAction, &QAction::triggered, this, &subassembleqwidget::onDebugActionTriggered);
+    connect(button1Action, &QAction::triggered, this, &subassembleqwidget::onButton1Clicked);
+    connect(button2Action, &QAction::triggered, this, &subassembleqwidget::onButton2Clicked);
+    connect(button3Action, &QAction::triggered, this, &subassembleqwidget::onButton3Clicked);
+    
+
+    currentSelectedAction = testAction;
+    updateButtonStyle(testAction, true);
+}
+
+
+void subassembleqwidget::updateButtonStyle(QAction *action, bool isSelected)
+{
+    if (!action) return;
+    QToolBar *toolbar = findChild<QToolBar*>("mainToolBar");
+    if (!toolbar) return;
+    QList<QAction*> actions = toolbar->actions();
+    for (QAction* act : actions) {
+        if (act->property("normalStyle").isValid()) {
+            QToolButton* toolButton = qobject_cast<QToolButton*>(toolbar->widgetForAction(act));
+            if (toolButton) {
+                toolButton->setStyleSheet(act->property("normalStyle").toString());
+            }
+        }
+    }
+    if (isSelected && action->property("selectedStyle").isValid()) {
+        QToolButton* toolButton = qobject_cast<QToolButton*>(toolbar->widgetForAction(action));
+        if (toolButton) {
+            toolButton->setStyleSheet(action->property("selectedStyle").toString());
+        }
+    }
+}
+
+/**
+ *测试界面
+ *
+ */
+void subassembleqwidget::onTestActionTriggered() {
+
+    QAction *testAction = qobject_cast<QAction*>(sender());
+    if (testAction && testAction != currentSelectedAction) {
+        updateButtonStyle(currentSelectedAction, false);
+        currentSelectedAction = testAction;
+        updateButtonStyle(currentSelectedAction, true);
+    }
+
+    host_qstackedWidget->setCurrentIndex(0);
+    test_case_widget->Refreshfile();
+    test_case_widget->isreceivetcp = true;
+}
+
+/**
+ *调试界面
+ *
+ */
+
+void subassembleqwidget::onDebugActionTriggered() {
+
+    QAction *debugAction = qobject_cast<QAction*>(sender());
+    if (debugAction && debugAction != currentSelectedAction) {
+        updateButtonStyle(currentSelectedAction, false);
+        currentSelectedAction = debugAction;
+        updateButtonStyle(currentSelectedAction, true);
+    }
+
+    if(test_case_widget->start_test->isChecked())
+    {
+        QMessageBox::information(this, "提示", "测试中不能切换");
+    }else {
+        Generate_test_files->test_text->setText("");
+        host_qstackedWidget->setCurrentIndex(1);
+        test_case_widget->isreceivetcp = false;
+        Generate_test_files->indexinit();
+        tcpaap->sendMessageapp("Devicename",OUTPUTINQUIRECFG);
+    }
+}
+
+/**
+ *烧录界面
+ *
+ */
+void subassembleqwidget::onButton1Clicked() {
+
+    QAction *button1Action = qobject_cast<QAction*>(sender());
+    if (button1Action && button1Action != currentSelectedAction) {
+        updateButtonStyle(currentSelectedAction, false);
+        currentSelectedAction = button1Action;
+        updateButtonStyle(currentSelectedAction, true);
+    }
+    
+    host_qstackedWidget->setCurrentIndex(2);
+}
+
+/**
+ *版型配置
+ *
+ */
+void subassembleqwidget::onButton2Clicked() {
+
+    QAction *button2Action = qobject_cast<QAction*>(sender());
+    if (button2Action && button2Action != currentSelectedAction) {
+        updateButtonStyle(currentSelectedAction, false);
+        currentSelectedAction = button2Action;
+        updateButtonStyle(currentSelectedAction, true);
+    }
+    
+    host_qstackedWidget->setCurrentIndex(3);
+}
+
+/**
+ *下载测试结果
+ *
+ */
+void subassembleqwidget::onButton3Clicked() {
+
+    QAction *button3Action = qobject_cast<QAction*>(sender());
+    if (button3Action && button3Action != currentSelectedAction) {
+        updateButtonStyle(currentSelectedAction, false);
+        currentSelectedAction = button3Action;
+        updateButtonStyle(currentSelectedAction, true);
+    }
+    
+    tcpaap->sendMessageapp("Downloadlog",OUTPUTACCORD);
 }
 
 
@@ -233,3 +451,4 @@ void subassembleqwidget::onMenuActionTriggered(QAction *action) {
          tcpaap->sendMessageapp("Downloadlog",OUTPUTACCORD);
     }
 }
+
