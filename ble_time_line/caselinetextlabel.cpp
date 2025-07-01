@@ -299,22 +299,30 @@ void TimelineTextLabel::leaveEvent(QEvent* event) {
 //
 void TimelineTextLabel::paintEvent(QPaintEvent *event)
 {
-
     // qDebug()<<"paintEvent----------";
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing);
+    bool containsAssertion = this->text().contains("断言");
     if(m_inoutState == true){
-        QPainter painter(this);
-        painter.setRenderHint(QPainter::Antialiasing);
-        painter.setBrush(Qt::white);
-        painter.setPen(Qt::blue);
+        if(containsAssertion) {
+            painter.setBrush(QColor(255, 200, 200)); // 浅红色背景
+            painter.setPen(QPen(QColor(200, 0, 0), 2)); // 深红色边框
+        } else {
+            painter.setBrush(Qt::white);
+            painter.setPen(Qt::blue);
+        }
         painter.drawRoundedRect(0, 0, 100, 40, 10, 10);
-
         // 使用新的绘制方法，支持图标
         drawIconAndText(painter, this->rect());
-    }else{
-        QPainter painter(this);
-        painter.setBrush(QColor("blue"));
-        painter.setRenderHint(QPainter::Antialiasing);
-        
+    } else {
+        if(containsAssertion) {
+            painter.setBrush(QColor(200, 100, 100)); // 深红色背景
+            painter.setPen(QPen(QColor(150, 0, 0), 2)); // 更深的红色边框
+            // painter.drawRoundedRect(0, 0, this->width(), this->height(), 10, 10);
+        } else {
+            // 正常状态 - 不绘制背景，保持原来的默认样式
+            painter.setBrush(Qt::NoBrush);
+        }
         // 使用新的绘制方法，支持图标
         drawIconAndText(painter, this->rect());
     }

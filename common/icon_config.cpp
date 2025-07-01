@@ -30,6 +30,9 @@ void IconConfig::initDefaultMappings()
     m_iconMappings["开始循环"] = ICON_PATH("Start_the_cycle.png");
     m_iconMappings["停止循环"] = ICON_PATH("Stop_the_cycle.png");
     m_iconMappings["断言"] = ICON_PATH("Assertion_p.png");
+    m_iconMappings["红外写入波形"] = ICON_PATH("icon_line.png");
+    m_iconMappings["JLINK写入"] = ICON_PATH("jlink_ico.png");
+    m_iconMappings["烧录模式"] = ICON_PATH("brun_mode.png");
     
 }
 
@@ -53,22 +56,18 @@ QIcon IconConfig::getIcon(const QString& functionName) const
     return QIcon(iconPath);
 }
 
-// 新增：根据文本内容统一处理图标分类逻辑
 QString IconConfig::getIconPathByText(const QString& text) const
 {
-    // 功能模块的关键字列表 - 支持带参数的功能模块
     QStringList functionKeywords = {"延时", "随机延时", "扫描", "连接", "断开", "配对", 
                                    "取消配对", "上电", "断电", "读取LED", "设置电压", 
-                                   "开始循环", "停止循环", "断言"};
+                                   "开始循环", "停止循环", "断言", "红外写入波形", "JLINK写入", "烧录模式"};
     
-    // 检查是否为功能模块 - 模糊匹配，支持带参数
     for (const QString& keyword : functionKeywords) {
         if (text.contains(keyword)) {  // 改回模糊匹配，支持带参数的功能模块
             return getIconPath(text);
         }
     }
     
-    // 非功能模块根据具体内容设置不同的统一图标
     if (text.contains("按下")) {
         // 单键按下模块
         return ICON_KEY_UNDE;

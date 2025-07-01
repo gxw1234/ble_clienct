@@ -49,10 +49,10 @@ void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buf
     {
         if (ismd5_)
         {
-            qDebug()<<"dataType----------"<< static_cast<TCP_client_data>(dataType);
+//            qDebug()<<"dataType----------"<< static_cast<TCP_client_data>(dataType);
 
-            qDebug()<<"buffer content length:" << buffer.length();
-            qDebug()<<"buffer content preview:" << QString::fromUtf8(buffer.left(100));
+//            qDebug()<<"buffer content length:" << buffer.length();
+//            qDebug()<<"buffer content preview:" << QString::fromUtf8(buffer.left(100));
             switch (static_cast<TCP_client_data>(dataType)) {
             case Test_Display_list_1:
             {
@@ -82,6 +82,7 @@ void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buf
                 QString data = QString::fromUtf8(buffer);
                 bool stringAsBool =  STRING_TO_BOOL(data);
                 onEnd_handleSignal(stringAsBool);
+                emit testStateChanged(false);
                 break;
             }
             case 0x04:
@@ -185,24 +186,27 @@ void Test_case_qwidget::handleDataReceived(quint8 dataType,const QByteArray& buf
             }
             case Test_Individual_function_14:
             {
-                if (!stringAsBool)
-                {
-                    QString data = QString::fromUtf8(buffer);
-                    setcolumncolor(data);
-                }
+
+                QString data = QString::fromUtf8(buffer);
+                setcolumncolor(data);
+                // if (!stringAsBool)
+                // {
+                //     QString data = QString::fromUtf8(buffer);
+                //     setcolumncolor(data);
+                // }
                break;
             }
             case 0x16:
             {
-                qDebug() <<"-----------------重新连接----------------";
-                stringAsBool =false;
-                Generation_path = createOrGetDailyFolder(file_box->currentText());
-                QString testfile = QString::fromUtf8(buffer);
-                if (!testfile.isEmpty())
-                {
-                    rewrite_widget->clearAll();
-                    rewrite_widget->fromString(testfile);
-                }
+
+//                stringAsBool =false;
+//                Generation_path = createOrGetDailyFolder(file_box->currentText());
+//                QString testfile = QString::fromUtf8(buffer);
+//                if (!testfile.isEmpty())
+//                {
+//                    rewrite_widget->clearAll();
+//                    rewrite_widget->fromString(testfile);
+//                }
                 break;
             }
             case OUTPUTCASENAMEDATALIST_TO:
@@ -460,6 +464,7 @@ void Test_case_qwidget::import_file(QString test_file)
 
 void Test_case_qwidget::home_file_switching(int index)
 {
+
     show_debug_log->clear();
     rewrite_widget->clearAll();
     QString read_file_text =  testFilePath;
@@ -823,17 +828,37 @@ void Test_case_qwidget::save_row(ReportInfo reportInfo)
 void Test_case_qwidget::setcolumncolor(QString data)
 {
     QStringList testingtemp = data.split("&", QString::SkipEmptyParts);
+    if (testingtemp.size() < 2) {
+
+        return;
+    }
     int row_temp = testingtemp[0].toInt();
     int column_temp = testingtemp[1].toInt();
 
-//    qDebug() <<"row_temp"<<row_temp <<"column_temp"<<column_temp;
 
-    rewrite_widget->setTextLabelBorderColor(Clear_color_row, Clear_color_column,QColor(0,0,255));
-    QColor borderColor(255, 0, 0);  
-    QColor backgroundColor(255, 255, 200); 
-    rewrite_widget->setTextLabelBorderAndBackgroundColor(row_temp, column_temp, borderColor, backgroundColor);
-    Clear_color_row=row_temp;
-    Clear_color_column=column_temp;
+    if (row_temp < 0 || row_temp >= rewrite_widget->count()) {
+        return;
+    }
+    auto bucket = rewrite_widget->at(row_temp);
+    if (!bucket) {
+        return;
+    }
+    if (column_temp < 0 || column_temp >= bucket->count()) {
+        return;
+    }
+    if (Clear_color_row >= 0 && Clear_color_column >= 0) {
+        if (Clear_color_row < rewrite_widget->count()) {
+            auto last_bucket = rewrite_widget->at(Clear_color_row);
+            if (last_bucket && Clear_color_column < last_bucket->count()) {
+                last_bucket->setTextLabelBorderColor(Clear_color_column, QColor(0,0,255));
+            }
+        }
+    }
+    QColor borderColor(255, 0, 0);
+    QColor backgroundColor(255, 255, 200);
+    bucket->setTextLabelBorderAndBackgroundColor(column_temp, borderColor, backgroundColor);
+    Clear_color_row = row_temp;
+    Clear_color_column = column_temp;
 }
 
 void Test_case_qwidget::start_network()
@@ -842,7 +867,9 @@ void Test_case_qwidget::start_network()
     start_test->setTextLabel(START_ING_TEXT);
     start_test->setIconPath(":/images/images/start2.png");
     QString message1 =  START_TEXT;
-
+    
+    // 发送测试状态变更信号
+    emit testStateChanged(true);
 
     tcpaap->sendMessageapp( "0",OUTPUT_TEST_MODE);
 

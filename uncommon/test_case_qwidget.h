@@ -143,6 +143,9 @@ private:
     bool stringAsBool =false;
     bool is_modified = false;
 
+signals:
+    void testStateChanged(bool isTestRunning);
+
 private slots:
     void home_file_switching(int);
     void startclicked(bool start);

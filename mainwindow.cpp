@@ -43,6 +43,7 @@ MainWindow::MainWindow(QWidget *parent)
     settings.beginGroup("Settings");
     QStringList valueList;
     QStringList keys = settings.allKeys();
+
     for (const QString& key : keys) {
         QString value = settings.value(key).toString();
         valueList.append(key+ "ip: "+value);
@@ -50,6 +51,18 @@ MainWindow::MainWindow(QWidget *parent)
         createSubWindow(key,parts.at(0),parts.at(1));
     }
     settings.endGroup();
+    
+
+    int windowCount = keys.size();
+    if (windowCount == 1) {
+        QList<QMdiSubWindow*> subWindows = mdiArea->subWindowList();
+        if (!subWindows.isEmpty()) {
+            subWindows.first()->showMaximized();
+        }
+    } else if (windowCount > 1) {
+        mdiArea->tileSubWindows();
+    }
+    
     QGridLayout *ui_ly;
     ui_ly =new QGridLayout();
     ui_ly->addWidget(temp,0,0,1,1);
@@ -57,8 +70,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui_ly->setContentsMargins(0, 0, 0, 0);
     QWidget * maina =new QWidget;
     maina->setLayout(ui_ly);
+         if (centralWidget()) {
+         centralWidget()->setParent(nullptr);
+     }
     setCentralWidget(maina);
-    mdiArea->tileSubWindows();
 
 }
 
@@ -67,7 +82,7 @@ void MainWindow::createSubWindow(const QString &title,const QString &ip,const QS
     subassembleqwidget *subWidget = new subassembleqwidget(title,ip,mac);
     QMdiSubWindow *subWindow = mdiArea->addSubWindow(subWidget);
     subWidget->setAttribute(Qt::WA_DeleteOnClose);
-    subWidget->showMaximized();
+    subWidget->show();
     topsideboBox->addItem(title, QVariant::fromValue(static_cast<void*>(subWindow)));
     maximizeboBox->addItem(title, QVariant::fromValue(static_cast<void*>(subWindow)));
     showwindowBox->addItem(title, QVariant::fromValue(static_cast<void*>(subWindow)));

@@ -58,15 +58,18 @@ void Generate_case_qwidget::initView()
     assertion_text = new QTextEdit;
 //    assertion_text->setMaximumSize(400, 200);
 
-    assertion_QFrame = new QFrame;
-    test_text = new QTextEdit;
-    assertion_QFrame->setMaximumSize(400, 200);
-    pattern_new = new QComboBox;
 
-    QGridLayout *assertion_QFrame_layout = new QGridLayout(assertion_QFrame);
-    assertion_QFrame_layout->addWidget(assertion_text,0,0,1,1);
-    assertion_QFrame_layout->addWidget(test_text,1,0,1,1);
-    QSpacerItem* separator = new QSpacerItem(1, 2, QSizePolicy::Fixed, QSizePolicy::Minimum);
+    test_text = new TimelineTextLabel(this);
+    test_text->setInoutState(true);
+    test_text->setWordWrap(true);
+    test_text->setMinimumHeight(90);
+    test_text->setMaximumHeight(150);
+    test_text->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    test_text->setStyleSheet("background: #fffbe6; border: 2px solid #ff6600; border-radius: 8px; padding: 12px; margin: 2px;");
+    test_text->setTextFormat(Qt::PlainText);
+    test_text->setMaximumWidth(400);
+    test_text->setProperty("useCustomPaint", false);
+    pattern_new = new QComboBox;
 
     rewrite_file_widget->adjustBucketsPositionsWithAnimation();
     QGridLayout *qroupbox_layout = new QGridLayout(test_file_qroupbox);
@@ -94,8 +97,10 @@ void Generate_case_qwidget::initView()
     connect( widget_case, &MyDragWidget::Tipsleavevent, this, &Generate_case_qwidget::handTipsleavevent);
     connect( widget_case, &MyDragWidget::myselect_Device, this, &Generate_case_qwidget::handleselect_Device);
     QGridLayout *layout = new QGridLayout(this);
+    layout->setContentsMargins(5, 5, 5, 5);
+    layout->setSpacing(8);
     layout->addWidget(test_file_qroupbox,0,0,1,10);
-    layout->addWidget(assertion_QFrame,0,10,1,2);
+    layout->addWidget(test_text,0,10,1,2);
     layout->addWidget(rewrite_file_widget,1,0,1,10);
     layout->addWidget(widget_case,1,10,1,2);
     setLayout(layout);
@@ -129,18 +134,24 @@ void Generate_case_qwidget::onCase_info_use_Signal(int type_tl, QString b, int r
         format.setForeground(QColor(Qt::red)); // 设置字体颜色为红色
     }
 
-
     if (result_colour==1)
     {
-
         if (b !="---end---")
-
         {
-            test_text->setPlainText(b);
+
+            QString formattedResult = b
+                                        .remove("-------实测结果------\n")
+                                        .replace("\n", ",");
+
+            if (formattedResult.endsWith(",")) {
+                formattedResult.chop(1);
+            }
+            formattedResult = QString("断言:{%1}").arg(formattedResult);
+            test_text->setText( formattedResult);
         }
 
     }
-    test_text->moveCursor(QTextCursor::End);
+
 
 }
 

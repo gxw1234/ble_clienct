@@ -18,6 +18,7 @@
 #include <QTextBrowser>
 #include "tcpserver/tcpapp.h"
 #include "common/tips_widget.h"
+#include "ble_time_line/caselinetextlabel.h"
 
 
 struct equipmentcfg {
@@ -42,7 +43,7 @@ public:
     void initView();
     void onCase_info_use_Signal(int type_tl, QString b,int result_colour);
     void setnetworkserviceOBJECT(Tcpapp *tcpaap ,bool status);
-    QTextEdit *test_text=nullptr;
+    TimelineTextLabel *test_text = nullptr;
     bool connection_state;
     void setdebugmac(QString debugmac);
     void indexinit();

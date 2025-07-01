@@ -1,4 +1,4 @@
-﻿#pragma execution_character_set("utf-8")
+#pragma execution_character_set("utf-8")
 #include "mydragwidget.h"
 #include <QMouseEvent>
 #include <QDragEnterEvent>
@@ -27,14 +27,22 @@ MyDragWidget::MyDragWidget(QWidget *parent) :
     show_debug_info->setMaximumSize(300,60);
     QStringList items2;
     items2 << "功能模块" <<"读取版本"  << "单按键按下" << "单按键抬起"<< "按键触发"<<"组合按键"<<"设置";
-    QList<QIcon> icons;
+    
 
-    icons.append(IconConfig::getInstance().getComboBoxIcon("Feature"));
-    icons.append(IconConfig::getInstance().getComboBoxIcon("edition"));
-    icons.append(IconConfig::getInstance().getComboBoxIcon("key_unde"));
-    icons.append(IconConfig::getInstance().getComboBoxIcon("key_up"));
-    icons.append(IconConfig::getInstance().getComboBoxIcon("key_up_unde"));
-    icons.append(IconConfig::getInstance().getComboBoxIcon("key_m"));
+    static QList<QIcon> icons;
+    static bool iconsInitialized = false;
+    
+    if (!iconsInitialized) {
+        icons.append(QIcon(":/images/images/Feature.png"));
+        icons.append(QIcon(":/images/images/edition.png"));
+        icons.append(QIcon(":/images/images/key_unde.png"));
+        icons.append(QIcon(":/images/images/key_up.png"));
+        icons.append(QIcon(":/images/images/key_up_unde.png"));
+        icons.append(QIcon(":/images/images/key_m.png"));
+        icons.append(QIcon(":/images/images/key.png"));
+        iconsInitialized = true;
+    }
+    
     for (int i = 0; i < items2.size(); ++i) {
         typboBox->addItem(icons[i], items2[i]);
     }

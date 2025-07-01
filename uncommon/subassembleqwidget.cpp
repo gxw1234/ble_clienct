@@ -26,17 +26,6 @@ subassembleqwidget::subassembleqwidget(const QString &title, const QString &ip, 
     testFilePath = currentPath + "/test_file/";
 
 
-//    MenuBar *menuBar = new MenuBar(this);
-//    setMenuBar(menuBar);
-//    connect(menuBar, &MenuBar::menuActionTriggered, this, &subassembleqwidget::onMenuActionTriggered);
-
-    //加了工具栏 不需要菜单栏
-    #ifdef USE_MENUBAR
-        MenuBar *menuBar = new MenuBar(this);
-        setMenuBar(menuBar);
-        connect(menuBar, &MenuBar::menuActionTriggered, this, &subassembleqwidget::onMenuActionTriggered);
-    #endif
-
 
 
     ui_init();
@@ -52,7 +41,7 @@ subassembleqwidget::~subassembleqwidget()
 
 void subassembleqwidget::ui_init()
 {
-    iniInit();
+
     test = new QPushButton;
     host_qstackedWidget = new QStackedWidget;
     Generate_test_files = new Generate_case_qwidget;
@@ -60,6 +49,19 @@ void subassembleqwidget::ui_init()
     my_burn_qwidget = new burn_qwidget;
     my_disposition_qwidget = new Disposition;
     host_qstackedWidget->addWidget(test_case_widget);
+    
+
+    connect(test_case_widget, &Test_case_qwidget::testStateChanged, this, [this](bool isTestRunning) {
+        if (isTestRunning) {
+            testStatusButton->setText("服务端正在测试测试");
+            testStatusButton->setStyleSheet("QPushButton { background-color: #4CAF50; color: black; padding: 5px 10px; border-radius: 3px; }");
+        } else {
+            testStatusButton->setText("服务端未开始测试");
+            testStatusButton->setStyleSheet("QPushButton { background-color: #808080; color: black; padding: 5px 10px; border-radius: 3px; }");
+        }
+    });
+
+
     host_qstackedWidget->addWidget(Generate_test_files);
     host_qstackedWidget->addWidget(my_burn_qwidget);
     host_qstackedWidget->addWidget(my_disposition_qwidget);
@@ -84,34 +86,11 @@ void subassembleqwidget::ui_init()
     ui_top_qframe->addItem(spacer, 0, 1);
     ui_top_qframe->addWidget(close_ui,0,2,1,1);
     ui_top_qframe->setColumnStretch(2, 1);
-
-
-    show_tcp_state_qframe = new QFrame;
-    tcpip = new QLabel;
-    tcpip->setText("IP地址");
     tcpip_show = new QLineEdit;
     tcpip_show->setText(ipValue);
-    tcpconnectstate = new QLabel;
-    tcpconnectstate->setText("连接状态");
-    tcpconnectstate_show  = new IconPushButton(":/images/images/unconnect.png", "连接状态");
-    tcpteststate =  new QLabel;
-    tcpteststate->setText("测试状态");
-    tcpteststate_show =  new  QPushButton;
-
-//    QGridLayout *show_tcp_state_qframe_ly;
-
-//    show_tcp_state_qframe_ly =new QGridLayout(show_tcp_state_qframe);
-//    show_tcp_state_qframe_ly->addWidget(tcpip,0,0,1,1);
-//    // tcpip_show 已移到工具栏中
-//    show_tcp_state_qframe_ly->addWidget(tcpconnectstate,0,2,1,1);
-//    show_tcp_state_qframe_ly->addWidget(tcpconnectstate_show,0,3,1,1);
-//    show_tcp_state_qframe_ly->addWidget(tcpteststate,0,4,1,1);
-//    show_tcp_state_qframe_ly->addWidget(tcpteststate_show,0,5,1,1);
-
 
      QGridLayout *ui_ly;
      ui_ly =new QGridLayout();
-     ui_ly->addWidget(show_tcp_state_qframe,0,0,1,1);
      ui_ly->addWidget(host_qstackedWidget,1,0,1,1);
      ui_ly->setContentsMargins(0, 0, 0, 0);
      QWidget * maina =new QWidget;
@@ -130,7 +109,7 @@ void subassembleqwidget::tcpinit()
     tcpaap = new Tcpapp;
     connect(tcpaap,&Tcpapp::commandReceivedapp,this,&subassembleqwidget::handleDataReceivedmain);
     connect(tcpaap,&Tcpapp::m_connected_state,this,&subassembleqwidget::get_connected_state);
-    tcpaap->connectAndSetupListenerapp(tcpip_show->text());
+    tcpaap->connectAndSetupListenerapp(ipValue);
 
 
 }
@@ -176,15 +155,17 @@ void subassembleqwidget::handleDataReceivedmain(quint8 dataType, const QByteArra
            {
                QString data = QString::fromUtf8(buffer);
                bool stringAsBool =STRING_TO_BOOL(data);
-               tcpteststate_show->setChecked(stringAsBool);
+
                if (!stringAsBool)
                {
-                   tcpteststate_show->setText("未测试");
-                   tcpteststate_show->setStyleSheet("QPushButton { background-color: lightblue; }");
+                   testStatusButton->setText("服务端未开始测试");
+
+                       testStatusButton->setStyleSheet("QPushButton { background-color: #808080; color: black; padding: 5px 10px; border-radius: 3px; }");
                }
                else {
-                   tcpteststate_show->setText("正在测试");
-                   tcpteststate_show->setStyleSheet("QPushButton { background-color: green; }");
+                   testStatusButton->setText("服务端正在测试测试");
+
+                       testStatusButton->setStyleSheet("QPushButton { background-color: #4CAF50; color: black; padding: 5px 10px; border-radius: 3px; }");
                }
                break;
            }
@@ -223,6 +204,7 @@ void subassembleqwidget::addToolBar()
     QToolBar *toolbar = new QToolBar(this);
     toolbar->setObjectName("mainToolBar");
     toolbar->setMovable(false);
+    toolbar->setIconSize(QSize(16, 16)); // 设置更小的图标尺寸
     
 
     QAction *testAction = new QAction(QIcon(":/images/images/test_ui.png"), "", this);
@@ -266,6 +248,10 @@ void subassembleqwidget::addToolBar()
     QWidget* spacer = new QWidget();
     spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     toolbar->addWidget(spacer);
+
+    tcpip_show = new QLineEdit;
+    tcpip_show->setText(ipValue);
+
     tcpip_show->setFixedWidth(120);
     toolbar->addWidget(tcpip_show);
     
@@ -278,7 +264,7 @@ void subassembleqwidget::addToolBar()
     networkStatusButton->setMinimumWidth(80);
     
     toolbar->addWidget(testStatusButton);
-
+    toolbar->addSeparator();
     toolbar->addWidget(networkStatusButton);
     
     toolbar->setStyleSheet("QToolBar {background-color: #f0f0f0; border: 1px solid #d0d0d0;}"

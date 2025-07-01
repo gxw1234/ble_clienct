@@ -49,12 +49,11 @@ private:
     QStackedWidget *host_qstackedWidget;
     QString testFilePath;
     QFrame *show_tcp_state_qframe = nullptr;
-    QLabel *tcpip= nullptr;
+
+
     QLineEdit *tcpip_show= nullptr;
-    QLabel *tcpconnectstate= nullptr;
-    IconPushButton *tcpconnectstate_show;
-    QLabel *tcpteststate= nullptr;
-    QPushButton *tcpteststate_show= nullptr;
+
+
     QStringList inilist;
     QString ipValue;
     QString macValue;
